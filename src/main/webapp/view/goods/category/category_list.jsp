@@ -95,8 +95,8 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=categoryName]").val("");
+			$("input[name=pcategoryName]").val("");
 		});
 		
     });

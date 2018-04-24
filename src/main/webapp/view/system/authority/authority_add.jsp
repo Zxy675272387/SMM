@@ -47,12 +47,12 @@
 		                            <input type="text" class="form-control"  name="url" value="">
 		                        </div>
 		                    </td>
-		                    <th><span class="required"></span>菜单图标样式</th>
+		                    <!--<th><span class="required"></span>菜单图标样式</th>
 		                    <td>
 		                        <div class="form-group ">
 		                            <input type="text" class="form-control"  placeholder="iconClass"  name="iconClass" value="">
 		                        </div>
-		                    </td>
+		                    </td>-->
 
 		                </tr>
 						<tr>
