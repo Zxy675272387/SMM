@@ -157,12 +157,12 @@ public class SystemStoreController {
 	public ResponseEntity delSystemStore(@RequestParam Long id){
 		try {
 			if(null!=String.valueOf(id)){
-				SystemStoreEntity goodsEntity=new SystemStoreEntity ();
+				SystemStoreEntity goodsEntity=new SystemStoreEntity();
 				goodsEntity.setId(id);
 				goodsEntity.setStatus(0);
 				goodsEntity.setUpdateTime(new Date());
 				logger.debug("删除门店，传入参数为："+JSON.toJSONString(goodsEntity));
-				int result = systemStoreService.updateByPrimaryKeySelective(goodsEntity);
+				int result = systemStoreService.deleteByPrimaryKey(goodsEntity.getId());
 				logger.debug("删除门店，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

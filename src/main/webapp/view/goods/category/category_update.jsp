@@ -11,44 +11,44 @@
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
 		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">编辑用户</a></li>
+		<li><a href="####">商品管理</a></li>
+		<li><a href="####">编辑分类</a></li>
 	</ol>
 	<!-- user-form start  -->
-	<form class="add-form" id="user-update-form" method="post">
-			<input type="hidden" class="form-control"  name="id" value="${user.id}">
+	<form class="add-form" id="category-update-form" method="post">
+			<input type="hidden" class="form-control"  name="id" value="${goodsCategory.id}">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">编辑分类</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
 		                <tr>
-		                	<th><span class="required">*</span>用户姓名</th>
+		                	<th><span class="required">*</span>分类名称</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="userName" value="${user.userName}">
+		                            <input type="text" class="form-control"  placeholder="最多可输入10个汉字" name="categoryName" value="${goodsCategory.categoryName}">
 		                        </div>
 		                    </td>
-		                    <th><span class="required">*</span>登录账号</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="loginName" value="${user.userName}">
-		                        </div>
-		                    </td>
+							<th>上级目录</th>
+							<td>
+								<div class="form-group ">
+									<select class="form-control"  name="parentId" id="parentId">
+										<option value="1" selected="selected">食品</option>
+										<option value="2">日用品</option>
+										<option value="3">文具</option>
+										<option value="0">无</option>
+									</select>
+								</div>
+							</td>
 		                </tr>
 		                <tr>
-		                    <th><span class="required">*</span>手机号码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="phone" value="${user.phone}">
-		                        </div>
-		                    </td>
 		                   <th>状态</th>
 		                     <td>
 		                        <div class="form-group ">
-		                            <select class="form-control"  name="unitType" id="unitType">
-					        			<option value="0" >停用</option>
-					        			<option value="1"  selected="selected">开启</option>
+		                            <select class="form-control"  name="categoryLevel" id="categoryLevel">
+					        			<option value="1" >1级</option>
+					        			<option value="2"  selected="selected">2级</option>
+										<option value="3" >3级</option>
 					        		</select>
 		                        </div>
 		                     </td>
@@ -76,48 +76,37 @@ $(document).ready(function(){
 	  
 	});
 	//编辑用户
-	$("#addBtn").click(function (){
-		var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
-			return false;
-		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
-			return false;
-		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
-			return false;
-		}else{
-			$.ajax({
-	 			type : "post",
-	 			url : _path+"/invoicing/system/user/update",
-	 			 data:$('#user-update-form').serialize(),// 你的formid
-	              async:false,
-	 			 	success : function(data) {
-	 				if(data.code==1){
-	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/system/user/list";
-	 					goBackPage(url);
-	 				}else{
-	 					alert("用户保存失败！");
-	 				}
-	 			}
-	         });
-		}
-	     
-	});
+$("#addBtn").click(function (){
+	var categoryName=$("input[name=categoryName]").val();
+	var categoryLevel=$("input[name=categoryLevel]").val();
+	var parentId=$("input[name=parentId]").val();
+	if(categoryName==null || categoryName==''){
+		alert("名称不能为空！");
+		$("input[name=categoryName]").focus();
+		return false;
+	} else{
+		$.ajax({
+			type : "post",
+			url : _path+"/invoicing/goods/category/update",
+			data:$('#category-update-form').serialize(),// 你的formid
+			async:false,
+			success : function(data) {
+				if(data.code==1){
+					alert("用户更新成功！");
+					var url=_path+"/invoicing/goods/category/page/list";
+					goBackPage(url);
+				}else{
+					alert("用户保存失败！");
+				}
+			}
+		});
+	}
+
+});
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/system/user/list";
+		 var url=_path+"/invoicing/goods/category/page/list";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

@@ -18,7 +18,7 @@
 	<form class="add-form" id="user-update-form" method="post">
 			<input type="hidden" class="form-control"  name="id" value="${user.id}">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">编辑用户</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
@@ -40,7 +40,7 @@
 		                    <th><span class="required">*</span>手机号码</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="phone" value="${user.phone}">
+		                            <input type="text" class="form-control"  placeholder="请输入手机号"  name="phone" value="${user.phone}">
 		                        </div>
 		                    </td>
 		                   <th>状态</th>
@@ -79,7 +79,6 @@ $(document).ready(function(){
 	$("#addBtn").click(function (){
 		var userName=$("input[name=userName]").val();
 		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
 		var phone=$("input[name=phone]").val();
 		if(userName==null || userName==''){
 			alert("姓名不能为空！");
@@ -112,7 +111,7 @@ $(document).ready(function(){
 	 			}
 	         });
 		}
-	     
+
 	});
 	
 	//取消

@@ -22,40 +22,27 @@
 		            <table class="table half-table">
 		                <tbody>
 		                <tr>
-		                	<th><span class="required">*</span>用户姓名</th>
+		                	<th><span class="required">*</span>分类名称</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="userName" value="">
+		                            <input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="categoryName" value="">
 		                        </div>
 		                    </td>
-		                    <th><span class="required">*</span>登录账号</th>
+		                    <th><span class="required">*</span>上级类目</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="loginName" value="">
-		                        </div>
-		                    </td>
-		                </tr>
-		                <tr>
-		                	<th><span class="required">*</span>登录密码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入数字，字母组成的8位数" name="password" value="">
-		                        </div>
-		                    </td>
-		                    <th><span class="required">*</span>手机号码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="phone" value="">
+		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="pCategoryName" value="">
 		                        </div>
 		                    </td>
 		                </tr>
 		                <tr>
-		                <th>销售类型</th>
+		                <th>级别</th>
 		                     <td>
 		                        <div class="form-group ">
-		                            <select class="form-control"  name="unitType" id="unitType">
-					        			<option value="0" selected="selected">关闭</option>
-					        			<option value="1">开启</option>
+		                            <select class="form-control"  name="categoryLevel" id="categoryLevel">
+					        			<option value="1" selected="selected">1级</option>
+					        			<option value="2">2级</option>
+										<option value="3">3级</option>
 					        		</select>
 		                        </div>
 		                     </td>
@@ -83,29 +70,17 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
+		var categoryName=$("input[name=categoryName]").val();
+		var pCategoryName=$("input[name=pCategoryName]").val();
+		var categoryLevel=$("input[name=categoryLevel]").val();
 		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+			alert("名称不能为空！");
+			$("input[name=categoryName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
+		if(pCategoryName==null || pCategoryName==''){
 			alert("登录名不能为空！");
-			//timedTaskFun(2000,'登录名不能为空！','','err');
-			$("input[name=loginName]").focus();
-			return false;
-		}
-		if(password==null || password==''){
-			alert("密码不能为空！");
-			$("input[name=password]").focus();
-			return false;
-		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+			$("input[name=pCategoryName]").focus();
 			return false;
 		}else{
 			$.ajax({

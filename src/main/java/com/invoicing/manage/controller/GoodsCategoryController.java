@@ -24,8 +24,6 @@ import com.invoicing.manage.entity.GoodsCategoryEntity;
 import com.invoicing.manage.request.GoodsCategoryRequestEntity;
 import com.invoicing.manage.service.GoodsCategoryService;
 import com.invoicing.manage.comment.entity.PageInfo;
-
- 
 /** 
  * 类名: GoodsCategoryController   
  * 类描述: TODO.  商品分类管理管理
@@ -97,6 +95,7 @@ public class GoodsCategoryController {
 	@ResponseBody
 	public ResponseEntity addGoodsCategory(GoodsCategoryEntity goodsCategoryEntity){
 		try {
+			//goodsCategoryEntity.setUpdateTime(new Date());
 			logger.debug("新建商品分类管理，传入参数为："+JSON.toJSONString(goodsCategoryEntity));
 			int result = goodsCategoryService.insertSelective(goodsCategoryEntity);
 			logger.debug("新建商品分类管理，返回结果为："+JSON.toJSONString(result));
@@ -164,7 +163,7 @@ public class GoodsCategoryController {
 				goodsCategoryEntity.setIsDelete(1);
 				goodsCategoryEntity.setUpdateTime(new Date());
 				logger.debug("删除商品分类管理，传入参数为："+JSON.toJSONString(goodsCategoryEntity));
-				int result = goodsCategoryService.updateByPrimaryKeySelective(goodsCategoryEntity);
+				int result = goodsCategoryService.deleteByPrimaryKey(goodsCategoryEntity.getId());
 				logger.debug("删除商品分类管理，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

@@ -58,13 +58,13 @@
                 url:_path+"/invoicing/goods/category/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'userName':$("[name=shortName]").val()
-                	  ,'phone':$("[name=name]").val()}
+                ,data:{'categoryName':$("[name=categoryName]").val()
+                	  }
                 ,cloumns:[
 					 {name:'分类名称',value:'categoryName'}
                     ,{name:'上级类目',value:'pCategoryName',type:"function", fun : function(obj){
                     	var html="";
-                    	if(obj.pCategoryName==null ||obj.pCategoryName==""){
+                    	if(obj.pCategoryName==null ||obj.pCategoryName==""||obj.pCategoryName=="0"){
                     		html +="一级类目";
                     	}else{
                     		html +=obj.pCategoryName;
@@ -73,8 +73,8 @@
                       }
                     }
                     ,{name:'级别',value:'categoryLevel'}
-                    ,{name:'更新时间',value:'updateTime'}
-                    ,{name:'创建时间',value:'updateTime'}
+                   // ,{name:'更新时间',value:'updateTime'}
+                    ,{name:'创建时间',value:'createTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"
@@ -119,7 +119,7 @@
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
     					alert("商品分类删除成功！")
-    					var url = _path+"/invoicing/goods/category/list";
+    					var url = _path+"/invoicing/goods/category/page/list";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'商品分类删除失败','','err');
@@ -131,13 +131,6 @@
     		 });
     	});
     };
-    //商品分类角色维护
-    function toUserRole(userId){
-  	  var url=_path+"/invoicing/goods/category/role?userId="+userId;
-		$.get(url,function(data){
-			$("#mian_div").html(data);
-		});    	
-    }
     
     //到新增页面
     $("#addBtn").click(function(){
@@ -147,8 +140,8 @@
 		});    
     });
     //编辑商品分类信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/goods/category/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/goods/category/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

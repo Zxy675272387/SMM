@@ -47,7 +47,6 @@
 	</div>
 </div>
 	<!-- 列表：查询分页列表 end -->
-	<!-- add by WHao start 引入：商品单位列表js -->
 	<script type="text/javascript">
 	$(document).ready(function(){
         var buttonsArr =[];
@@ -133,20 +132,19 @@
     	});
     };
     //商品单位角色维护
-    function toUserRole(userId){
+    /*function toUserRole(userId){
   	  var url=_path+"/invoicing/base/date/unit/role?userId="+userId;
 		$.get(url,function(data){
 			$("#mian_div").html(data);
 		});    	
-    }
+    }*/
     
-    //到新增页面
-    $("#addBtn").click(function(){
-    	var url=_path+"/invoicing/base/date/unit/add";
-		$.get(url,function(data){
+    $("#addBtn").click(function () {
+		var url = _path + "/invoicing/basedate/unit/add";
+		$.get(url, function (data) {
 			$("#mian_div").html(data);
-		});    
-    });
+		});
+	});
     //编辑商品单位信息
     function toUpdatePage(userId){
     	 var url=_path+"/invoicing/base/date/unit/update?userId="+userId;

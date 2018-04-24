@@ -122,7 +122,7 @@
 		});    
     });
 	 
-	 function updateObj(id){
+	 function toUpdatePage(id){
 		 var url=_path+"/invoicing/system/store/update?id="+id;
 			$.get(url,function(data){
 				$("#mian_div").html(data);
