@@ -82,7 +82,7 @@ public class GoodsController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView goToGoodsAdd(){
-		String url="/basedate/Role/Role_add";
+		String url="/goods/goodsInfo/goods_add";
 		return new ModelAndView(url);
 	}
 	
@@ -164,7 +164,7 @@ public class GoodsController {
 				goodsEntity.setIsDelete(0);
 				goodsEntity.setUpdateTime(new Date());
 				logger.debug("删除商品管理，传入参数为："+JSON.toJSONString(goodsEntity));
-				int result = goodsService.updateByPrimaryKeySelective(goodsEntity);
+				int result = goodsService.deleteByPrimaryKey(goodsEntity.getId());
 				logger.debug("删除商品管理，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

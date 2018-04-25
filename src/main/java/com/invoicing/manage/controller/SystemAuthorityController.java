@@ -61,6 +61,7 @@ public class SystemAuthorityController {
 		pageInfo.setPageNo(authorityRequestEntity.getPageNo());
 		pageInfo.setPageSize(authorityRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		//params.put("name", authorityRequestEntity.getUserName());
 		PageInfo<SystemAuthorityEntity> authorityList = systemAuthorityService.getList(pageInfo, params);
 		logger.debug("method [getSystemAuthorityEntityList] 查询权限菜单列表，返回结果为："+JSON.toJSONString(authorityList));
 		return new SuccessResponseEntity(authorityList);

@@ -79,7 +79,7 @@ function loadOrgTree() {
 }
 
 
-//级联加载省市县
+
 $("[name=province]").change(function() {
 	var id = $(this).find("option:selected").attr("id");
 	$.ajax({

@@ -137,13 +137,7 @@
     		 });
     	});
     };
-    //地区角色维护
-    function toUserRole(userId){
-  	  var url=_path+"/invoicing/goods/info/role?userId="+userId;
-		$.get(url,function(data){
-			$("#mian_div").html(data);
-		});    	
-    }
+
     
     //到新增页面
     $("#addBtn").click(function(){
@@ -153,8 +147,8 @@
 		});    
     });
     //编辑地区信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/goods/info/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/goods/info/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

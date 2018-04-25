@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,6 +81,11 @@ public class SystemOrgController {
 	 * @exception
 	 * @since JDK 1.7
 	 */
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public ModelAndView goToOrgAdd(){
+		String url="/system/org/org_add";
+		return new ModelAndView(url);
+	}
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity addSystemOrg(SystemOrgEntity systemAuthorityEntity){
@@ -93,7 +99,7 @@ public class SystemOrgController {
 			return new ErrorResponseEntity();
 		}
 	}
-	
+
 	
 	
 	/**
@@ -103,6 +109,15 @@ public class SystemOrgController {
 	 * @exception
 	 * @since JDK 1.7
 	 */
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public ModelAndView goToOrgUpdate(@RequestParam Long id,ModelMap modelMap){
+		String url="/system/org/org_add";
+		if(null!=id.toString()){
+			SystemOrgEntity userEntity=systemOrgService.selectByPrimaryKey(id);
+			modelMap.put("user", userEntity);
+		}
+		return new ModelAndView(url);
+	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity updateSystemOrg(SystemOrgEntity systemAuthorityEntity){
@@ -134,7 +149,7 @@ public class SystemOrgController {
 			systemAuthorityEntity.setValid(0);
 			systemAuthorityEntity.setUpdateTime(new Date());
 			logger.debug("删除菜单，传入参数为："+JSON.toJSONString(systemAuthorityEntity));
-			int insertRest=systemOrgService.updateByPrimaryKeySelective(systemAuthorityEntity);
+			int insertRest=systemOrgService.deleteByPrimaryKey(systemAuthorityEntity.getId());
 			logger.debug("删除菜单，返回结果为："+JSON.toJSONString(insertRest));
 			return new SuccessResponseEntity();
 		} catch (Exception e) {

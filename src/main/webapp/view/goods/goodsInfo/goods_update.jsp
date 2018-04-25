@@ -15,45 +15,61 @@
 		<li><a href="####">编辑用户</a></li>
 	</ol>
 	<!-- user-form start  -->
-	<form class="add-form" id="user-update-form" method="post">
+	<form class="add-form" id="goods-update-form" method="post">
 			<input type="hidden" class="form-control"  name="id" value="${user.id}">
         	<div class="panel panel-default">
 	            <div class="panel-heading">新增用户</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
-		                <tbody>
-		                <tr>
-		                	<th><span class="required">*</span>用户姓名</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="userName" value="${user.userName}">
-		                        </div>
-		                    </td>
-		                    <th><span class="required">*</span>登录账号</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="loginName" value="${user.userName}">
-		                        </div>
-		                    </td>
-		                </tr>
-		                <tr>
-		                    <th><span class="required">*</span>手机号码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="phone" value="${user.phone}">
-		                        </div>
-		                    </td>
-		                   <th>状态</th>
-		                     <td>
-		                        <div class="form-group ">
-		                            <select class="form-control"  name="unitType" id="unitType">
-					        			<option value="0" >停用</option>
-					        			<option value="1"  selected="selected">开启</option>
-					        		</select>
-		                        </div>
-		                     </td>
-		                </tr>
-		                </tbody>
+						<tbody>
+						<tr>
+							<th><span class="required">*</span>商品名称</th>
+							<td>
+								<div class="form-group ">
+									<input type="text" class="form-control"  placeholder="最多可输入10个汉字" name="goodsName" value="">
+								</div>
+							</td>
+							<th><span class="required">*</span>商品简称</th>
+							<td>
+								<div class="form-group ">
+									<input type="text" class="form-control"  placeholder="输入简称"  name="goodsShortName" value="">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="required">*</span>SPU</th>
+							<td>
+								<div class="form-group ">
+									<input type="text" class="form-control"  placeholder="商品spu" name="goodsSpu" value="">
+								</div>
+							</td>
+							<th>销售类型</th>
+							<td>
+								<div class="form-group ">
+									<select class="form-control"  name="goodsType" id="goodsType">
+										<option value="0" selected="selected">批发</option>
+										<option value="1">零售</option>
+										<option value="2">限购</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>所属类别</th>
+							<td>
+								<div class="form-group ">
+									<select class="form-control"  name="goodsCategoryId" id="goodsCategoryId">
+										<option value="1" selected="selected">食品</option>
+										<option value="2">日用品</option>
+										<option value="3">文具</option>
+									</select>
+								</div>
+							</td>
+							<th></th>
+							<td>
+							</td>
+						</tr>
+						</tbody>
 		            </table>
 			        <div class="col-md-12 text-center btn-margin">
 	                    <button class="btn btn-info" type="button"  id="addBtn">
@@ -77,7 +93,7 @@ $(document).ready(function(){
 	});
 	//编辑用户
 	$("#addBtn").click(function (){
-		var userName=$("input[name=userName]").val();
+		/*var userName=$("input[name=userName]").val();
 		var loginName=$("input[name=loginName]").val();
 		var password=$("input[name=password]").val();
 		var phone=$("input[name=phone]").val();
@@ -95,16 +111,16 @@ $(document).ready(function(){
 			alert("手机号不能为空！");
 			$("input[name=phone]").focus();
 			return false;
-		}else{
+		}else*/{
 			$.ajax({
 	 			type : "post",
-	 			url : _path+"/invoicing/system/user/update",
-	 			 data:$('#user-update-form').serialize(),// 你的formid
+	 			url : _path+"/invoicing/goods/update",
+	 			 data:$('#goods-update-form').serialize(),// 你的formid
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
 	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/system/user/list";
+	 					var url=_path+"/invoicing/goods/info/page/list";
 	 					goBackPage(url);
 	 				}else{
 	 					alert("用户保存失败！");
@@ -117,7 +133,7 @@ $(document).ready(function(){
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/system/user/list";
+		 var url=_path+"/invoicing/goods/info/page/list";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

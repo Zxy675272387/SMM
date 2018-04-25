@@ -107,6 +107,7 @@
 			$("input[name=authorName]").val("");
 			$("input[name=phone]").val("");
 		});
+		//查询
 		$("#searchBtn").click(function(){
 			getData();
 		})

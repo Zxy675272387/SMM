@@ -98,7 +98,7 @@ public class SystemRoleController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView goToUserAdd(){
-		String url="/system/Role/Role_add";
+		String url="/system/role/role_add";
 		return new ModelAndView(url);
 	}
 	
@@ -177,10 +177,10 @@ public class SystemRoleController {
 			if(null!=String.valueOf(id)){
 				SystemRoleEntity roleEntity=new SystemRoleEntity ();
 				roleEntity.setId(id);
-				roleEntity.setHasvalid(String.valueOf(3));
-				roleEntity.setUpdateTime(new Date());
+				//roleEntity.setHasvalid(String.valueOf(3));
+				//roleEntity.setUpdateTime(new Date());
 				logger.debug("删除角色，传入参数为："+JSON.toJSONString(roleEntity));
-				int result = systemRoleService.updateByPrimaryKeySelective(roleEntity);
+				int result = systemRoleService.deleteByPrimaryKey(roleEntity.getId());
 				logger.debug("删除角色，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

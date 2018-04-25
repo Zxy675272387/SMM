@@ -35,6 +35,20 @@
 		                        </div>
 		                    </td>
 		                </tr>
+						<tr>
+							<th>状态</th>
+							<td>
+								<div class="form-group ">
+									<select class="form-control"  name="hasvalid" id="hasvalid">
+										<option value="0" selected="selected">关闭</option>
+										<option value="1">开启</option>
+									</select>
+								</div>
+							</td>
+							<th></th>
+							<td>
+							</td>
+						</tr>
 		                </tbody>
 		            </table>
 			        <div class="col-md-12 text-center btn-margin">

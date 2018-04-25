@@ -83,7 +83,7 @@ public class GoodsUnitController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView goToGoodsUnitAdd(){
-		String url="/basedate/Role/Role_add";
+		String url="/basedate/unit/unit_add";
 		return new ModelAndView(url);
 	}
 	

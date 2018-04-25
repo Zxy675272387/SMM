@@ -137,7 +137,7 @@
                     closewait();
                     //若执行成功的话，则隐藏进度条提示
                     if (data.code == 1) {
-                        alert("用户删除成功！"+id)
+                        alert("用户删除成功！")
                         var url = _path + "/invoicing/system/user/list";
                         goBackPage(url);
                     } else if (data == 0) {

@@ -131,23 +131,17 @@
     		 });
     	});
     };
-    //商品单位角色维护
-    /*function toUserRole(userId){
-  	  var url=_path+"/invoicing/base/date/unit/role?userId="+userId;
-		$.get(url,function(data){
-			$("#mian_div").html(data);
-		});    	
-    }*/
+
     
     $("#addBtn").click(function () {
-		var url = _path + "/invoicing/basedate/unit/add";
+		var url = _path + "/invoicing/base/date/unit/add";
 		$.get(url, function (data) {
 			$("#mian_div").html(data);
 		});
 	});
     //编辑商品单位信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/base/date/unit/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/base/date/unit/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

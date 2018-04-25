@@ -129,7 +129,7 @@
     				closewait();
     				//若执行成功的话，则隐藏进度条提示
     				if (data != null && data != 'undefined'
-    						&& data == 1) {
+    						&& data.code == 1) {
     					timedTaskFun(1000,'机构删除成功',"",'correct');
     					var url=_path+"/invoicing/system/org/list";
     					$.get(url,function(data){
