@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.invoicing.manage.entity.GoodsEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ import com.invoicing.manage.entity.GoodsNormalPriceEntity;
 import com.invoicing.manage.request.GoodsNormalPriceRequestEntity;
 import com.invoicing.manage.service.GoodsNormalPriceService;
 import com.invoicing.manage.comment.entity.PageInfo;
-
+import com.invoicing.manage.service.GoodsService;
+import com.invoicing.manage.entity.GoodsEntity;
  
 /** 
  * 类名: GoodsNormalPriceController   
@@ -37,7 +39,8 @@ public class GoodsPriceController {
 	
 	@Autowired
 	private GoodsNormalPriceService goodsNormalPriceService;
-	
+	@Autowired
+	private GoodsService goodsService;
 	/**
 	 * goToGoodsNormalPriceList 商品价格列表页
 	 * @return 返回类型为 ModelAndView
@@ -80,7 +83,7 @@ public class GoodsPriceController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView goToGoodsNormalPriceAdd(){
-		String url="/basedate/Role/Role_add";
+		String url="/goods/price/price_add";
 		return new ModelAndView(url);
 	}
 	
@@ -119,6 +122,11 @@ public class GoodsPriceController {
 		GoodsNormalPriceEntity goodsPriceEntity=goodsNormalPriceService.selectByPrimaryKey(id);
 		if(null!=goodsPriceEntity){
 			modelMap.put("goodsPrice", goodsPriceEntity);
+		}
+		GoodsEntity goodsEntity=goodsService.selectByPrimaryKey(id);
+		if(null!=goodsEntity){
+			modelMap.put("goods", goodsEntity);
+			System.out.println("===================>>" + goodsEntity.getGoodsName());
 		}
 		return new ModelAndView(url,modelMap);
 	}
@@ -162,7 +170,7 @@ public class GoodsPriceController {
 				goodsPriceEntity.setIsDelete(1);
 				goodsPriceEntity.setUpdateTime(new Date());
 				logger.debug("删除商品价格，传入参数为："+JSON.toJSONString(goodsPriceEntity));
-				int result = goodsNormalPriceService.updateByPrimaryKeySelective(goodsPriceEntity);
+				int result = goodsNormalPriceService.deleteByPrimaryKey(goodsPriceEntity.getId());
 				logger.debug("删除商品价格，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

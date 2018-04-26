@@ -72,7 +72,7 @@
 	                    }
 	                  }
 	              	,{name:'单位',value:'unitName',type:"function", fun : function(obj){
-	                	return "kg";
+	                	return obj.remark1;
 	                    }
 	                  }
                     ,{name:'创建时间',value:'createTime'}
@@ -121,7 +121,7 @@
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
     					alert("价格删除成功！")
-    					var url = _path+"/invoicing/goods/price/list";
+    					var url = _path+"/invoicing/goods/price/page/list";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'价格删除失败','','err');
@@ -133,14 +133,7 @@
     		 });
     	});
     };
-    //价格角色维护
-    function toUserRole(userId){
-  	  var url=_path+"/invoicing/goods/price/role?userId="+userId;
-		$.get(url,function(data){
-			$("#mian_div").html(data);
-		});    	
-    }
-    
+
     //到新增页面
     $("#addBtn").click(function(){
     	var url=_path+"/invoicing/goods/price/add";
@@ -149,8 +142,8 @@
 		});    
     });
     //编辑价格信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/goods/price/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/goods/price/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }
