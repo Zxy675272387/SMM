@@ -58,7 +58,10 @@
                 //查询条件
                 ,data:{'userName':$("[name=goodsName]").val()}
                 ,cloumns:[
-					 {name:'商品名称',value:'goodsName'}
+					 {name:'商品名称',value:'goodsName',type:"function", fun:function (obj) {
+						 return obj.goodsName+"("+obj.goodsId+")";;
+					 	}
+					 }
                     ,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
 	                	return obj.purchasePrice+".00元";;
 	                    }
@@ -71,12 +74,12 @@
 	                	return obj.salePrice+".00元";;
 	                    }
 	                  }
-	              	,{name:'单位',value:'unitName',type:"function", fun : function(obj){
+	              	,{name:'标注',value:'unitName',type:"function", fun : function(obj){
 	                	return obj.remark1;
 	                    }
 	                  }
                     ,{name:'创建时间',value:'createTime'}
-                    ,{name:'更新时间',value:'updateTime'}
+                   // ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"

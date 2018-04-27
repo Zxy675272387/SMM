@@ -22,16 +22,16 @@
 		            <table class="table half-table">
 						<tbody>
 						<tr>
-							<th><span class="required">*</span>商品名称</th>
+							<th><span class="required">*</span>商品编号</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder=" " name="goodsId" value="${goods.goodsName}">
+									<input type="text" class="form-control"  placeholder="根据商品列表查询" name="goodsId" value="" >
 								</div>
 							</td>
 							<th><span class="required">*</span>采购价</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder=" " name="salePrice" value="${user.userName}">
+									<input type="text" class="form-control"  placeholder="采购价" name="salePrice" value="">
 								</div>
 							</td>
 						</tr>
@@ -39,13 +39,13 @@
 							<th><span class="required">*</span>市场价</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="请输入字母"  name="marketPrice" value="${user.userName}">
+									<input type="text" class="form-control"  placeholder="市场价"  name="marketPrice" value="">
 								</div>
 							</td>
 							<th><span class="required">*</span>销售价</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="请手机号"  name="purchasePrice" value="${user.phone}">
+									<input type="text" class="form-control"  placeholder="输入销售价"  name="purchasePrice" value="">
 								</div>
 							</td>
 						</tr>

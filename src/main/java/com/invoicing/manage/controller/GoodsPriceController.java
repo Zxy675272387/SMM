@@ -126,7 +126,6 @@ public class GoodsPriceController {
 		GoodsEntity goodsEntity=goodsService.selectByPrimaryKey(id);
 		if(null!=goodsEntity){
 			modelMap.put("goods", goodsEntity);
-			System.out.println("===================>>" + goodsEntity.getGoodsName());
 		}
 		return new ModelAndView(url,modelMap);
 	}

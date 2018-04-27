@@ -26,13 +26,13 @@
 							<th><span class="required">*</span>价格id</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="请手机号"  name="id" value="${goodsPrice.id}" >
+									<input type="text" class="form-control"  placeholder="请手机号"  name="id" value="${goodsPrice.id}" readonly="true">
 								</div>
 							</td>
 							<th><span class="required">*</span>商品名称</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder=" " name="goodsId" value="${goodsPrice.id}">
+									<input type="text" class="form-control"  placeholder=" " name="goodsId" value="${goods.goodsName}" readonly="true">
 								</div>
 							</td>
 						</tr>
