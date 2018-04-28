@@ -90,7 +90,7 @@ public class PurchasesRefundController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView goToPurchasesRefundAdd(){
-		String url="/basedate/Role/Role_add";
+		String url="/purchases/purchases_add";
 		return new ModelAndView(url);
 	}
 	
@@ -125,7 +125,7 @@ public class PurchasesRefundController {
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView goToPurchasesRefundUpdate(@RequestParam Long id,ModelMap modelMap){
-		String url="/basedate/area/area_update";
+		String url="/purchases/purchases_update";
 		PurchasesRefundEntity areaEntity=purchasesRefundService.selectByPrimaryKey(id);
 		if(null!=areaEntity){
 			modelMap.put("area", areaEntity);
@@ -171,7 +171,7 @@ public class PurchasesRefundController {
 				areaEntity.setId(id);
 				areaEntity.setUpdateTime(new Date());
 				logger.debug("删除进货退货管理，传入参数为："+JSON.toJSONString(areaEntity));
-				int result = purchasesRefundService.updateByPrimaryKeySelective(areaEntity);
+				int result = purchasesRefundService.deleteByPrimaryKey(areaEntity.getId());
 				logger.debug("删除进货退货管理，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

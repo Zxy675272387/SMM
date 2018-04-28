@@ -67,6 +67,8 @@ public class GoodsSupplierController {
 		pageInfo.setPageNo(supplierRequestEntity.getPageNo());
 		pageInfo.setPageSize(supplierRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		//params.put("supplierName", supplierRequestEntity.getSupplierName());
+		//params.put("linkmanName","");
 		PageInfo<GoodsSupplierEntity> supplierList = goodsSupplierService.getList(pageInfo, params);
 		logger.debug("method [getGoodsSupplierEntityList] 查询单位管理列表，返回结果为："+JSON.toJSONString(supplierList));
 		return new SuccessResponseEntity(supplierList);
@@ -163,7 +165,7 @@ public class GoodsSupplierController {
 				supplierEntity.setIsDelete(1);
 				supplierEntity.setUpdateTime(new Date());
 				logger.debug("删除单位管理，传入参数为："+JSON.toJSONString(supplierEntity));
-				int result = goodsSupplierService.updateByPrimaryKeySelective(supplierEntity);
+				int result = goodsSupplierService.deleteByPrimaryKey(supplierEntity.getId());
 				logger.debug("删除单位管理，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

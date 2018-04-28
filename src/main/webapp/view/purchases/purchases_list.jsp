@@ -95,6 +95,7 @@
             // grid(param1,param2);参数1分页数据，参数2table类名如.user_table_content
             $(".user_table_content").grid(_options,".user_table_content");
         }
+
 		//条件查询
 		$("#searchBtn").click(function(){
 			getData();
@@ -102,8 +103,7 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=purchaseOrderNo]").val("");
 		});
 		
     });
@@ -138,7 +138,7 @@
     		 });
     	});
     };
-    
+
     //到新增页面
     $("#addBtn").click(function(){
     	var url=_path+"/invoicing/purchases/refund/add";
@@ -148,7 +148,7 @@
     });
     //编辑采购信息
     function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/purchases/refund/update?userId="+userId;
+    	 var url=_path+"/invoicing/purchases/refund/update?id="+userId;
 		 //调用跳转方法
 		 goBackPage(url);
     }

@@ -57,16 +57,16 @@
                 url:_path+"/invoicing/base/date/supplier/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'supplierName':$("[name=supplierName]").val()
+                ,data:{'supplierShortName':$("[name=supplierShortName]").val()
                 	  ,'linkmanName':$("[name=linkmanName]").val()}
                 ,cloumns:[
-					 {name:'供应商简称',value:'supplierShortName'}
+					 {name:'供应商',value:'supplierName'}
                     ,{name:'所在地',value:'supplierAddress'}
                     ,{name:'联系人',value:'linkmanName'}
                     ,{name:'联系电话',value:'linkmanPhone'}
                     ,{name:'邮箱地址',value:'linkEmail'}
-                    ,{name:'营业范围',value:'businessScope'}
-                    ,{name:'所属行业',value:'businessType'}
+                  //  ,{name:'营业范围',value:'businessScope'}
+                  //  ,{name:'所属行业',value:'businessType'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"
@@ -139,8 +139,8 @@
 		});    
     });
     //编辑供应商信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/base/date/supplier/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/base/date/supplier/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

@@ -253,14 +253,21 @@
  		 </set>
      where id = #{id}
 	</update>
-	
+	<sql id="whereSQL">
+		<if test="unitName != null and unitName !='' ">
+			and  LOCATE(#{supplierName},goodsSupplier.supplier_name)>0
+		</if>
+		<if test="unitEnglishName != null and unitEnglishName!='' ">
+			and LOCATE(#{linkmanName},goodsSupplier.linkman_name)>0
+		</if>
+	</sql>
 	 <select id="getList" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
 		 select 
  		  <include refid="Base_Column_List" />
  		  from goods_supplier_tb goodsSupplier
  		  where 1=1 
- 		 <if test="id != null">
+ 		/* <if test="id != null">
  			 and goodsSupplier.id = #{id}
  		  </if>
  		 <if test="supplierName != null">
@@ -319,7 +326,8 @@
  		  </if>
  		 <if test="updateTime != null">
  			 and goodsSupplier.update_time = #{updateTime}
- 		  </if>
+ 		  </if>*/
+		 <include refid="whereSQL"/>
 	</select>
 	 <select id="getListCount" resultType="java.lang.Integer"
 		parameterType="java.util.Map">
@@ -327,7 +335,7 @@
  		  count(goodsSupplier.id)
  		  from goods_supplier_tb goodsSupplier
  		  where 1=1 
- 		 <if test="id != null">
+ 		 /*<if test="id != null">
  			 and goodsSupplier.id = #{id}
  		  </if>
  		 <if test="supplierName != null">
@@ -386,6 +394,7 @@
  		  </if>
  		 <if test="updateTime != null">
  			 and goodsSupplier.update_time = #{updateTime}
- 		  </if>
+ 		  </if>*/
+		 <include refid="whereSQL"/>
 	</select>
 </mapper>
