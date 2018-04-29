@@ -64,8 +64,8 @@
                     ,{name:'采购价',value:'purchasePrice'}
                     ,{name:'采购总额',value:'totalAmount'}
                     ,{name:'下单原因',value:'remark1'}
-                    /* ,{name:'备注',value:'remark2'} */
-                    ,{name:'创建时间',value:'createTime'}
+                     ,{name:'货物种类',value:'remark2'}
+                   /* ,{name:'创建时间',value:'createTime'}*/
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'状态',value:'orderStatus',type:"function", fun : function(obj){
 	                    	var html="";
@@ -147,8 +147,9 @@
 		});    
     });
     //编辑采购信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/purchases/refund/update?id="+userId;
+    function toUpdatePage(id){
+    	// url = "127.0.0.1:8080/url?id=1&id1=2"
+    	 var url=_path+"/invoicing/purchases/refund/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

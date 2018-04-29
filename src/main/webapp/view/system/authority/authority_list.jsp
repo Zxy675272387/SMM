@@ -17,8 +17,8 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="authorName" class="form-control"placeholder="菜单名称"> 
-				<input type="text" name="phone"class="form-control" placeholder="上级菜单">
+				<input type="text" name="name" class="form-control"placeholder="菜单名称">
+				<input type="text" name="parentName"class="form-control" placeholder="上级菜单">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -57,7 +57,7 @@
                 ,checkAll:false
                 //查询条件
                 ,data:{'name':$("[name=name]").val()
-                	  ,'pName':$("[name=pName]").val()}
+                	  ,'parentName':$("[name=parentName]").val()}
                 ,cloumns:[
 					 {name:'菜单名称',value:'name'}
                     ,{name:'上级菜单',value:'parentName',type:"function",fun:function(obj){
@@ -104,8 +104,9 @@
             $(".authority_table_content").grid(_options,".authority_table_content");
         }
 		$("#resetBtn").click(function () {
-			$("input[name=authorName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=name]").val("");
+			$("input[name=parentName]").val("");
+			getData();
 		});
 		//查询
 		$("#searchBtn").click(function(){

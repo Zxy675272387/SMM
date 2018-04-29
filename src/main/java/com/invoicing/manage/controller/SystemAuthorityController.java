@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.invoicing.manage.request.SystemAuthorityRequestEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,13 +56,14 @@ public class SystemAuthorityController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
-	 public ResponseEntity getSystemAuthorityList(UserRequestEntity authorityRequestEntity){
-		logger.debug("method [getSystemAuthorityEntityList] 查询权限菜单列表，请求参数："+JSON.toJSONString(authorityRequestEntity));
+	 public ResponseEntity getSystemAuthorityList(SystemAuthorityRequestEntity systemAuthorityRequestEntity){
+		logger.debug("method [getSystemAuthorityEntityList] 查询权限菜单列表，请求参数："+JSON.toJSONString(systemAuthorityRequestEntity));
 		PageInfo<SystemAuthorityEntity> pageInfo=new PageInfo<SystemAuthorityEntity>();
-		pageInfo.setPageNo(authorityRequestEntity.getPageNo());
-		pageInfo.setPageSize(authorityRequestEntity.getPageSize());
+		pageInfo.setPageNo(systemAuthorityRequestEntity.getPageNo());
+		pageInfo.setPageSize(systemAuthorityRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
-		//params.put("name", authorityRequestEntity.getUserName());
+		params.put("name", systemAuthorityRequestEntity.getName());
+		params.put("parentName", systemAuthorityRequestEntity.getParentName());
 		PageInfo<SystemAuthorityEntity> authorityList = systemAuthorityService.getList(pageInfo, params);
 		logger.debug("method [getSystemAuthorityEntityList] 查询权限菜单列表，返回结果为："+JSON.toJSONString(authorityList));
 		return new SuccessResponseEntity(authorityList);
@@ -86,7 +88,7 @@ public class SystemAuthorityController {
 	
 	/**
 	 * addSystemAuthorityEntity 新建权限菜单
-	 * @param requestParams
+	 * @param systemAuthorityEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -132,7 +134,7 @@ public class SystemAuthorityController {
 	
 	/**
 	 * updateSystemAuthorityEntity 修改权限菜单
-	 * @param SystemAuthorityEntity
+	 * @param systemAuthorityEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -176,7 +178,6 @@ public class SystemAuthorityController {
 	
 	/**
 	 * loadZtree 属性菜单加载方法
-	 * @param SystemAuthorityEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7

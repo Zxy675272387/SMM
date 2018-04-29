@@ -60,16 +60,16 @@
                 ,data:{'userName':$("[name=userName]").val()
                 	  ,'phone':$("[name=phone]").val()}
                 ,cloumns:[
-					/*  {name:'商品名称',value:'goodsName'}
-                    ,{name:'库存地',value:'stockGroundName'} */
-                    {name:'商品名称',value:'goodsName',type:"function", fun : function(obj){
+					 {name:'商品名称',value:'goodsName'}
+                    ,{name:'库存地',value:'stockGroundName'}
+                    /*{name:'商品名称',value:'goodsName',type:"function", fun : function(obj){
                     	return "方便面"; 
                     	}
                     }
                     ,{name:'库存地名称',value:'stockGroundName',type:"function", fun : function(obj){
 		                return "京东1号仓库";
                     		}
-		                }
+		                }*/
                     ,{name:'入库数量',value:'stockNum'}
                     ,{name:'创建时间',value:'createTime'}
                     ,{name:'更新时间',value:'updateTime'}

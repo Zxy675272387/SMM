@@ -126,9 +126,9 @@ public class PurchasesRefundController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView goToPurchasesRefundUpdate(@RequestParam Long id,ModelMap modelMap){
 		String url="/purchases/purchases_update";
-		PurchasesRefundEntity areaEntity=purchasesRefundService.selectByPrimaryKey(id);
-		if(null!=areaEntity){
-			modelMap.put("area", areaEntity);
+		PurchasesRefundEntity purchasesRefundEntity=purchasesRefundService.selectByPrimaryKey(id);
+		if(null!=purchasesRefundEntity){
+			modelMap.put("purchases", purchasesRefundEntity);
 		}
 		return new ModelAndView(url,modelMap);
 	}

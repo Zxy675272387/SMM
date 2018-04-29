@@ -104,7 +104,6 @@
 	<!-- user-form end -->
 </div>
 <script type="text/javascript">
-	var orderType = ${purchases.orderType};
 $(document).ready(function(){
 	  
 	  
@@ -151,7 +150,7 @@ $(document).ready(function(){
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
+		 var url=_path+"/invoicing/purchases/refund/page/list";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

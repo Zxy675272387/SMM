@@ -188,9 +188,7 @@
  			 <if test="goodsId != null">
  				 goods_id = #{goodsId},
  			  </if>
- 			 <if test="purchaseOrderNo != null">
- 				 purchase_order_no = #{purchaseOrderNo},
- 			  </if>
+
  			 <if test="purchasePrice != null">
  				 purchase_price = #{purchasePrice},
  			  </if>
@@ -205,7 +203,7 @@
  			  </if>
  			 <if test="orderType != null">
  				 order_type = #{orderType},
- 			  </if>
+ 			  </if>+
  			 <if test="orderStatus != null">
  				 order_status = #{orderStatus},
  			  </if>
@@ -240,7 +238,7 @@
  				 remark2 = #{remark2},
  			  </if>
  		 </set>
-     where id = #{id}
+     where purchase_order_no = #{purchaseOrderNo}
 	</update>
 	
 	 <select id="getList" resultMap="BaseResultMap"

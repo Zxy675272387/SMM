@@ -153,8 +153,8 @@
 		});    
     });
     //编辑采购信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/purchases/refund/update?userId="+userId;
+    function toUpdatePage(id){
+		var url=_path+"/invoicing/purchases/refund/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }
