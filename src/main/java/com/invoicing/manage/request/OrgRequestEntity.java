@@ -1,10 +1,4 @@
-/** 
- * 项目名称:superMarketInvoicingManage 
- * 文件名称:OrgRequestEntity.java 
- * 包名:com.invoicing.manage.request 
- * 创建日期:2017年8月10日下午3:06:22 
- * 
-*/  
+
   
 package com.invoicing.manage.request; 
 
@@ -30,5 +24,13 @@ public class OrgRequestEntity extends BaseRequestEntity{
 	 * 机构名称
 	 */
 	private String orgName;
-
+	private String parentOrgName;
+	public Long getId() {return id;}
+	public void setId(Long id) {this.id = id;}
+	public Long getPid() {return pid;}
+	public void setPid(Long pid) {this.pid = pid;}
+	public String getOrgName() {return orgName;}
+	public void setOrgName(String orgName) {this.orgName = orgName;}
+	public String getParentOrgName() {return parentOrgName;}
+	public void setParentOrgName(String parentOrgName) {this.parentOrgName = parentOrgName;}
 }

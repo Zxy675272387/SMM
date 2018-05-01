@@ -104,6 +104,7 @@
 		//条件重置
 		$("#resetBtn").click(function (){
 			$("input[name=purchaseOrderNo]").val("");
+			getData();
 		});
 		
     });

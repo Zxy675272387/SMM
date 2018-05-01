@@ -66,8 +66,7 @@ public class GoodsCategoryController {
 		pageInfo.setPageNo(goodsCategoryRequestEntity.getPageNo());
 		pageInfo.setPageSize(goodsCategoryRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
-		if(params.get("categoryName")!= null)
-		{params.put("categoryName",goodsCategoryRequestEntity.getCategoryName());}
+		params.put("categoryName",goodsCategoryRequestEntity.getCategoryName());
 		PageInfo<GoodsCategoryEntity> goodsCategoryList = goodsCategoryService.getList(pageInfo, params);
 		logger.debug("method [getGoodsCategoryEntityList] 查询商品分类管理列表，返回结果为："+JSON.toJSONString(goodsCategoryList));
 		//return new SuccessResponseEntity(goodsCategoryList);

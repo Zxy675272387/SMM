@@ -10,18 +10,13 @@ public class GoodsRequestEntity extends BaseRequestEntity{
     /**
      * 商品简称
      */
-    private String goodsShortName;
+    private Long goodsSpu;
 	public String getGoodsName() {
 		return goodsName;
 	}
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
 	}
-	public String getGoodsShortName() {
-		return goodsShortName;
-	}
-	public void setGoodsShortName(String goodsShortName) {
-		this.goodsShortName = goodsShortName;
-	}
-    
+	public Long getGoodsSpu() {return goodsSpu;}
+	public void setGoodsSpu(Long goodsSpu) {this.goodsSpu = goodsSpu;}
 }

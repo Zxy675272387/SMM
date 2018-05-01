@@ -1,10 +1,4 @@
-/** 
- * 项目名称:superMarketInvoicingManage 
- * 文件名称:AreaEntityRequestEntity.java 
- * 包名:com.invoicing.manage.request 
- * 创建日期:2017年8月9日上午9:37:56 
- * 
-*/  
+
   
 package com.invoicing.manage.request; 
 

@@ -17,7 +17,7 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="userName" class="form-control"placeholder="角色名称"> 
+				<input type="text" name="roleName" class="form-control"placeholder="角色名称">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -55,8 +55,8 @@
                 url:_path+"/invoicing/system/role/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'userName':$("[name=roleName]").val()
-                	  ,'phone':$("[name=roleDesc]").val()}
+                ,data:{'roleName':$("[name=roleName]").val()
+                	  }
                 ,cloumns:[
 					 {name:'角色名称',value:'roleName'}
                     ,{name:'角色描述',value:'roleDesc'}
@@ -93,11 +93,11 @@
 		
 		$("#searchBtn").click(function(){
 			getData();
-			
 		});
 		//条件重置
 		$("#resetBtn").click(function () {
-			$("input[name=userName]").val("");
+			$("input[name=roleName]").val("");
+			getData();
 		});
     });
     

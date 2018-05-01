@@ -57,7 +57,7 @@
                 url:_path+"/invoicing/base/date/supplier/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'supplierShortName':$("[name=supplierShortName]").val()
+                ,data:{'supplierName':$("[name=supplierName]").val()
                 	  ,'linkmanName':$("[name=linkmanName]").val()}
                 ,cloumns:[
 					 {name:'供应商',value:'supplierName'}
@@ -89,6 +89,7 @@
 		$("#resetBtn").click(function (){
 			$("input[name=linkmanName]").val("");
 			$("input[name=supplierName]").val("");
+			getData();
 		});
 		
     });
@@ -123,14 +124,6 @@
     		 });
     	});
     };
-    //供应商角色维护
-    function toUserRole(userId){
-  	  var url=_path+"/invoicing/base/date/supplier/role?userId="+userId;
-		$.get(url,function(data){
-			$("#mian_div").html(data);
-		});    	
-    }
-    
     //到新增页面
     $("#addBtn").click(function(){
     	var url=_path+"/invoicing/base/date/supplier/add";

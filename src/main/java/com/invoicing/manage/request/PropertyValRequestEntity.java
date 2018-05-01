@@ -1,10 +1,5 @@
-/** 
- * 项目名称:superMarketInvoicingManage 
- * 文件名称:PropertyValRequestEntity.java 
- * 包名:com.invoicing.manage.request 
- * 创建日期:2017年8月10日上午10:48:54 
- * 
-*/  
+
+
   
 package com.invoicing.manage.request; 
 

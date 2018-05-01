@@ -1,9 +1,4 @@
-/** 
- * 项目名称:superMarketInvoicingManage 
- * 文件名称:UserRequestEntity.java 
- * 包名:com.invoicing.manage.request
- * 
-*/  
+
   
 package com.invoicing.manage.request; 
 

@@ -254,10 +254,10 @@
      where id = #{id}
 	</update>
 	<sql id="whereSQL">
-		<if test="unitName != null and unitName !='' ">
+		<if test="supplierName != null and supplierName !='' ">
 			and  LOCATE(#{supplierName},goodsSupplier.supplier_name)>0
 		</if>
-		<if test="unitEnglishName != null and unitEnglishName!='' ">
+		<if test="linkmanName != null and linkmanName!='' ">
 			and LOCATE(#{linkmanName},goodsSupplier.linkman_name)>0
 		</if>
 	</sql>
@@ -266,67 +266,7 @@
 		 select 
  		  <include refid="Base_Column_List" />
  		  from goods_supplier_tb goodsSupplier
- 		  where 1=1 
- 		/* <if test="id != null">
- 			 and goodsSupplier.id = #{id}
- 		  </if>
- 		 <if test="supplierName != null">
- 			 and goodsSupplier.supplier_name = #{supplierName}
- 		  </if>
- 		 <if test="supplierShortName != null">
- 			 and goodsSupplier.supplier_short_name = #{supplierShortName}
- 		  </if>
- 		 <if test="supplierEnglishName != null">
- 			 and goodsSupplier.supplier_english_name = #{supplierEnglishName}
- 		  </if>
- 		 <if test="linkmanName != null">
- 			 and goodsSupplier.linkman_name = #{linkmanName}
- 		  </if>
- 		 <if test="linkmanSex != null">
- 			 and goodsSupplier.linkman_sex = #{linkmanSex}
- 		  </if>
- 		 <if test="linkmanAge != null">
- 			 and goodsSupplier.linkman_age = #{linkmanAge}
- 		  </if>
- 		 <if test="supplierAddress != null">
- 			 and goodsSupplier.supplier_address = #{supplierAddress}
- 		  </if>
- 		 <if test="businessScope != null">
- 			 and goodsSupplier.business_scope = #{businessScope}
- 		  </if>
- 		 <if test="linkmanPhone != null">
- 			 and goodsSupplier.linkman_phone = #{linkmanPhone}
- 		  </if>
- 		 <if test="linkEmail != null">
- 			 and goodsSupplier.link_email = #{linkEmail}
- 		  </if>
- 		 <if test="businessType != null">
- 			 and goodsSupplier.business_type = #{businessType}
- 		  </if>
- 		 <if test="state != null">
- 			 and goodsSupplier.state = #{state}
- 		  </if>
- 		 <if test="isDelete != null">
- 			 and goodsSupplier.is_delete = #{isDelete}
- 		  </if>
- 		 <if test="creatorId != null">
- 			 and goodsSupplier.creator_id = #{creatorId}
- 		  </if>
- 		 <if test="creator != null">
- 			 and goodsSupplier.creator = #{creator}
- 		  </if>
- 		 <if test="createTime != null">
- 			 and goodsSupplier.create_time = #{createTime}
- 		  </if>
- 		 <if test="updatorId != null">
- 			 and goodsSupplier.updator_id = #{updatorId}
- 		  </if>
- 		 <if test="updator != null">
- 			 and goodsSupplier.updator = #{updator}
- 		  </if>
- 		 <if test="updateTime != null">
- 			 and goodsSupplier.update_time = #{updateTime}
- 		  </if>*/
+ 		  where 1=1
 		 <include refid="whereSQL"/>
 	</select>
 	 <select id="getListCount" resultType="java.lang.Integer"
@@ -334,67 +274,7 @@
 		 select 
  		  count(goodsSupplier.id)
  		  from goods_supplier_tb goodsSupplier
- 		  where 1=1 
- 		 /*<if test="id != null">
- 			 and goodsSupplier.id = #{id}
- 		  </if>
- 		 <if test="supplierName != null">
- 			 and goodsSupplier.supplier_name = #{supplierName}
- 		  </if>
- 		 <if test="supplierShortName != null">
- 			 and goodsSupplier.supplier_short_name = #{supplierShortName}
- 		  </if>
- 		 <if test="supplierEnglishName != null">
- 			 and goodsSupplier.supplier_english_name = #{supplierEnglishName}
- 		  </if>
- 		 <if test="linkmanName != null">
- 			 and goodsSupplier.linkman_name = #{linkmanName}
- 		  </if>
- 		 <if test="linkmanSex != null">
- 			 and goodsSupplier.linkman_sex = #{linkmanSex}
- 		  </if>
- 		 <if test="linkmanAge != null">
- 			 and goodsSupplier.linkman_age = #{linkmanAge}
- 		  </if>
- 		 <if test="supplierAddress != null">
- 			 and goodsSupplier.supplier_address = #{supplierAddress}
- 		  </if>
- 		 <if test="businessScope != null">
- 			 and goodsSupplier.business_scope = #{businessScope}
- 		  </if>
- 		 <if test="linkmanPhone != null">
- 			 and goodsSupplier.linkman_phone = #{linkmanPhone}
- 		  </if>
- 		 <if test="linkEmail != null">
- 			 and goodsSupplier.link_email = #{linkEmail}
- 		  </if>
- 		 <if test="businessType != null">
- 			 and goodsSupplier.business_type = #{businessType}
- 		  </if>
- 		 <if test="state != null">
- 			 and goodsSupplier.state = #{state}
- 		  </if>
- 		 <if test="isDelete != null">
- 			 and goodsSupplier.is_delete = #{isDelete}
- 		  </if>
- 		 <if test="creatorId != null">
- 			 and goodsSupplier.creator_id = #{creatorId}
- 		  </if>
- 		 <if test="creator != null">
- 			 and goodsSupplier.creator = #{creator}
- 		  </if>
- 		 <if test="createTime != null">
- 			 and goodsSupplier.create_time = #{createTime}
- 		  </if>
- 		 <if test="updatorId != null">
- 			 and goodsSupplier.updator_id = #{updatorId}
- 		  </if>
- 		 <if test="updator != null">
- 			 and goodsSupplier.updator = #{updator}
- 		  </if>
- 		 <if test="updateTime != null">
- 			 and goodsSupplier.update_time = #{updateTime}
- 		  </if>*/
+ 		  where 1=1
 		 <include refid="whereSQL"/>
 	</select>
 </mapper>

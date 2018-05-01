@@ -69,6 +69,7 @@ public class GoodsPriceController {
 		pageInfo.setPageNo(goodsNormalPriceRequestEntity.getPageNo());
 		pageInfo.setPageSize(goodsNormalPriceRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("goodsName",goodsNormalPriceRequestEntity.getGoodsName());
 		PageInfo<GoodsNormalPriceEntity> goodsPriceList = goodsNormalPriceService.getList(pageInfo, params);
 		logger.debug("method [getGoodsNormalPriceEntityList] 查询商品价格列表，返回结果为："+JSON.toJSONString(goodsPriceList));
 		return new SuccessResponseEntity(goodsPriceList);

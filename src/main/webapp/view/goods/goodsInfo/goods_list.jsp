@@ -17,8 +17,8 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="userName" class="form-control"placeholder="简称"> 
-				<input type="text" name="phone"class="form-control" placeholder="区域名称">
+				<input type="text" name="goodsName" class="form-control"placeholder="商品名称">
+				<input type="text" name="goodsSpu" class="form-control"placeholder="Spu">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -57,15 +57,12 @@
                 url:_path+"/invoicing/goods/info/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'userName':$("[name=shortName]").val()
-                	  ,'phone':$("[name=name]").val()}
+                ,data:{'goodsName':$("[name=goodsName]").val()
+					,'goodsSpu':$("[name=goodsSpu]").val()
+                	  }
                 ,cloumns:[
-					 {name:'商品名称',value:'goodsName',type:"function", fun : function(obj){
-                    	var html="";
-	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>"+obj.goodsName+"</a>"
-	                	return html;
-                      }
-                    }
+					 {name:'商品名称',value:'goodsName'}
+					,{name:'商品简称',value:'goodsShortName'}
                     ,{name:'商品类目',value:'categoryName'}
                     ,{name:'SPU',value:'goodsSpu'}
                     ,{name:'商品类型',value:'goodsType',type:"function", fun : function(obj){
@@ -79,7 +76,6 @@
 	                	return html;
                       }
                     }
-                    ,{name:'创建时间',value:'createTime'}
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
@@ -97,14 +93,14 @@
 		//条件查询
 		$("#searchBtn").click(function(){
 			getData();
-			
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=goodsName]").val("");
+			$("input[name=goodsSpu]").val("");
+			getData();
 		});
-		
+
     });
     
   //点击：删除

@@ -97,6 +97,7 @@
 		$("#resetBtn").click(function (){
 			$("input[name=categoryName]").val("");
 			$("input[name=pcategoryName]").val("");
+			getData();
 		});
 		
     });

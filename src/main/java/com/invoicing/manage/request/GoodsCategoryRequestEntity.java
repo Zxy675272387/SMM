@@ -18,7 +18,7 @@ public class GoodsCategoryRequestEntity extends BaseRequestEntity {
 	 */
 	private Integer categoryType;
 	/**
-	 * 类目级别(1:一级，2：二级，3：三级，4：四级)
+	 * 类目级别
 	 */
 	private Integer categoryLevel;
 	

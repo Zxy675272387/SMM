@@ -66,6 +66,7 @@ public class SystemOrgController {
 		pageInfo.setPageNo(orgRequestEntity.getPageNo());
 		pageInfo.setPageSize(orgRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("orgName",orgRequestEntity.getOrgName());
 		PageInfo<SystemOrgEntity> authorityList = systemOrgService.getList(pageInfo, params);
 		logger.debug("method [getSystemOrgEntityList] 查询机构列表，返回结果为："+JSON.toJSONString(authorityList));
 		return new SuccessResponseEntity(authorityList);
@@ -111,10 +112,10 @@ public class SystemOrgController {
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView goToOrgUpdate(@RequestParam Long id,ModelMap modelMap){
-		String url="/system/org/org_add";
+		String url="/system/org/org_update";
 		if(null!=id.toString()){
-			SystemOrgEntity userEntity=systemOrgService.selectByPrimaryKey(id);
-			modelMap.put("user", userEntity);
+			SystemOrgEntity systemOrgEntity=systemOrgService.selectByPrimaryKey(id);
+			modelMap.put("org", systemOrgEntity);
 		}
 		return new ModelAndView(url);
 	}
@@ -158,14 +159,14 @@ public class SystemOrgController {
 		}
 	}
 	
-	@RequestMapping(value = "/tree", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/tree", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getOrgList(){
 		Map<String,Object>  queryMap=new HashMap<String,Object>();
 		List<SystemOrgEntity> getList=systemOrgService.getList(queryMap);
 		return getList;
-		
-	}
+
+	}*/
 	
 	
 	

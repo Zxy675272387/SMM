@@ -253,9 +253,9 @@
  		 <if test="goodsId != null">
  			 and purchasesRefund.goods_id = #{goodsId}
  		  </if>
- 		 <if test="purchaseOrderNo != null">
- 			 and purchasesRefund.purchase_order_no = #{purchaseOrderNo}
- 		  </if>
+		 <if test="purchaseOrderNo != null and purchaseOrderNo!=''">
+			 and LOCATE(#{purchaseOrderNo},purchasesRefund.purchase_order_no)>0
+		 </if>
  		 <if test="purchasePrice != null">
  			 and purchasesRefund.purchase_price = #{purchasePrice}
  		  </if>
@@ -317,8 +317,8 @@
  		 <if test="goodsId != null">
  			 and purchasesRefund.goods_id = #{goodsId}
  		  </if>
- 		 <if test="purchaseOrderNo != null">
- 			 and purchasesRefund.purchase_order_no = #{purchaseOrderNo}
+ 		 <if test="purchaseOrderNo != null and purchaseOrderNo!=''">
+			 and LOCATE(#{purchaseOrderNo},purchasesRefund.purchase_order_no)>0
  		  </if>
  		 <if test="purchasePrice != null">
  			 and purchasesRefund.purchase_price = #{purchasePrice}

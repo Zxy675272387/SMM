@@ -78,12 +78,13 @@ public class SystemRoleController {
 	
 	@RequestMapping(value = "/page/list", method = RequestMethod.POST)
 	@ResponseBody
-	 public ResponseEntity getSystemRoleList(UserRequestEntity RoleRequestEntity){
+	 public ResponseEntity getSystemRoleList(RoleAuthResquestEntity RoleRequestEntity){
 		logger.debug("method [getSystemRoleEntityList] 查询角色列表，请求参数："+JSON.toJSONString(RoleRequestEntity));
 		PageInfo<SystemRoleEntity> pageInfo=new PageInfo<SystemRoleEntity>();
 		pageInfo.setPageNo(RoleRequestEntity.getPageNo());
 		pageInfo.setPageSize(RoleRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("roleName",RoleRequestEntity.getRoleName());
 		PageInfo<SystemRoleEntity> roleList = systemRoleService.getList(pageInfo, params);
 		logger.debug("method [getSystemRoleEntityList] 查询角色列表，返回结果为："+JSON.toJSONString(roleList));
 		return new SuccessResponseEntity(roleList);

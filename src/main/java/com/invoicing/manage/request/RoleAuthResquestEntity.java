@@ -6,6 +6,7 @@ import com.invoicing.manage.comment.entity.BaseRequestEntity;
 public class RoleAuthResquestEntity extends BaseRequestEntity{
 	private Long roleId;
 	private Long [] authIds;
+	private String roleName;
 	public Long getRoleId() {
 		return roleId;
 	}
@@ -18,7 +19,7 @@ public class RoleAuthResquestEntity extends BaseRequestEntity{
 	public void setAuthIds(Long[] authIds) {
 		this.authIds = authIds;
 	}
-	
-	
+	public String getRoleName(){return  roleName;}
+	public void setRoleName(){this.roleName=roleName;}
 
 }

@@ -68,6 +68,8 @@ public class GoodsController {
 		pageInfo.setPageNo(goodsRequestEntity.getPageNo());
 		pageInfo.setPageSize(goodsRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("goodsName",goodsRequestEntity.getGoodsName());
+		params.put("goodsSpu",goodsRequestEntity.getGoodsSpu());
 		PageInfo<GoodsEntity> goodsList = goodsService.getList(pageInfo, params);
 		logger.debug("method [getGoodsEntityList] 查询商品管理列表，返回结果为："+JSON.toJSONString(goodsList));
 		return new SuccessResponseEntity(goodsList);

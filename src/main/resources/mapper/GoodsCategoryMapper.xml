@@ -284,7 +284,7 @@
  		 <if test="categoryId != null">
  			 and goodsCategory.category_id = #{categoryId}
  		  </if>
- 		 <if test="categoryName != null">
+ 		 <if test="categoryName != null and categoryName!=''">
  			 and goodsCategory.category_name = #{categoryName}
  		  </if>
  		 <if test="parentId != null">

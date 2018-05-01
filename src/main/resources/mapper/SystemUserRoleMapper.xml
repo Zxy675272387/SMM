@@ -106,7 +106,7 @@
  		 <if test="userId != null">
  			 and systemUserRole.user_id = #{userId}
  		  </if>
- 		 <if test="roleId != null">
+ 		 <if test="roleId != null and roleId!=''">
  			 and systemUserRole.role_id = #{roleId}
  		  </if>
 	</select>

@@ -200,7 +200,6 @@
 	</update>
 	<!-- 列表查询条件 -->
 	<sql id="whereSQL">
--- 			and systemUser.state = 1
  		 <if test="loginName != null">
  			 and LOCATE(#{loginName},systemUser.user_name )>0 
  		  </if>

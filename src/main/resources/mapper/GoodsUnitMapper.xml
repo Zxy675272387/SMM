@@ -211,7 +211,6 @@
 	</update>
 	
 	<sql id="whereSQL">
-		 and goodsUnit.is_delete=0
  		 <if test="unitName != null and unitName !='' ">
  			 and  LOCATE(#{unitName},goodsUnit.unit_name)>0
  		  </if>

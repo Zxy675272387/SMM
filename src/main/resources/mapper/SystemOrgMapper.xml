@@ -305,16 +305,18 @@
 		FROM
 			system_org_tb systemOrg
 		LEFT JOIN system_org_tb pSystemOrg ON systemOrg.pid=pSystemOrg.id
+		 WHERE 1=1
  		<include refid="whereSQL"/>
 	</select>
 	
 	 <select id="getListCount" resultType="java.lang.Integer"
 		parameterType="java.util.Map">
 		 SELECT
-		COUNT(systemOrg.pid)
+		COUNT(systemOrg.id)
 		FROM
 			system_org_tb systemOrg
 		LEFT JOIN system_org_tb pSystemOrg ON systemOrg.pid=pSystemOrg.id
+		 WHERE 1=1
  		 <include refid="whereSQL"/>
 	</select>
 	<sql id="whereSQL">
@@ -324,7 +326,7 @@
  		 <if test="orgNum != null">
  			 and systemOrg.org_num = #{orgNum}
  		  </if>
- 		 <if test="orgName != null">
+ 		 <if test="orgName != null and orgName!=''">
  			 and LOCATE(#{orgName},systemOrg.org_name)>0
  		  </if>
  		 <if test="pid != null">
@@ -342,6 +344,5 @@
  		 <if test="contactPhone != null">
  			 and systemOrg.contact_phone = #{contactPhone}
  		  </if>
- 		   and systemOrg.status = 1
 	</sql>
 </mapper>

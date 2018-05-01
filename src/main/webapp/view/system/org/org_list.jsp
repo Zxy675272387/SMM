@@ -17,8 +17,8 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="authorName" class="form-control"placeholder="机构名称"> 
-				<input type="text" name="phone"class="form-control" placeholder="上级机构">
+				<input type="text" name="orgName" class="form-control"placeholder="机构名称">
+
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -56,8 +56,8 @@
                 url:_path+"/invoicing/system/org/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'name':$("[name=name]").val()
-                	  ,'pName':$("[name=pName]").val()}
+                ,data:{'orgName':$("[name=orgName]").val()
+                	  }
                 ,cloumns:[
 					 {name:'机构编码',value:'orgNum'}
 					 ,{name:'机构名称',value:'orgName'}
@@ -88,16 +88,15 @@
             };
             $(".authority_table_content").grid(_options,".authority_table_content");
         }
+        //重置
 		$("#resetBtn").click(function () {
-			$("input[name=authorName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=orgName]").val("");
+			getData();
 		});
 		$("#searchBtn").click(function(){
 			getData();
 		})
-		
     });
-    
 	  //到新增页面
     $("#addBtn").click(function(){
     	var url=_path+"/invoicing/system/org/add";

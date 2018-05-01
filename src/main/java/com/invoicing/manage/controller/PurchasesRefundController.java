@@ -76,6 +76,7 @@ public class PurchasesRefundController {
 		pageInfo.setPageSize(purchasesRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put("orderType", purchasesRequestEntity.getOrderType());
+		params.put("purchaseOrderNo",purchasesRequestEntity.getPurchaseOrderNo());
 		PageInfo<PurchasesRefundEntity> purchasesRefundList = purchasesRefundService.getList(pageInfo, params);
 		logger.debug("method [getPurchasesRefundEntityList] 查询进货退货管理列表，返回结果为："+JSON.toJSONString(purchasesRefundList));
 		return new SuccessResponseEntity(purchasesRefundList);

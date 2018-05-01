@@ -17,7 +17,7 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="userName" class="form-control"placeholder="商品名称"> 
+				<input type="text" name="goodsName" class="form-control"placeholder="商品名称">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -56,7 +56,7 @@
                 url:_path+"/invoicing/goods/price/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'userName':$("[name=goodsName]").val()}
+                ,data:{'goodsName':$("[name=goodsName]").val()}
                 ,cloumns:[
 					 {name:'商品名称',value:'goodsName',type:"function", fun:function (obj) {
 						 return obj.goodsName+"("+obj.goodsId+")";;
@@ -100,8 +100,8 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=goodsName]").val("");
+			getData();
 		});
 		
     });
