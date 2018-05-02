@@ -1,9 +1,4 @@
- /**
- * Created by flyyc on 2016/5/5 0005.
- */
-/*
- * 列表,详情内容不够的时候,白色背景通底 
- */
+
 var wHeight = $(window).height()- 68 - 38 - 20;
 $(".whiteBg").css("min-height",wHeight);
 
@@ -372,6 +367,7 @@ $.extend($.fn, {
                     }
                     if(_pageSelectVal < 0  || _pageSelectVal > _numPages ){
                         callmodalFun('请输入正确的跳转页码');
+                        alert("请输入正确的跳转页码");
                         return ;
                     }
                     _pageNumber =_pageSelectVal;

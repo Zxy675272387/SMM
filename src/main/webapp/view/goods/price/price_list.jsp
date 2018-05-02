@@ -74,10 +74,7 @@
 	                	return obj.salePrice+".00元";;
 	                    }
 	                  }
-	              	,{name:'标注',value:'unitName',type:"function", fun : function(obj){
-	                	return obj.remark1;
-	                    }
-	                  }
+	              	,{name:'标注',value:'remark1'}
                     ,{name:'创建时间',value:'createTime'}
                    // ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){

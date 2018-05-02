@@ -158,20 +158,5 @@ public class SystemOrgController {
 			return new ErrorResponseEntity();
 		}
 	}
-	
-	/*@RequestMapping(value = "/tree", method = RequestMethod.POST)
-	@ResponseBody
-	public Object getOrgList(){
-		Map<String,Object>  queryMap=new HashMap<String,Object>();
-		List<SystemOrgEntity> getList=systemOrgService.getList(queryMap);
-		return getList;
-
-	}*/
-	
-	
-	
-	
-	
-	
 
 }

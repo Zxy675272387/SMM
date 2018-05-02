@@ -16,45 +16,37 @@
 	</ol>
 	<!-- user-form start //readonly="true" -->
 	<form class="add-form" id="price-update-form" method="post">
-			<input type="hidden" class="form-control"  name="id" value="${user.id}">
+			<input type="hidden" class="form-control"  name="id" value="${goodsPrice.id}">
+			<input type="hidden" class="form-control"  placeholder="请手机号"  name="goodsId" value="${goods.id}" readonly="true">
         	<div class="panel panel-default">
 	            <div class="panel-heading">新增用户</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
 						<tr>
-							<th><span class="required">*</span>价格id</th>
-							<td>
-								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="请手机号"  name="id" value="${goodsPrice.id}" readonly="true">
-								</div>
-							</td>
 							<th><span class="required">*</span>商品名称</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder=" " name="goodsId" value="${goods.goodsName}" readonly="true">
+									<input type="text" class="form-control"  placeholder=" " name="goodsName" value="${goods.goodsName}" readonly="true">
 								</div>
 							</td>
-						</tr>
-						<tr>
 		                	<th><span class="required">*</span>采购价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder=" " name="salePrice" value="0">
+		                            <input type="text" class="form-control"  placeholder=" " name="salePrice" value="${goodsPrice.salePrice}">
 		                        </div>
 		                    </td>
+							<tr>
 		                    <th><span class="required">*</span>市场价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="marketPrice" value="${user.userName}">
+		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="marketPrice" value="${goodsPrice.marketPrice}">
 		                        </div>
 		                    </td>
-						</tr>
-						<tr>
 		                    <th><span class="required">*</span>销售价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="purchasePrice" value="${user.phone}">
+		                            <input type="text" class="form-control"  placeholder="请手机号"  name="purchasePrice" value="${goodsPrice.purchasePrice}">
 		                        </div>
 		                    </td>
 		                </tr>

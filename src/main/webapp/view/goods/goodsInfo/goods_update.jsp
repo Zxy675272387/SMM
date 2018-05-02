@@ -10,15 +10,15 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">编辑用户</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">商品信息管理</a></li>
+		<li><a href="####">商品编辑</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="goods-update-form" method="post">
-			<input type="hidden" class="form-control"  name="id" value="${user.id}">
+			<input type="hidden" class="form-control"  name="id" value="${goods.id}">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">编辑商品</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 						<tbody>
@@ -26,13 +26,13 @@
 							<th><span class="required">*</span>商品名称</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="最多可输入10个汉字" name="goodsName" value="">
+									<input type="text" class="form-control"  placeholder="最多可输入10个汉字" name="goodsName" value="${goods.goodsName}">
 								</div>
 							</td>
 							<th><span class="required">*</span>商品简称</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="输入简称"  name="goodsShortName" value="">
+									<input type="text" class="form-control"  placeholder="输入简称"  name="goodsShortName" value="${goods.goodsShortName}">
 								</div>
 							</td>
 						</tr>
@@ -40,7 +40,7 @@
 							<th><span class="required">*</span>SPU</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="商品spu" name="goodsSpu" value="">
+									<input type="text" class="form-control"  placeholder="商品spu" name="goodsSpu" value="${goods.goodsSpu}">
 								</div>
 							</td>
 							<th>销售类型</th>
@@ -91,31 +91,29 @@ $(document).ready(function(){
 	  
 	  
 	});
-	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var goodsName=$("input[name=goodsName]").val();
+		var goodsShortName=$("input[name=goodsShortName]").val();
+		var goodsSpu=$("input[name=goodsSpu]").val();
+		if(goodsName==null || goodsName==''){
+			alert("商品名称不能为空！");
+			$("input[name=goodsName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+		if(goodsShortName==null || goodsShortName==''){
+			alert("简称不能为空！");
+			$("input[name=goodsShortName]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(goodsSpu==null || goodsSpu==''){
+			alert("spu不能为空！");
+			$("input[name=goodsSpu]").focus();
 			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/goods/update",
-	 			 data:$('#goods-update-form').serialize(),// 你的formid
+	 			 data:$('#goods-update-form').serialize(),//
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){

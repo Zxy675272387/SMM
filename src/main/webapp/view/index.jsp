@@ -23,7 +23,6 @@
 	background-image:url('../static/images/jxc_main_bg.png');
 	background-repeat: no-repeat;
 	background-position: right bottom;
-	dis
 }	
 </style>
 </head>
@@ -56,19 +55,7 @@
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
-						<ul
-							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="#"> <i class="icon-cog"></i> 修改密码
-							</a></li>
-
-							<li><a href="#"> <i class="icon-user"></i> 个人资料
-							</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="/invoicing/logout"> <i class="icon-off"></i> 退出
-							</a></li>
-						</ul></li>
+					</li>
 				</ul>
 				<!-- /.ace-nav -->
 			</div>

@@ -88,24 +88,38 @@
 	});
 	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var orgName=$("input[name=orgName]").val();
+		var orgNum=$("input[name=orgNum]").val();
+		var contactName=$("input[name=contactName]").val();
+		var contactPhone=$("input[name=contactPhone]").val();
+
+		if(orgName==null || orgName==''){
+			alert("机构名不能为空！");
+			$("input[name=orgName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+		if(contactName==null || contactName==''){
+			alert("联系人不能为空！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');js模版提供的方法
+			$("input[name=contactName]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
+		if(orgNum==null || orgNum==''){
+			alert("编号不能为空！");
+			$("input[name=password]").focus();
+			return false;
+		}
+		/*if(contactPhone.toString().length!=11)
+		 {
+		 alert("手机号必须为11位");
+		 $("input[name=contactPhone]").focus();
+		 return false;
+		 }*/
+		if(contactPhone==null || contactPhone==''){
 			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+			$("input[name=contactPhone]").focus();
 			return false;
-		}else*/{
+		}else {
 			$.ajax({
 				type : "post",
 				url : _path+"/invoicing/system/org/update",

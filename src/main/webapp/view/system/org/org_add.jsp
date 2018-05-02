@@ -17,7 +17,7 @@
 	<!-- user-form start  -->
 	<form class="add-form" id="org-add-form" method="post">
 		<div class="panel panel-default">
-			<div class="panel-heading">新增用户</div>
+			<div class="panel-heading">新增机构</div>
 			<div class="panel-body table_add">
 				<table class="table half-table">
 					<tbody>

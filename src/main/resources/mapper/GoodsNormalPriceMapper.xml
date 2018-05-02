@@ -277,7 +277,9 @@
 			goodsNormalPrice.sale_price salePrice,
 			goods.goods_name goodsName,
 			goodsNormalPrice.create_time createTime,
+		 	goodsNormalPrice.remark1 remark1,
 			goodsNormalPrice.update_time updateTime
+
 		
 		FROM
 			goods_normal_price_tb goodsNormalPrice

@@ -88,19 +88,24 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		/*var categoryName=$("input[name=categoryName]").val();
-		var pCategoryName=$("input[name=pCategoryName]").val();
-		var categoryLevel=$("input[name=categoryLevel]").val();
-		if(userName==null || userName==''){
-			alert("名称不能为空！");
-			$("input[name=categoryName]").focus();
+		var goodsName=$("input[name=goodsName]").val();
+		var goodsShortName=$("input[name=goodsShortName]").val();
+		var goodsSpu=$("input[name=goodsSpu]").val();
+		if(goodsName==null || goodsName==''){
+			alert("商品名称不能为空！");
+			$("input[name=goodsName]").focus();
 			return false;
 		}
-		if(pCategoryName==null || pCategoryName==''){
-			alert("登录名不能为空！");
-			$("input[name=pCategoryName]").focus();
+		if(goodsShortName==null || goodsShortName==''){
+			alert("简称不能为空！");
+			$("input[name=goodsShortName]").focus();
 			return false;
-		}else*/{
+		}
+		if(goodsSpu==null || goodsSpu==''){
+			alert("spu不能为空！");
+			$("input[name=goodsSpu]").focus();
+			return false;
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/goods/info/add",

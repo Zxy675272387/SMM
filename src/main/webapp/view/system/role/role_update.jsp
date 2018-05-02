@@ -69,23 +69,30 @@
 </div>
 <script type="text/javascript">
 	$("#addBtn").click(function (){
-	     $.ajax({
- 			type : "post",
- 			url : _path+"/invoicing/system/role/update?__"+(new Date()).getTime(),
- 			 data:$('#role-update-form').serialize(),// 你的formid
-              async:false,
- 			 	success : function(data) {
- 				if(data.code==1){
- 					alert("角色保存成功！");
- 					var url=_path+"/invoicing/system/role/page/list";
- 					$.get(url,function(data){
- 						$("#mian_div").html(data);
- 					});
- 				}else{
- 					alert("角色保存失败");
- 				}
- 			}
-         });
+		var roleName=$("input[name=roleName]").val();
+		if(roleName==null || roleName==''){
+			alert("角色名不能为空！");
+			$("input[name=orgName]").focus();
+			return false;
+		}else {
+		$.ajax({
+			type: "post",
+			url: _path + "/invoicing/system/role/update?__" + (new Date()).getTime(),
+			data: $('#role-update-form').serialize(),// 你的formid
+			async: false,
+			success: function (data) {
+				if (data.code == 1) {
+					alert("角色保存成功！");
+					var url = _path + "/invoicing/system/role/page/list";
+					$.get(url, function (data) {
+						$("#mian_div").html(data);
+						});
+					} else {
+					alert("角色保存失败");
+					}
+				}
+			});
+		}
 	});
 	
 	//返回列表页

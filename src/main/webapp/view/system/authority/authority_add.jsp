@@ -89,23 +89,31 @@
 		loadPAuth();
 	});
 	$("#addBtn").click(function (){
-	     $.ajax({
- 			type : "post",
- 			url : _path+"/invoicing/system/authority/add?__"+(new Date()).getTime(),
- 			 data:$('#authority-add-form').serialize(),// 你的formid
-              async:false,
- 			 	success : function(data) {
- 				if(data.code==1){
- 					alert("菜单保存成功！");
- 					var url=_path+"/invoicing/system/authority/list";
- 					$.get(url,function(data){
- 						$("#mian_div").html(data);
- 					});
- 				}else{
- 					alert("菜单保存失败");
- 				}
- 			}
-         });
+		$("#addBtn").click(function (){
+			var name=$("input[name=name]").val();
+			if(name==null || name==''){
+				alert("菜单名不能为空！");
+				$("input[name=name]").focus();
+				return false;
+			}else {
+				$.ajax({
+					type: "post",
+					url: _path + "/invoicing/system/authority/add?__" + (new Date()).getTime(),
+					data: $('#authority-add-form').serialize(),// 你的formid
+					async: false,
+					success: function (data) {
+						if (data.code == 1) {
+							alert("菜单保存成功！");
+							var url = _path + "/invoicing/system/authority/list";
+							$.get(url, function (data) {
+								$("#mian_div").html(data);
+							});
+						} else {
+							alert("菜单保存失败");
+						}
+					}
+				});
+			}
 	});
 	
 	//返回列表页

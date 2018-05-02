@@ -154,7 +154,7 @@ body {
     float: left;
     margin: 0 12px ;
     line-height: 30px;
-    color: #838282;
+    color: #bd34fa;
 }
 .list-page ul {
     float: left;
@@ -302,8 +302,8 @@ body {
 /*取消按钮*/
 .btn-warning {
     color: #fff;
-    background-color: #6f7a87;
-    border-color: #6f7a87;
+    background-color: #675c87;
+    border-color: #675c87;
 }
 .btn-warning:focus,
 .btn-warning.focus,
@@ -326,7 +326,7 @@ body {
 }
 /*行内按钮*/
 .btn-link.btn {
-    color: #2e78fa;
+    color: #bd34fa;
     padding:0;
 }
 .btn-link + .btn-link{
@@ -439,7 +439,7 @@ body {
 .panel-default .table{
     padding: 0 10px;
 }
-/******************************************************全局更改的样庿*******************************************************/
+/******************************************************全局更改*******************************************************/
 /*附件上传  */
 .upLoadFileTeam{
     display: inline-block;

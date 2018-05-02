@@ -92,7 +92,7 @@ public class SystemRoleController {
 	}
 	
 	/**
-	 * goToUserAdd 角色添加页
+	 * goToAdd 角色添加页
 	 * @return 返回类型为 ModelAndView
 	 * @exception
 	 * @since JDK 1.7

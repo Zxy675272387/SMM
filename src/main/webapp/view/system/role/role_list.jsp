@@ -76,11 +76,10 @@
                     	if(obj.id==1){
 	                		html += "  <a  class='btn-link' >编辑</a>"
 	                		html += "  <a  class='btn-link' >删除</a>"
-	                		html += "  <a  class='btn-link'>角色授权</a>";
                     	}else{
 	                		html += "  <a  class='btn-link' onclick='updateObj("+obj.id+")'>编辑</a>"
 	                		html += "  <a  class='btn-link' onclick='delObj("+obj.id+")'>删除</a>";
-	                		html += "  <a  class='btn-link role_auth' onclick='roleAuthObj("+obj.id+")'>角色授权</a>"
+	                		//html += "  <a  class='btn-link role_auth' onclick='roleAuthObj("+obj.id+")'>角色授权</a>"
                     	}
                     	return html;
                       }
