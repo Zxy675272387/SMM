@@ -367,7 +367,6 @@ $.extend($.fn, {
                     }
                     if(_pageSelectVal < 0  || _pageSelectVal > _numPages ){
                         callmodalFun('请输入正确的跳转页码');
-                        alert("请输入正确的跳转页码");
                         return ;
                     }
                     _pageNumber =_pageSelectVal;
