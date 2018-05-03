@@ -47,7 +47,7 @@
 	</div>
 </div>
 	<!-- 列表：查询分页列表 end -->
-	<!-- add by WHao start 引入：销售记录列表js -->
+
 	<script type="text/javascript">
 	$(document).ready(function(){
         var buttonsArr =[];

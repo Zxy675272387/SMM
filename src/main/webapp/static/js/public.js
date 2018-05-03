@@ -35,7 +35,6 @@ function closewait(){
 /*自定义封装方法*/
 $.extend($.fn, {
 	/*列表解析*/
-	//add by wanghao add param 参数：targetTableClass
     grid: function (options,targetTableClass) {
         var _this = this;
         var _total, 
@@ -367,6 +366,7 @@ $.extend($.fn, {
                     }
                     if(_pageSelectVal < 0  || _pageSelectVal > _numPages ){
                         callmodalFun('请输入正确的跳转页码');
+                        alert("2222");
                         return ;
                     }
                     _pageNumber =_pageSelectVal;

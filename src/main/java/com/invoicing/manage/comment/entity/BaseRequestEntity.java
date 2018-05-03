@@ -1,10 +1,4 @@
-/** 
- * 项目名称:superMarketInvoicingManage 
- * 文件名称:BaseRequestEntity.java 
- * 包名:com.invoicing.manage.request 
- * 创建日期:2017年7月28日上午11:35:26 
- * 
- */
+
 
 package com.invoicing.manage.comment.entity;
 

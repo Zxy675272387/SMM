@@ -45,8 +45,7 @@
 			</button>
 		</div>
 	</div>
-	
-	<!-- add by WHao start 引入：用户列表js -->
+
 	<script type="text/javascript">
 	$(document).ready(function(){
 		//加载角色列表

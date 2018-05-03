@@ -70,7 +70,6 @@
 		</form>
 	</div>
 	<!-- 角色权限维护 end -->
-	<!-- add by WHao start 引入：角色列表js -->
 <script type="text/javascript">
 	//获取：角色树
 	var _treeUrl=_path+"/invoicing/system/authority/load/ztree"; 
