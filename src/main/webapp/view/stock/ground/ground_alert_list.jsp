@@ -9,15 +9,16 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">采购管理</a></li>
-		<li><a href="####">退货管理</a></li>
+		<li><a href="/index">库存管理</a></li>
+		<li><a href="####">库存地管理</a></li>
 	</ol>
 
 	<!-- 列表：查询条件组装  start -->
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="purchaseOrderNo"class="form-control" placeholder="采购订单号">
+				<input type="text" name="name" class="form-control"placeholder="库存名称">
+				<input type="text" name="instruction"class="form-control" placeholder="商品名称">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -40,53 +41,31 @@
 	<div class="user_table_content cloud_list">
 		<div id="buttonsId" class="row list-title">
 			<div class="col-md-4">
-				<h4>采购列表</h4>
+				<h4>库存地列表</h4>
 			</div>
 		</div>
 	</div>
 </div>
 	<!-- 列表：查询分页列表 end -->
-	<!-- add by WHao start 引入：采购列表js -->
+	<!-- add by WHao start 引入：库存地列表js -->
 	<script type="text/javascript">
 	$(document).ready(function(){
         var buttonsArr =[];
         getData();
         function getData(){
             var _options ={
-                url:_path+"/invoicing/purchases/refund/page/list"
+                url:_path+"/invoicing/stock/ground/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'orderType':2
-                	  ,'purchaseOrderNo':$("[name=purchaseOrderNo]").val()}
+                ,data:{'instruction':$("[name=instruction]").val()
+                	  ,'name':$("[name=name]").val()
+					  ,'number':333}
                 ,cloumns:[
-					 {name:'退货单号',value:'purchaseOrderNo'}
-                    ,{name:'退货数量',value:'purchaseNumber'}
-                    ,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
-	                	return obj.purchasePrice+".00元";;
-	                    }
-	                  }
-                    ,{name:'采购总额',value:'totalAmount',type:"function", fun : function(obj){
-	                	return obj.totalAmount+".00元";;
-	                    }
-	                  }
-                    ,{name:'退货原因',value:'remark1'}
-                    /* ,{name:'备注',value:'remark2'} */
-                    ,{name:'创建时间',value:'createTime'}
+					 {name:'商品名称',value:'instruction'}
+					,{name:'库存数量',value:'number'}
+                    ,{name:'库存地名称',value:'name'}
+                    ,{name:'备注',value:'remark1'}
                     ,{name:'更新时间',value:'updateTime'}
-                    ,{name:'状态',value:'orderStatus',type:"function", fun : function(obj){
-	                    	var html="";
-	                    	if(obj.orderStatus == 1){
-	                    		html += "进行中";
-	                    	}else if(obj.orderStatus==2){
-	                    		html += "已完成";
-	                    	}else if(obj.orderStatus==3){
-	                    		html += "下单失败";
-	                    	}else if(obj.orderStatus==4){
-	                    		html += "撤销订单";
-	                    	}
-	                    	return html;
-                 	}
-                 }
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
                     		
@@ -108,8 +87,9 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=name]").val("");
+			$("input[name=instruction]").val("");
+			getData();
 		});
 		
     });
@@ -119,7 +99,7 @@
     	callmodalFun('您确认删除该记录吗？',function(){
     		$.ajax({
     			type : "post",
-    			url :_path+"/invoicing/purchases/refund/del",
+    			url :_path+"/invoicing/stock/ground/del",
     			data : {
     				'id':id
     			},
@@ -131,13 +111,13 @@
     				closewait();
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
-    					alert("采购删除成功！")
-    					var url = _path+"/invoicing/purchases/refund/page/list?flag=1";
+    					alert("库存地删除成功！")
+    					var url = _path+"/invoicing/stock/ground/page/list";
     					goBackPage(url);
     				} else if (data == 0) {
-    					timedTaskFun(1000,'采购删除失败','','err');
+    					timedTaskFun(1000,'库存地删除失败','','err');
     				} else if(data == -2) {
-    					timedTaskFun(1000,'该采购，已关联其他业务，故无法删除！','','err');
+    					timedTaskFun(1000,'该库存地，已关联其他业务，故无法删除！','','err');
     				}
     				
     			}
@@ -147,14 +127,14 @@
     
     //到新增页面
     $("#addBtn").click(function(){
-    	var url=_path+"/invoicing/purchases/refund/add";
+    	var url=_path+"/invoicing/stock/ground/add";
 		$.get(url,function(data){
 			$("#mian_div").html(data);
 		});    
     });
-    //编辑采购信息
-    function toUpdatePage(id){
-		var url=_path+"/invoicing/purchases/refund/update?id="+id;
+    //编辑库存地信息
+    function toUpdatePage(Id){
+    	 var url=_path+"/invoicing/stock/ground/update?id="+Id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

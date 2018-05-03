@@ -112,7 +112,7 @@ $(document).ready(function(){
 		}else{
 			$.ajax({
 	 			type : "post",
-	 			url : _path+"/invoicing/goods/update",
+	 			url : _path+"/invoicing/goods/info/update",
 	 			 data:$('#goods-update-form').serialize(),//
 	              async:false,
 	 			 	success : function(data) {

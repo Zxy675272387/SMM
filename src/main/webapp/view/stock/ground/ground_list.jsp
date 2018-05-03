@@ -17,8 +17,8 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="userName" class="form-control"placeholder="库存地编号"> 
-				<input type="text" name="phone"class="form-control" placeholder="库存地名称">
+				<input type="text" name="name" class="form-control"placeholder="库存名称">
+				<input type="text" name="instruction"class="form-control" placeholder="商品名称">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -33,6 +33,10 @@
 			<button type="button" id="addBtn" class="btn btn-primary">
 			<i class="icon_add"></i>
 				新增
+			</button>
+			<button type="button" id="alertBtn" class="btn btn-success">
+				<i class="icon-reply icon-only"></i>
+				预警
 			</button>
 		</div>
 	</div>
@@ -57,13 +61,13 @@
                 url:_path+"/invoicing/stock/ground/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'userName':$("[name=userName]").val()
-                	  ,'phone':$("[name=phone]").val()}
+                ,data:{'instruction':$("[name=instruction]").val()
+                	  ,'name':$("[name=name]").val()}
                 ,cloumns:[
-					 {name:'库存地编号',value:'number'}
+					 {name:'商品名称',value:'instruction'}
+					,{name:'库存数量',value:'number'}
                     ,{name:'库存地名称',value:'name'}
-                    ,{name:'库存地址',value:'instruction'}
-                    ,{name:'创建时间',value:'createTime'}
+                    ,{name:'备注',value:'remark1'}
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
@@ -86,10 +90,15 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=name]").val("");
+			$("input[name=instruction]").val("");
+			getData();
 		});
-		
+		$("#searchBtn").click(function(){
+
+			getData();
+
+		});
     });
     
   //点击：删除
@@ -131,8 +140,8 @@
 		});    
     });
     //编辑库存地信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/stock/ground/update?userId="+userId;
+    function toUpdatePage(Id){
+    	 var url=_path+"/invoicing/stock/ground/update?id="+Id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

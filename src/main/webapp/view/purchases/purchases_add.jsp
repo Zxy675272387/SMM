@@ -138,7 +138,7 @@
 	 			 	success : function(data) {
 	 				if(data.code==1){
 	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/purchases/refund/page/list";
+	 					var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
 	 					goBackPage(url);
 	 				}else{
 	 					alert("用户保存失败！");
@@ -151,7 +151,7 @@
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/purchases/refund/page/list";
+		 var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
 		 //调用跳转方法
 		 goBackPage(url);
 	});

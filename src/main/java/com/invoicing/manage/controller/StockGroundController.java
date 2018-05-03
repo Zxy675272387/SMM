@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.invoicing.manage.request.StockRequestEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +47,13 @@ public class StockGroundController {
 	 * @since JDK 1.7
 	 */
 	@RequestMapping(value = "/page/list", method = RequestMethod.GET)
-	public ModelAndView goToStockGroundList(){
-		String url="/stock/ground/ground_list";
+	public ModelAndView goToStockGroundList(@RequestParam Integer flag){
+		String url=null;
+		if(flag==1){
+			url="/stock/ground/ground_list";
+		}else{
+			url="/stock/ground/ground_alert_list";
+		}
 		return new ModelAndView(url);
 	}
 		
@@ -61,12 +67,15 @@ public class StockGroundController {
 	
 	@RequestMapping(value = "/page/list", method = RequestMethod.POST)
 	@ResponseBody
-	 public ResponseEntity getStockGroundList(BaseRequestEntity requestEntity){
-		logger.debug("method [getStockGroundEntityList] 查询库存地管理列表，请求参数："+JSON.toJSONString(requestEntity));
+	 public ResponseEntity getStockGroundList(StockRequestEntity stockrequestEntity){
+		logger.debug("method [getStockGroundEntityList] 查询库存地管理列表，请求参数："+JSON.toJSONString(stockrequestEntity));
 		PageInfo<StockGroundEntity> pageInfo=new PageInfo<StockGroundEntity>();
-		pageInfo.setPageNo(requestEntity.getPageNo());
-		pageInfo.setPageSize(requestEntity.getPageSize());
+		pageInfo.setPageNo(stockrequestEntity.getPageNo());
+		pageInfo.setPageSize(stockrequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("name",stockrequestEntity.getName());
+		params.put("instruction",stockrequestEntity.getInstruction());
+		params.put("number",stockrequestEntity.getNumber());
 		PageInfo<StockGroundEntity> stockGroundList = stockGroundService.getList(pageInfo, params);
 		logger.debug("method [getStockGroundEntityList] 查询库存地管理列表，返回结果为："+JSON.toJSONString(stockGroundList));
 		return new SuccessResponseEntity(stockGroundList);
@@ -116,11 +125,9 @@ public class StockGroundController {
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView goToStockGroundUpdate(@RequestParam Long id,ModelMap modelMap){
-		String url="/basedate/brand/brand_update";
-		StockGroundEntity brandEntity=stockGroundService.selectByPrimaryKey(id);
-		if(null!=brandEntity){
-			modelMap.put("brand", brandEntity);
-		}
+		String url="/stock/ground/ground_update";
+		StockGroundEntity stockEntity=stockGroundService.selectByPrimaryKey(id);
+			modelMap.put("stock", stockEntity);
 		return new ModelAndView(url,modelMap);
 	}
 	
@@ -163,7 +170,7 @@ public class StockGroundController {
 				brandEntity.setValid(0);
 				brandEntity.setUpdateTime(new Date());
 				logger.debug("删除库存地管理，传入参数为："+JSON.toJSONString(brandEntity));
-				int result = stockGroundService.updateByPrimaryKeySelective(brandEntity);
+				int result = stockGroundService.deleteByPrimaryKey(brandEntity.getId());
 				logger.debug("删除库存地管理，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

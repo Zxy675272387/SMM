@@ -16,7 +16,7 @@
 	</ol>
 	<!-- user-form start  -->
 	<form class="update-form" id="purchases-update-form" method="post">
-			<input type="hidden" class="form-control"  name="id" value="">
+			<input type="hidden" class="form-control"  name="id" value="${purchases.id}">
         	<div class="panel panel-default">
 	            <div class="panel-heading">新增用户</div>
 	            <div class="panel-body table_add">
@@ -138,10 +138,12 @@ $(document).ready(function(){
 	 			 	success : function(data) {
 	 				if(data.code==1){
 	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/purchases/refund/page/list";
+	 					var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
 	 					goBackPage(url);
 	 				}else{
 	 					alert("用户保存失败！");
+						var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
+						goBackPage(url);
 	 				}
 	 			}
 	         });

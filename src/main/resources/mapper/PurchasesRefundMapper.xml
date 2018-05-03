@@ -203,7 +203,7 @@
  			  </if>
  			 <if test="orderType != null">
  				 order_type = #{orderType},
- 			  </if>+
+ 			  </if>
  			 <if test="orderStatus != null">
  				 order_status = #{orderStatus},
  			  </if>
@@ -238,7 +238,7 @@
  				 remark2 = #{remark2},
  			  </if>
  		 </set>
-     where purchase_order_no = #{purchaseOrderNo}
+     where id = #{ id }
 	</update>
 	
 	 <select id="getList" resultMap="BaseResultMap"

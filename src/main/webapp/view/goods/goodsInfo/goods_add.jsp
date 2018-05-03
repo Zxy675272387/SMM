@@ -10,14 +10,14 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">商品信息管理</a></li>
+		<li><a href="####">商品添加</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="goods-add-form" method="post">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">新增商品</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>

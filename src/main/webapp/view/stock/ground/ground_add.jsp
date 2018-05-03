@@ -11,58 +11,44 @@
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
 		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="####">库存管理</a></li>
+		<li><a href="####">添加库存</a></li>
 	</ol>
 	<!-- user-form start  -->
-	<form class="add-form" id="user-add-form" method="post">
+	<form class="add-form" id="stock-add-form" method="post">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">新增库存</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
 		                <tr>
-		                	<th><span class="required">*</span>用户姓名</th>
+		                	<th><span class="required">*</span>商品名称</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="userName" value="">
+		                            <input type="text" class="form-control"  placeholder="输入商品名称" name="instruction" value="">
 		                        </div>
 		                    </td>
-		                    <th><span class="required">*</span>登录账号</th>
+		                    <th><span class="required">*</span>入库数量</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="loginName" value="">
-		                        </div>
-		                    </td>
-		                </tr>
-		                <tr>
-		                	<th><span class="required">*</span>登录密码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入数字，字母组成的8位数" name="password" value="">
-		                        </div>
-		                    </td>
-		                    <th><span class="required">*</span>手机号码</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="phone" value="">
+		                            <input type="text" class="form-control"  placeholder="库存地名称"  name="number" value="">
 		                        </div>
 		                    </td>
 		                </tr>
 		                <tr>
-		                <th>销售类型</th>
-		                     <td>
+		                	<th><span class="required">*</span>库存地名称</th>
+		                    <td>
 		                        <div class="form-group ">
-		                            <select class="form-control"  name="unitType" id="unitType">
-					        			<option value="0" selected="selected">关闭</option>
-					        			<option value="1">开启</option>
-					        		</select>
+		                            <input type="text" class="form-control"  placeholder="输入库存地" name="name" value="">
 		                        </div>
-		                     </td>
-		                     <th></th>
-			                 <td>
-			                 </td>
-		                    </tr>
+		                    </td>
+							<th><span class="required">*</span>备注</th>
+							<td>
+								<div class="form-group ">
+									<input type="text" class="form-control"  placeholder="输入备注" name="remark1" value="">
+								</div>
+							</td>
+		                </tr>
 		                </tbody>
 		            </table>
 			        <div class="col-md-12 text-center btn-margin">
@@ -83,7 +69,7 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		var userName=$("input[name=userName]").val();
+		/*var userName=$("input[name=userName]").val();
 		var loginName=$("input[name=loginName]").val();
 		var password=$("input[name=password]").val();
 		var phone=$("input[name=phone]").val();
@@ -107,19 +93,19 @@
 			alert("手机号不能为空！");
 			$("input[name=phone]").focus();
 			return false;
-		}else{
+		}else*/{
 			$.ajax({
 	 			type : "post",
-	 			url : _path+"/invoicing/system/user/add",
-	 			 data:$('#user-add-form').serialize(),// 你的formid
+	 			url : _path+"/invoicing/stock/ground/add",
+	 			 data:$('#stock-add-form').serialize(),// 你的formid
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/system/user/list";
+	 					alert("保存成功！");
+	 					var url=_path+"/invoicing/stock/ground/page/list";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("保存失败！");
 	 				}
 	 			}
 	         });
@@ -129,7 +115,7 @@
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/system/user/list";
+		 var url=_path+"/invoicing/stock/ground/page/list";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

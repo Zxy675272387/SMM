@@ -16,7 +16,7 @@
 	</ol>
 	<!-- user-form start  -->
 	<form class="update-form" id="supplier-update-form" method="post">
-			<input type="hidden" class="form-control"  name="id" value="">
+			<input type="hidden" class="form-control"  name="id" value="${supplier.id}">
         	<div class="panel panel-default">
 	            <div class="panel-heading">供应商修改</div>
 	            <div class="panel-body table_add">
@@ -119,7 +119,7 @@ $(document).ready(function(){
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/base/date/supplier/update",
-	 			 data:$('#user-update-form').serialize(),// 你的formid
+	 			 data:$('#supplier-update-form').serialize(),// 你的formid
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){

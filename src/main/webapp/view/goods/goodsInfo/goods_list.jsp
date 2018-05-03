@@ -67,12 +67,15 @@
                     ,{name:'SPU',value:'goodsSpu'}
                     ,{name:'商品类型',value:'goodsType',type:"function", fun : function(obj){
                     	var html="";
+                    	if(obj.goodsType==0){
+                    		html +="批发";
+                    	}
                     	if(obj.goodsType==1){
                     		html +="零售";
                     	}
-                    	if(obj.goodsType==2){
-                    		html +="服务";
-                    	}
+						if(obj.goodsType==2){
+							html +="限购";
+						}
 	                	return html;
                       }
                     }
