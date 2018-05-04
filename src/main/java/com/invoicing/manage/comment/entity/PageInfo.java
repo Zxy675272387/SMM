@@ -14,7 +14,7 @@ public class PageInfo<T>
   public PageInfo()
   {
     this.pageNo = 1;
-    this.pageSize = 10;
+    this.pageSize = 5;
     this.total = 0;
   }
 

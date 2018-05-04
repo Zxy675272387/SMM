@@ -39,7 +39,7 @@ $.extend($.fn, {
         var _this = this;
         var _total, 
         //modify by gaolp start
-        	_pageSize=(options.data.pageSize != null && options.data.pageSize != undefined)?options.data.pageSize:10,
+        	_pageSize=(options.data.pageSize != null && options.data.pageSize != undefined)?options.data.pageSize:5,
         //modify by gaolp start
         //add by yaofeng start
             _pageNumber =(options.data.pageNo != null && options.data.pageNo != undefined)?options.data.pageNo:1,
@@ -357,16 +357,18 @@ $.extend($.fn, {
 
                     var _pageSelectVal =	 $_pageselect.val();
                     if(_pageSelectVal ==""){
-                        callmodalFun('请输入需要跳转的页码');
+                       // callmodalFun('请输入需要跳转的页码');
+                        alert('请输入需要跳转的页码');
                         return ;
                     }
                     if(isNaN(_pageSelectVal )){
-                        callmodalFun('请输入需要跳转的页码');
+                        //callmodalFun('请输入需要跳转的页码');
+                        alert('请输入需要跳转的页码');
                         return ;
                     }
                     if(_pageSelectVal < 0  || _pageSelectVal > _numPages ){
-                        callmodalFun('请输入正确的跳转页码');
-                        alert("2222");
+                       // callmodalFun('请输入正确的跳转页码');
+                        alert("请输入正确的跳转页码");
                         return ;
                     }
                     _pageNumber =_pageSelectVal;
