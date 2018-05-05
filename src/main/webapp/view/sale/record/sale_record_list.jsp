@@ -63,18 +63,18 @@
 	                    }
 	                  }
                     ,{name:'数量',value:'saleNumber'}
-                    ,{name:'应付金额',value:'paidAmount',type:"function", fun : function(obj){
+                    ,{name:'销售总额',value:'paidAmount',type:"function", fun : function(obj){
 	                	return obj.paidAmount+".00元";;
 	                    }
 	                  }
-	              	,{name:'实收金额',value:'receivableAmount',type:"function", fun : function(obj){
+	              	/*,{name:'实收金额',value:'receivableAmount',type:"function", fun : function(obj){
 		                	return obj.receivableAmount+".00元";;
 	                    }
 	                  }
 	              	,{name:'找零金额',value:'changeAmount',type:"function", fun : function(obj){
 	                	return obj.changeAmount+".00元";;
 	                    }
-	                  }
+	                  }*/
 	              	
 	              	,{name:'支付方式',value:'payMethod',type:"function", fun : function(obj){
 	              		var html="";
@@ -94,8 +94,17 @@
 	                	return html;
 	                    }
 	                  }
-	              	 ,{name:'收营员',value:'cashierName'}
-                    ,{name:'创建时间',value:'createTime'}
+	              	 ,{name:'更新时间',value:'cashierName'}
+					, {
+						name: '操作', value: 'id', type: "function", fun: function (obj) {
+							var html = "";
+							// html+=" <a href='javascript:void(0)' class='btn-link' onclick='toDetailPage(" + obj.id + ")'>详细信息</a>"
+							html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage(" + obj.id + ")'>编辑</a>"
+							html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj(" + obj.id + ")'>删除</a>";
+							html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUserRole(" + obj.id + ")'>用户角色维护</a>"
+							return html;
+						}
+					}
                 ]
                 ,buttons:buttonsArr
             };

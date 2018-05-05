@@ -302,8 +302,8 @@ body {
 /*取消按钮*/
 .btn-warning {
     color: #fff;
-    background-color: #675c87;
-    border-color: #675c87;
+    background-color: #e5fa36;
+    border-color: #e5fa36;
 }
 .btn-warning:focus,
 .btn-warning.focus,
