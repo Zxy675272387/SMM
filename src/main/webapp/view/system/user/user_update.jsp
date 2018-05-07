@@ -46,7 +46,7 @@
 		                   <th>状态</th>
 		                     <td>
 		                        <div class="form-group ">
-		                            <select class="form-control"  name="unitType" id="unitType">
+		                            <select class="form-control"  name="state" id="state">
 					        			<option value="0" >停用</option>
 					        			<option value="1"  selected="selected">开启</option>
 					        		</select>

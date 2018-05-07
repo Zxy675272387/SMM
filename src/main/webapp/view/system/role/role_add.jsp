@@ -28,7 +28,7 @@
 		                            <input type="text" class="form-control"  placeholder="角色名称" name="roleName" value="">
 		                        </div>
 		                    </td>
-		                    <th><span class="required"></span>角色名描述</th>
+		                    <th>角色名描述</th>
 		                    <td>
 		                        <div class="form-group ">
 		                            <input type="text" class="form-control"  placeholder="角色名描述"  name="roleDesc" value="">

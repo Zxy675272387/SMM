@@ -271,7 +271,7 @@
 		parameterType="java.util.Map">
 		SELECT
 			goodsNormalPrice.id,
-			goodsNormalPrice.goods_id goodsId,
+			goods.id goodsId,
 			goodsNormalPrice.market_price marketPrice,
 			goodsNormalPrice.purchase_price  purchasePrice,
 			goodsNormalPrice.sale_price salePrice,

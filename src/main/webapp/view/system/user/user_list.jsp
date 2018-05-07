@@ -66,19 +66,6 @@
                     , {name: '真实姓名', value: 'userName'}
                     , {name: '手机号', value: 'phone'}
                     , {name: '更新时间', value: 'updateTime'}
-                    ,{
-                        name:'用户角色',value:'userType',type: "function", fun: function (obj){
-                            var html1 = "";
-                            if (obj.userType == '1') {
-                                html1 += "系统管理员";
-                            } else if (obj.userType == '2') {
-                                html1 += "非管理员";
-                            }else if (obj.userType == null) {
-                                html1 += "暂无";
-                            }
-                            return html1;
-                        }
-                    }
                     , {
                         name: '状态', value: 'state', type: "function", fun: function (obj) {
                             var html = "";
@@ -116,6 +103,7 @@
         $("#resetBtn").click(function () {
             $("input[name=userName]").val("");
             $("input[name=phone]").val("");
+            getData();
         });
 
     });

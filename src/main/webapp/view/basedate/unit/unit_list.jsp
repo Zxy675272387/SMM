@@ -63,7 +63,6 @@
                     ,{name:'英文名称',value:'unitEnglishName'}
                     ,{name:'最小单位',value:'minimumUnitType'}
                     ,{name:'最小单位值',value:'minimumUnitVal'}
-                    ,{name:'创建时间',value:'createTime'}
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'状态',value:'state',type:"function", fun : function(obj){
 	                    	var html="";
@@ -97,6 +96,7 @@
 		$("#resetBtn").click(function (){
 			$("input[name=unitName]").val("");
 			$("input[name=unitEnglishName]").val("");
+			getData();
 		});
 		
     });

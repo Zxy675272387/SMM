@@ -59,7 +59,7 @@
                 ,data:{'goodsName':$("[name=goodsName]").val()}
                 ,cloumns:[
 					 {name:'商品名称',value:'goodsName',type:"function", fun:function (obj) {
-						 return obj.goodsName+"("+obj.goodsId+")";;
+						 return obj.goodsName+"("+obj.goodsId+")";
 					 	}
 					 }
                     ,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
@@ -67,7 +67,10 @@
 	                    }
 	                  }
 	              	,{name:'市场价',value:'marketPrice',type:"function", fun : function(obj){
-		                	return obj.marketPrice+".00元";;
+		                	if(obj.marketPrice!=null)
+							{return obj.marketPrice+".00元";;}
+							else
+							{return "商品还未定价，";}
 	                    }
 	                  }
 	              	,{name:'销售价',value:'salePrice',type:"function", fun : function(obj){
