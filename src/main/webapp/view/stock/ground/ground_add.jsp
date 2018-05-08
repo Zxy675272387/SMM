@@ -78,7 +78,7 @@
 			return false;
 		}
 		if(number==null || number==''){
-			alert("登录名不能为空！");
+			alert("数量不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=number]").focus();
 			return false;
@@ -96,7 +96,7 @@
 	 			 	success : function(data) {
 	 				if(data.code==1){
 	 					alert("保存成功！");
-	 					var url=_path+"/invoicing/stock/ground/page/list";
+	 					var url=_path+"/invoicing/stock/ground/page/list?flag=1";
 	 					goBackPage(url);
 	 				}else{
 	 					alert("保存失败！");
@@ -109,7 +109,7 @@
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/stock/ground/page/list";
+		 var url=_path+"/invoicing/stock/ground/page/list?flag=1";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

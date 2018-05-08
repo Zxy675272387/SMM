@@ -30,10 +30,6 @@
 				<i class="icon-reply icon-only"></i>
 				重置
 			</button>
-			<button type="button" id="addBtn" class="btn btn-primary">
-			<i class="icon_add"></i>
-				新增
-			</button>
 		</div>
 	</div>
 	<!-- 列表：查询条件组装  end -->
@@ -68,7 +64,7 @@
                     ,{name:'更新时间',value:'updateTime'}
                     /*,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
-                    		
+
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj("+obj.id+")'>删除</a>";
 	                	return html;

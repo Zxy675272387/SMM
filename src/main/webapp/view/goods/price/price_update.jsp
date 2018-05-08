@@ -50,7 +50,14 @@
 		                        </div>
 		                    </td>
 		                </tr>
-
+						<tr>
+							<th>标注</th>
+							<td>
+								<div class="form-group ">
+									<input type="text" class="form-control"  placeholder="标注"  name="remark1" value="">
+								</div>
+							</td>
+						</tr>
 		                </tbody>
 		            </table>
 			        <div class="col-md-12 text-center btn-margin">
