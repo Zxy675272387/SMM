@@ -10,16 +10,16 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">价格管理</a></li>
 		<li><a href="####">编辑价格</a></li>
 	</ol>
 	<!-- user-form start //readonly="true" -->
 	<form class="add-form" id="price-update-form" method="post">
 			<input type="hidden" class="form-control"  name="id" value="${goodsPrice.id}">
-			<input type="hidden" class="form-control"  placeholder="请手机号"  name="goodsId" value="${goods.id}" readonly="true">
+			<input type="hidden" class="form-control"  name="goodsId" value="${goods.id}" readonly="true">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">编辑价格</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
@@ -33,20 +33,20 @@
 		                	<th><span class="required">*</span>采购价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder=" " name="salePrice" value="${goodsPrice.salePrice}">
+		                            <input type="text" class="form-control"  placeholder="输入采购价" name="salePrice" value="${goodsPrice.salePrice}">
 		                        </div>
 		                    </td>
 							<tr>
 		                    <th><span class="required">*</span>市场价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请输入字母"  name="marketPrice" value="${goodsPrice.marketPrice}">
+		                            <input type="text" class="form-control"  placeholder="输入市场价"  name="marketPrice" value="${goodsPrice.marketPrice}">
 		                        </div>
 		                    </td>
 		                    <th><span class="required">*</span>销售价</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="请手机号"  name="purchasePrice" value="${goodsPrice.purchasePrice}">
+		                            <input type="text" class="form-control"  placeholder="输入销售价"  name="purchasePrice" value="${goodsPrice.purchasePrice}">
 		                        </div>
 		                    </td>
 		                </tr>
@@ -75,25 +75,31 @@ $(document).ready(function(){
 	});
 	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var goodsId=$("input[name=goodsId]").val();
+		var salePrice=$("input[name=salePrice]").val();
+		var marketPrice=$("input[name=marketPrice]").val();
+		var purchasePrice=$("input[name=purchasePrice]").val();
+		if(goodsId==null || goodsId==''){
+			alert("商品id不能为空！");
+			$("input[name=goodsId]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+		if(salePrice==null || salePrice==''){
+			alert("价格不能为空！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=salePrice]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(marketPrice==null || marketPrice==''){
+			alert("价格不能为空！");
+			$("input[name=marketPrice]").focus();
 			return false;
-		}else*/{
+		}
+		if(purchasePrice==null || purchasePrice==''){
+			alert("价格不能为空！");
+			$("input[name=purchasePrice]").focus();
+			return false;
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/goods/price/update",

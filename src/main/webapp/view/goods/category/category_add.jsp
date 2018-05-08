@@ -10,9 +10,9 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">分类管理</a></li>
+		<li><a href="####">添加分类</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="category-add-form" method="post">

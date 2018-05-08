@@ -10,15 +10,15 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">编辑用户</a></li>
+		<li><a href="/index">库存管理</a></li>
+		<li><a href="####">库存信息管理</a></li>
+		<li><a href="####">编辑库存</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="user-update-form" method="post">
 			<input type="hidden" class="form-control"  name="id" value="${stock.id}">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">库存修改</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 						<tbody>
@@ -74,25 +74,25 @@ $(document).ready(function(){
 	});
 	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var instruction=$("input[name=instruction]").val();
+		var number=$("input[name=number]").val();
+		var name=$("input[name=name]").val();
+		if(instruction==null || instruction==''){
+			alert("商品名称不能为空！");
+			$("input[name=instruction]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
+		if(number==null || number==''){
 			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=number]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(name==null || name==''){
+			alert("库存地不能为空！");
+			$("input[name=name]").focus();
 			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/stock/ground/update",
@@ -100,11 +100,11 @@ $(document).ready(function(){
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
+	 					alert("保存成功！");
 	 					var url=_path+"/invoicing/stock/ground/page/list";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("保存失败！");
 	 				}
 	 			}
 	         });

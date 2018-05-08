@@ -31,7 +31,7 @@
 		                    <th><span class="required">*</span>入库数量</th>
 		                    <td>
 		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="库存地名称"  name="number" value="">
+		                            <input type="text" class="form-control"  placeholder="输入入库数量"  name="number" value="">
 		                        </div>
 		                    </td>
 		                </tr>
@@ -42,7 +42,7 @@
 		                            <input type="text" class="form-control"  placeholder="输入库存地" name="name" value="">
 		                        </div>
 		                    </td>
-							<th><span class="required">*</span>备注</th>
+							<th>备注</th>
 							<td>
 								<div class="form-group ">
 									<input type="text" class="form-control"  placeholder="输入备注" name="remark1" value="">
@@ -69,31 +69,25 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var instruction=$("input[name=instruction]").val();
+		var number=$("input[name=number]").val();
+		var name=$("input[name=name]").val();
+		if(instruction==null || instruction==''){
+			alert("商品名称不能为空！");
+			$("input[name=instruction]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
+		if(number==null || number==''){
 			alert("登录名不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
-			$("input[name=loginName]").focus();
+			$("input[name=number]").focus();
 			return false;
 		}
-		if(password==null || password==''){
-			alert("密码不能为空！");
-			$("input[name=password]").focus();
+		if(name==null || name==''){
+			alert("库存地不能为空！");
+			$("input[name=name]").focus();
 			return false;
-		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
-			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/stock/ground/add",

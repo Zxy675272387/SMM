@@ -10,7 +10,7 @@
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
 		<li><a href="/index">库存管理</a></li>
-		<li><a href="####">库存地管理</a></li>
+		<li><a href="####">库存信息管理</a></li>
 	</ol>
 
 	<!-- 列表：查询条件组装  start -->
@@ -33,10 +33,6 @@
 			<button type="button" id="addBtn" class="btn btn-primary">
 			<i class="icon_add"></i>
 				新增
-			</button>
-			<button type="button" id="alertBtn" class="btn btn-success">
-				<i class="icon-reply icon-only"></i>
-				预警
 			</button>
 		</div>
 	</div>
@@ -145,5 +141,6 @@
 		 //调用跳转方法
 		 goBackPage(url);
     }
+
     
 </script>

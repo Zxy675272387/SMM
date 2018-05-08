@@ -10,8 +10,8 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">商品管理</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">分类管理</a></li>
 		<li><a href="####">编辑分类</a></li>
 	</ol>
 	<!-- user-form start  -->

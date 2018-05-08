@@ -10,14 +10,14 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="/index">订单管理</a></li>
+		<li><a href="####">供应商管理</a></li>
+		<li><a href="####">添加供应商</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="user-add-form" method="post">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">新增供应商</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 						<tbody>
@@ -28,7 +28,7 @@
 									<input type="text" class="form-control"  placeholder="输入供应商名称" name="supplierName" value="${supplier.supplierName}">
 								</div>
 							</td>
-							<th><span class="required">*</span>供应商简称</th>
+							<th>供应商简称</th>
 							<td>
 								<div class="form-group ">
 									<input type="text" class="form-control"  placeholder="供应商简称"  name="supplierShortName" value="${supplier.supplierShortName}">
@@ -45,7 +45,7 @@
 							<th><span class="required">*</span>联系人电话</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="联系人电话"  name="linkmanPhone" value="${supplier.linkmanPhone}">
+									<input type="text" class="form-control"  placeholder="联系人电话"  name="linkmanPhone" value="">
 								</div>
 							</td>
 						</tr>
@@ -53,7 +53,7 @@
 							<th><span class="required">*</span>联系人邮箱</th>
 							<td>
 								<div class="form-group ">
-									<input type="text" class="form-control"  placeholder="联系人邮箱"  name="linkEmail" value="${supplier.linkEmail}">
+									<input type="text" class="form-control"  placeholder="联系人邮箱"  name="linkEmail" value="">
 								</div>
 							</td>
 							<th>所在省份</th>
@@ -94,31 +94,31 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var supplierName=$("input[name=supplierName]").val();
+		var linkmanName=$("input[name=linkmanName]").val();
+		var linkmanPhone=$("input[name=linkmanPhone").val();
+		var linkEmail=$("input[name=linkEmail]").val();
+		if(supplierName==null || supplierName==''){
+			alert("供应商名称不能为空不能为空！");
+			$("input[name=supplierName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
+		if(linkmanName==null ||linkmanName==''){
+			alert("联系人不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
-			$("input[name=loginName]").focus();
+			$("input[name=linkmanName]").focus();
 			return false;
 		}
-		if(password==null || password==''){
-			alert("密码不能为空！");
-			$("input[name=password]").focus();
+		if(linkmanPhone==null || linkmanPhone==''){
+			alert("联系电话不能为空！");
+			$("input[name=linkmanPhone]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(linkEmail==null || linkEmail==''){
+			alert("邮箱不能为空！");
+			$("input[name=linkEmail]").focus();
 			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/base/date/supplier/add",

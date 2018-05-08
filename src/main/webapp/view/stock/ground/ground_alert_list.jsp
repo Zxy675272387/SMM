@@ -10,7 +10,7 @@
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
 		<li><a href="/index">库存管理</a></li>
-		<li><a href="####">库存地管理</a></li>
+		<li><a href="####">库存预警</a></li>
 	</ol>
 
 	<!-- 列表：查询条件组装  start -->
@@ -66,14 +66,14 @@
                     ,{name:'库存地名称',value:'name'}
                     ,{name:'备注',value:'remark1'}
                     ,{name:'更新时间',value:'updateTime'}
-                    ,{name:'操作',value:'id',type:"function", fun : function(obj){
+                    /*,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
                     		
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj("+obj.id+")'>删除</a>";
 	                	return html;
                       }
-                    }
+                    }*/
                 ]
                 ,buttons:buttonsArr
             };

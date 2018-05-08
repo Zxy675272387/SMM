@@ -10,14 +10,14 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="/index">商品管理</a></li>
+		<li><a href="####">单位管理</a></li>
+		<li><a href="####">添加单位</a></li>
 	</ol>
 	<!-- user-form start  -->
-	<form class="add-form" id="user-add-form" method="post">
+	<form class="add-form" id="unit-add-form" method="post">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">新增单位</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 		                <tbody>
@@ -83,35 +83,35 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var unitName=$("input[name=unitName]").val();
+		var unitEnglishName=$("input[name=unitEnglishName]").val();
+		var minimumUnitType=$("input[name=minimumUnitType]").val();
+		var minimumUnitVal=$("input[name=minimumUnitVal]").val();
+		if(unitName==null || unitName==''){
+			alert("单位名称不能为空！");
+			$("input[name=unitName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
+		if(unitEnglishName==null || unitEnglishName==''){
+			alert("英文名称不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
-			$("input[name=loginName]").focus();
+			$("input[name=unitEnglishName]").focus();
 			return false;
 		}
-		if(password==null || password==''){
-			alert("密码不能为空！");
-			$("input[name=password]").focus();
+		if(minimumUnitType==null || minimumUnitType==''){
+			alert("最小单位类型不能为空！");
+			$("input[name=minimumUnitType]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(minimumUnitVal==null || minimumUnitVal==''){
+			alert("最小值不能为空！");
+			$("input[name=minimumUnitVal]").focus();
 			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/base/date/unit/add",
-	 			 data:$('#user-add-form').serialize(),// 你的formid
+	 			 data:$('#unit-add-form').serialize(),// 你的formid
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){

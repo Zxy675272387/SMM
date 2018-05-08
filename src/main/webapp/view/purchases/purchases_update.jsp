@@ -10,15 +10,15 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">编辑用户</a></li>
+		<li><a href="/index">订单管理</a></li>
+		<li><a href="####">订单管理</a></li>
+		<li><a href="####">编辑订单</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="update-form" id="purchases-update-form" method="post">
 			<input type="hidden" class="form-control"  name="id" value="${purchases.id}">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">修改订单</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 						<tbody>
@@ -73,7 +73,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th><span class="required">*</span>下单原因</th>
+							<th>下单原因</th>
 							<td>
 								<div class="form-group ">
 									<input type="text" class="form-control"  placeholder="请输入下单原因"  name="remark1" value="${purchases.remark1}">
@@ -111,25 +111,36 @@ $(document).ready(function(){
 	});
 	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
+		var purchaseOrderNo=$("input[name=purchaseOrderNo]").val();
+		var purchaseNumber=$("input[name=purchaseNumber]").val();
+		var purchasePrice=$("input[name=purchasePrice]").val();
+		var totalAmount=$("input[name=totalAmount]").val();
+		var remark2=$("input[name=remark2]").val();
+		if(purchaseOrderNo==null || purchaseOrderNo==''){
 			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+			$("input[name=purchaseOrderNo]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+		if(purchaseNumber==null || purchaseNumber==''){
+			alert("数量不能为空！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=purchaseNumber]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(purchasePrice==null || purchasePrice==''){
+			alert("采购价格不能为空！");
+			$("input[name=purchasePrice]").focus();
 			return false;
-		}else*/{
+		}
+		if(totalAmount==null || totalAmount==''){
+			alert("总价不能为空！");
+			$("input[name=totalAmount]").focus();
+			return false;
+		}if(remark2==null || remark2==''){
+			alert("订单货品不能为空！");
+			$("input[name=remark2]").focus();
+			return false;
+		}else{
 			$.ajax({
 	 			type: "post",
 	 			url : _path+"/invoicing/purchases/refund/update",

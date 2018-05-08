@@ -25,7 +25,7 @@
 						<th><span class="required">*</span>机构名称</th>
 						<td>
 							<div class="form-group ">
-								<input type="text" class="form-control"  placeholder="最多可输入20个汉字" name="orgName" value="">
+								<input type="text" class="form-control"  placeholder="输入机构名称" name="orgName" value="">
 							</div>
 						</td>
 						<th><span class="required">*</span>机构编码</th>
@@ -104,14 +104,14 @@
 			$("input[name=password]").focus();
 			return false;
 		}
-		/*if(contactPhone.toString().length!=11)
-		{
-			alert("手机号必须为11位");
-			$("input[name=contactPhone]").focus();
-			return false;
-		}*/
 		if(contactPhone==null || contactPhone==''){
 			alert("手机号不能为空！");
+			$("input[name=contactPhone]").focus();
+			return false;
+		}
+		if(contactPhone.toString().length!=11)
+		{
+			alert("手机号必须为11位");
 			$("input[name=contactPhone]").focus();
 			return false;
 		}else {

@@ -109,17 +109,17 @@
 			$("input[name=password]").focus();
 			return false;
 		}
-		/*if(contactPhone.toString().length!=11)
-		 {
-		 alert("手机号必须为11位");
-		 $("input[name=contactPhone]").focus();
-		 return false;
-		 }*/
 		if(contactPhone==null || contactPhone==''){
 			alert("手机号不能为空！");
 			$("input[name=contactPhone]").focus();
 			return false;
-		}else {
+		}
+		if(contactPhone.toString().length!=11)
+		 {
+		 alert("手机号必须为11位");
+		 $("input[name=contactPhone]").focus();
+		 return false;
+		 }else {
 			$.ajax({
 				type : "post",
 				url : _path+"/invoicing/system/org/update",

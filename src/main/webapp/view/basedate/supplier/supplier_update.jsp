@@ -10,9 +10,9 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">采购管理</a></li>
+		<li><a href="/index">订单管理</a></li>
 		<li><a href="####">供应商管理</a></li>
-		<li><a href="####">编辑用户</a></li>
+		<li><a href="####">编辑供应商</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="update-form" id="supplier-update-form" method="post">
@@ -95,27 +95,32 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	});
-	//编辑用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var supplierName=$("input[name=supplierName]").val();
+		var linkmanName=$("input[name=linkmanName]").val();
+		var linkmanPhone=$("input[name=linkmanPhone").val();
+		var linkEmail=$("input[name=linkEmail]").val();
+		if(supplierName==null || supplierName==''){
+			alert("供应商名称不能为空不能为空！");
+			$("input[name=supplierName]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
-			$("input[name=loginName]").focus();
+		if(linkmanName==null ||linkmanName==''){
+			alert("联系人不能为空！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=linkmanName]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(linkmanPhone==null || linkmanPhone==''){
+			alert("联系电话不能为空！");
+			$("input[name=linkmanPhone]").focus();
 			return false;
-		}else*/{
+		}
+		if(linkEmail==null || linkEmail==''){
+			alert("邮箱不能为空！");
+			$("input[name=linkEmail]").focus();
+			return false;
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/base/date/supplier/update",

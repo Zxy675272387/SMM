@@ -78,8 +78,8 @@
 	                    }
 	                  }
 	              	,{name:'标注',value:'remark1'}
-                    ,{name:'创建时间',value:'createTime'}
-                   // ,{name:'更新时间',value:'updateTime'}
+                    //,{name:'创建时间',value:'createTime'}
+                   ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
 	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"

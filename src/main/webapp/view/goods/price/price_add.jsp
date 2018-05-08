@@ -10,14 +10,14 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">系统管理</a></li>
-		<li><a href="####">用户管理</a></li>
-		<li><a href="####">添加用户</a></li>
+		<li><a href="/index">送管理</a></li>
+		<li><a href="####">价格管理</a></li>
+		<li><a href="####">添加价格</a></li>
 	</ol>
 	<!-- user-form start  -->
 	<form class="add-form" id="price-add-form" method="post">
         	<div class="panel panel-default">
-	            <div class="panel-heading">新增用户</div>
+	            <div class="panel-heading">新增价格</div>
 	            <div class="panel-body table_add">
 		            <table class="table half-table">
 						<tbody>
@@ -69,31 +69,31 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		/*var userName=$("input[name=userName]").val();
-		var loginName=$("input[name=loginName]").val();
-		var password=$("input[name=password]").val();
-		var phone=$("input[name=phone]").val();
-		if(userName==null || userName==''){
-			alert("姓名不能为空！");
-			$("input[name=userName]").focus();
+		var goodsId=$("input[name=goodsId]").val();
+		var salePrice=$("input[name=salePrice]").val();
+		var marketPrice=$("input[name=marketPrice]").val();
+		var purchasePrice=$("input[name=purchasePrice]").val();
+		if(goodsId==null || goodsId==''){
+			alert("商品id不能为空！");
+			$("input[name=goodsId]").focus();
 			return false;
 		}
-		if(loginName==null || loginName==''){
-			alert("登录名不能为空！");
+		if(salePrice==null || salePrice==''){
+			alert("价格不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
-			$("input[name=loginName]").focus();
+			$("input[name=salePrice]").focus();
 			return false;
 		}
-		if(password==null || password==''){
-			alert("密码不能为空！");
-			$("input[name=password]").focus();
+		if(marketPrice==null || marketPrice==''){
+			alert("价格不能为空！");
+			$("input[name=marketPrice]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(purchasePrice==null || purchasePrice==''){
+			alert("价格不能为空！");
+			$("input[name=purchasePrice]").focus();
 			return false;
-		}else*/{
+		}else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/goods/price/add",
