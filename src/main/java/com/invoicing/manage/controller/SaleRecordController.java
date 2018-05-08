@@ -73,6 +73,38 @@ public class SaleRecordController {
 		return new SuccessResponseEntity(saleRecordList);
 		
 	}
+	/**
+	 * goToSaleRecordList 销售记录列表页
+	 * @return 返回类型为 ModelAndView
+	 * @exception
+	 * @since JDK 1.7
+	 */
+	@RequestMapping(value = "/page/list/top", method = RequestMethod.GET)
+	public ModelAndView goToSaleRecordListTop(){
+		String url="/sale/sale_record_list_top";
+		return new ModelAndView(url);
+	}
+
+	/**
+	 * getSaleRecordEntityList 获取销售记录列表
+	 * @param saleRecordRequestEntity
+	 * @return 返回类型为 ResponseEntity
+	 * @exception
+	 * @since JDK 1.7
+	 */
+
+	@RequestMapping(value = "/page/list/top", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity getSaleRecordListTop(SaleRecordRequestEntity saleRecordRequestEntity){
+		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，请求参数："+JSON.toJSONString(saleRecordRequestEntity));
+		PageInfo<SaleRecordEntity> pageInfo=new PageInfo<SaleRecordEntity>();
+		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
+		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
+		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getListTop(pageInfo);
+		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
+		return new SuccessResponseEntity(saleRecordList);
+
+	}
 	
 	/**
 	 * goToSaleRecordAdd 销售记录添加页
@@ -121,6 +153,21 @@ public class SaleRecordController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView goToSaleRecordUpdate(@RequestParam Long id,ModelMap modelMap){
 		String url="/sale/record/sale_record_update";
+		SaleRecordEntity brandEntity=saleRecordService.selectByPrimaryKey(id);
+		if(null!=brandEntity){
+			modelMap.put("brand", brandEntity);
+		}
+		return new ModelAndView(url,modelMap);
+	}
+	/**
+	 * goToSaleRecordUpdate 销售记录编辑页
+	 * @return 返回类型为 ModelAndView
+	 * @exception
+	 * @since JDK 1.7
+	 */
+	@RequestMapping(value = "/update/top", method = RequestMethod.GET)
+	public ModelAndView goToSaleRecordUpdateTop(@RequestParam Long id,ModelMap modelMap){
+		String url="/sale/sale_record_update_top";
 		SaleRecordEntity brandEntity=saleRecordService.selectByPrimaryKey(id);
 		if(null!=brandEntity){
 			modelMap.put("brand", brandEntity);

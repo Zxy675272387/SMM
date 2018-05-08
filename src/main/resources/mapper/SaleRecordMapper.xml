@@ -285,6 +285,18 @@
             and goods.goods_name like concat('%', #{goodsName}, '%')
         </if>
     </select>
+    <select id="getListTop" resultMap="BaseResultMap"
+            parameterType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        goods.goods_name goodsName,
+        goods.remark1 unitName
+        FROM
+        sale_record_tb saleRecord
+        LEFT JOIN goods_tb goods
+        ON saleRecord.goods_id = goods.id
+        where saleRecord.sale_number > 10
+    </select>
     <select id="getListCount" resultType="java.lang.Integer"
             parameterType="java.util.Map">
         select
@@ -292,6 +304,12 @@
         from sale_record_tb saleRecord
         where 1=1
         <include refid="whereSQL"/>
+    </select>
+    <select id="getListCountTop" resultType="java.lang.Integer">
+        select
+        count(saleRecord.id)
+        from sale_record_tb saleRecord
+         where saleRecord.sale_number > 10
     </select>
     <sql id="whereSQL">
         <if test="id != null">

@@ -25,7 +25,7 @@
 					<tr>
 						<th><span class="required">*</span>商品名称</th>
 						<td>
-							<div class="form-group ">
+							<div class="form-group " id="goodsNameSelect">
 								<input type="text" class="form-control" placeholder="请输入商品名称" name="goodsName"
 									   value="${brand.goodsName}">
 							</div>
@@ -106,17 +106,41 @@
 	<!-- user-form end -->
 </div>
 <script type="text/javascript">
+    var goods;
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: _path + "/invoicing/goods/info/list",
+            success: function (res) {
+                goods = res.data;
+                if (goods.length > 0) {
+                    var tmpHTML = "<select class=\"form-control\" name=\"goodsId\" onchange='change()'>";
+                    goods.forEach(function (good) {
+                        tmpHTML += "<option value=\""+good.id+"\">"+good.goodsName+"</option>";
+                    })
+                    tmpHTML += "</select>"
+                    $("#goodsNameSelect").html(tmpHTML);
+                }
+            },
+            error: function (e) {
+                alert("获取商品列表失败");
+            }
+        });
+    });
+    function change() {
+        var id = $("select[name=goodsId]").val();
+        var goodsPrice;
+        goods.forEach(function (good) {
+            if (good.id == id) {
+                // goodsPrice = good.goodsPrice;
+            }
+        });
+    }
     //添加用户
     $("#addBtn").click(function () {
-        var goodsName = $("input[name=goodsName]").val();
         var salePrice = $("input[name=salePrice]").val();
         var saleNumber = $("input[name=saleNumber]").val();
         var paidAmount = $("input[name=paidAmount]").val();
-        if (goodsName == null || goodsName == '') {
-            alert("商品名称不能为空！");
-            $("input[name=userName]").focus();
-            return false;
-        }
         if (salePrice == null || salePrice == '') {
             alert("单价不能为空！");
             //timedTaskFun(2000,'登录名不能为空！','','err');
