@@ -53,7 +53,7 @@ public class SaleRecordController {
 		
 	/**
 	 * getSaleRecordEntityList 获取销售记录列表
-	 * @param requestParams
+	 * @param saleRecordRequestEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -67,6 +67,7 @@ public class SaleRecordController {
 		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
 		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("goodsName", saleRecordRequestEntity.getGoodsName());
 		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getList(pageInfo, params);
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
 		return new SuccessResponseEntity(saleRecordList);
@@ -87,7 +88,7 @@ public class SaleRecordController {
 	
 	/**
 	 * addSaleRecordEntity 新建销售记录
-	 * @param requestParams
+	 * @param brandEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -97,6 +98,9 @@ public class SaleRecordController {
 	public ResponseEntity addSaleRecord(SaleRecordEntity brandEntity){
 		try {
 			logger.debug("新建销售记录，传入参数为："+JSON.toJSONString(brandEntity));
+			Date date = new Date(System.currentTimeMillis());
+			brandEntity.setUpdateTime(date);
+			brandEntity.setCreateTime(date);
 			int result = saleRecordService.insertSelective(brandEntity);
 			logger.debug("新建销售记录，返回结果为："+JSON.toJSONString(result));
 			return new SuccessResponseEntity();
@@ -126,7 +130,7 @@ public class SaleRecordController {
 	
 	/**
 	 * updateSaleRecordEntity 修改销售记录
-	 * @param SaleRecordEntity
+	 * @param brandEntity
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -136,6 +140,8 @@ public class SaleRecordController {
 	public ResponseEntity updateSaleRecord(SaleRecordEntity brandEntity){
 		try {
 			logger.debug("编辑销售记录，传入参数为："+JSON.toJSONString(brandEntity));
+			Date date = new Date(System.currentTimeMillis());
+			brandEntity.setUpdateTime(date);
 			int result = saleRecordService.updateByPrimaryKeySelective(brandEntity);
 			logger.debug("编辑销售记录，返回结果为："+JSON.toJSONString(result));
 			return new SuccessResponseEntity();
@@ -148,7 +154,7 @@ public class SaleRecordController {
 	
 	/**
 	 * delSaleRecordEntity 删除销售记录
-	 * @param SaleRecordEntity
+	 * @param id
 	 * @return 返回类型为 ResponseEntity
 	 * @exception
 	 * @since JDK 1.7
@@ -158,12 +164,8 @@ public class SaleRecordController {
 	public ResponseEntity delSaleRecord(@RequestParam Long id){
 		try {
 			if(null!=String.valueOf(id)){
-				SaleRecordEntity brandEntity=new SaleRecordEntity ();
-				brandEntity.setId(id);
-				brandEntity.setIsDelete(1);
-				brandEntity.setUpdateTime(new Date());
-				logger.debug("删除销售记录，传入参数为："+JSON.toJSONString(brandEntity));
-				int result = saleRecordService.updateByPrimaryKeySelective(brandEntity);
+				logger.debug("删除销售记录，传入参数为："+id);
+				int result = saleRecordService.deleteByPrimaryKey(id);
 				logger.debug("删除销售记录，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

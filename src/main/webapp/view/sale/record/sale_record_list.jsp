@@ -9,15 +9,15 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
-		<li><a href="/index">销售管理</a></li>
-		<li><a href="####">销售记录管理</a></li>
+		<li><a href="#">销售管理</a></li>
+		<li><a href="#">销售记录管理</a></li>
 	</ol>
 
 	<!-- 列表：查询条件组装  start -->
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="userName" class="form-control"placeholder="商品名称"> 
+				<input type="text" name="goodsName" class="form-control"placeholder="商品名称">
 			</div>
 		</div>
 		<div class="panel-footer">
@@ -55,7 +55,7 @@
                 url:_path+"/invoicing/sale/record/page/list"
                 ,checkAll:false
                 //查询条件
-                ,data:{'payMethod':$("[name=payMethod]").val()}
+                ,data:{'goodsName':$("[name=goodsName]").val()}
                 ,cloumns:[
 					 {name:'商品名称',value:'goodsName'}
                     ,{name:'单价',value:'salePrice',type:"function", fun : function(obj){
@@ -94,14 +94,13 @@
 	                	return html;
 	                    }
 	                  }
-	              	 ,{name:'更新时间',value:'cashierName'}
+	              	 ,{name:'更新时间',value:'updateTime'}
 					, {
 						name: '操作', value: 'id', type: "function", fun: function (obj) {
 							var html = "";
 							// html+=" <a href='javascript:void(0)' class='btn-link' onclick='toDetailPage(" + obj.id + ")'>详细信息</a>"
 							html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage(" + obj.id + ")'>编辑</a>"
 							html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj(" + obj.id + ")'>删除</a>";
-							html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUserRole(" + obj.id + ")'>用户角色维护</a>"
 							return html;
 						}
 					}
@@ -118,8 +117,8 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+            $("[name=goodsName]").val("")
+            getData();
 		});
 		
     });
@@ -142,7 +141,7 @@
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
     					alert("销售记录删除成功！")
-    					var url = _path+"/invoicing/sale/record/list";
+    					var url = _path+"/invoicing/sale/record/page/list";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'销售记录删除失败','','err');
@@ -170,8 +169,8 @@
 		});    
     });
     //编辑销售记录信息
-    function toUpdatePage(userId){
-    	 var url=_path+"/invoicing/sale/record/update?userId="+userId;
+    function toUpdatePage(id){
+    	 var url=_path+"/invoicing/sale/record/update?id="+id;
 		 //调用跳转方法
 		 goBackPage(url);
     }

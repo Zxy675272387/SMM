@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>用户添加页</title>
+	<title>机构添加页</title>
 </head>
 <body>
 <div class="container-fluid">
