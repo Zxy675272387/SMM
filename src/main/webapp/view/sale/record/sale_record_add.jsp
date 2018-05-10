@@ -12,7 +12,7 @@
         <span>当前位置：</span>
         <li><a href="#">报表统计</a></li>
         <li><a href="#">销售额统计</a></li>
-        <li><a href="#">添加销售（演示用，并非实际产生销售记录的接口）</a></li>
+        <li><a href="#">添加销售</a></li>
     </ol>
     <!-- user-form start  -->
     <form class="add-form" id="user-add-form" method="post">
@@ -146,13 +146,28 @@
             $("input[name=loginName]").focus();
             return false;
         }
+        if (salePrice < 0 ) {
+            alert("数量不能为负！");
+            $("input[name=phone]").focus();
+            return false;
+        }
         if (saleNumber == null || saleNumber == '') {
             alert("数量不能为空！");
             $("input[name=password]").focus();
             return false;
         }
+        if (saleNumber < 0 ) {
+            alert("数量不能为负！");
+            $("input[name=phone]").focus();
+            return false;
+        }
         if (paidAmount == null || paidAmount == '') {
             alert("总额不能为空！");
+            $("input[name=phone]").focus();
+            return false;
+        }
+        if (paidAmount < 0 ) {
+            alert("总额不能为负！");
             $("input[name=phone]").focus();
             return false;
         } else {

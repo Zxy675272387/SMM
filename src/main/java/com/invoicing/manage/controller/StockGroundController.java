@@ -79,9 +79,9 @@ public class StockGroundController {
 		PageInfo<StockGroundEntity> stockGroundList = stockGroundService.getList(pageInfo, params);
 		logger.debug("method [getStockGroundEntityList] 查询库存地管理列表，返回结果为："+JSON.toJSONString(stockGroundList));
 		return new SuccessResponseEntity(stockGroundList);
-		
+
 	}
-	
+
 	/**
 	 * goToStockGroundAdd 库存地管理添加页
 	 * @return 返回类型为 ModelAndView

@@ -6,6 +6,7 @@
         height: 25px;
     }
 </style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style2.css" />
 <div class="container-fluid">
     <ol class="breadcrumb">
         <span>当前位置：</span>
@@ -70,9 +71,14 @@
                         name: '状态', value: 'state', type: "function", fun: function (obj) {
                             var html = "";
                             if (obj.state == '0') {
-                                html += "停用";
+                                html +=
+                                        "<input type='checkbox'' class='uiswitch' disabled>" +
+                                        "<h6>关闭</h6>";
+
                             } else if (obj.state == '1') {
-                                html += "开启";
+                                html +=
+                                        "<input type='checkbox'' class='uiswitch' checked disabled>" +
+                                        "<h6>开启</h6>";
                             }
                             return html;
                         }

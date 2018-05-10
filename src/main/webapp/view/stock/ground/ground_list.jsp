@@ -58,7 +58,8 @@
                 ,checkAll:false
                 //查询条件
                 ,data:{'instruction':$("[name=instruction]").val()
-                	  ,'name':$("[name=name]").val()}
+                	  ,'name':$("[name=name]").val()
+                }
                 ,cloumns:[
 					 {name:'商品名称',value:'instruction'}
 					,{name:'库存数量',value:'number'}
@@ -115,7 +116,7 @@
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
     					alert("库存地删除成功！")
-    					var url = _path+"/invoicing/stock/ground/page/list";
+    					var url = _path+"/invoicing/stock/ground/page/list?flag=1";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'库存地删除失败','','err');

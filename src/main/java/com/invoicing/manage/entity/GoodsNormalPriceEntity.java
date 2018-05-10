@@ -16,15 +16,15 @@ public class GoodsNormalPriceEntity extends BaseEntity {
     /**
      * 售价(单位分)
      */
-    private Long salePrice;
+    private float salePrice;
     /**
      * 市场价(单位分)
      */
-    private Long marketPrice;
+    private float marketPrice;
     /**
      * 采购价(单位分)
      */
-    private Long purchasePrice;
+    private float purchasePrice;
     /**
      * 商品主表ID
      */
@@ -110,37 +110,37 @@ public class GoodsNormalPriceEntity extends BaseEntity {
 	/**
 	 * 设置售价(单位分)
 	 */
-    public void setSalePrice(Long salePrice) {
+    public void setSalePrice(float salePrice) {
         this.salePrice = salePrice;
     }
     /**
      * 获取售价(单位分)
      */
-    public Long getSalePrice() {
+    public float getSalePrice() {
         return this.salePrice;
     }
 	/**
 	 * 设置市场价(单位分)
 	 */
-    public void setMarketPrice(Long marketPrice) {
+    public void setMarketPrice(float marketPrice) {
         this.marketPrice = marketPrice;
     }
     /**
      * 获取市场价(单位分)
      */
-    public Long getMarketPrice() {
+    public float getMarketPrice() {
         return this.marketPrice;
     }
 	/**
 	 * 设置采购价(单位分)
 	 */
-    public void setPurchasePrice(Long purchasePrice) {
+    public void setPurchasePrice(float purchasePrice) {
         this.purchasePrice = purchasePrice;
     }
     /**
      * 获取采购价(单位分)
      */
-    public Long getPurchasePrice() {
+    public float getPurchasePrice() {
         return this.purchasePrice;
     }
 	/**

@@ -63,22 +63,22 @@
 					 	}
 					 }
                     ,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
-						if(obj.purchasePrice!=null)
-						{return obj.purchasePrice+".00元";;}
+						if(obj.purchasePrice!=0)
+						{return obj.purchasePrice+"元";;}
 						else
 						{return "商品还未定价，";}
 	                    }
 	                  }
 	              	,{name:'市场价',value:'marketPrice',type:"function", fun : function(obj){
-		                	if(obj.marketPrice!=null)
-							{return obj.marketPrice+".00元";;}
+		                	if(obj.marketPrice!=0)
+							{return obj.marketPrice+"元";;}
 							else
 							{return "根据商品括号数字，";}
 	                    }
 	                  }
 	              	,{name:'销售价',value:'salePrice',type:"function", fun : function(obj){
-						if(obj.salePrice!=null)
-						{return obj.salePrice+".00元";;}
+						if(obj.salePrice!=0)
+						{return obj.salePrice+"元";;}
 						else
 						{return "点击新增定价";}
 	                    }

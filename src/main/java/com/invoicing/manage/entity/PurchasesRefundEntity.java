@@ -26,7 +26,7 @@ public class PurchasesRefundEntity extends BaseEntity {
     /**
      * 采购价
      */
-    private Long purchasePrice;
+    private float purchasePrice;
     /**
      * 采购数量
      */
@@ -34,7 +34,7 @@ public class PurchasesRefundEntity extends BaseEntity {
     /**
      * 商品总额
      */
-    private Long totalAmount;
+    private float totalAmount;
     /**
      * 是否删除(0，否;1，是)
      */
@@ -127,13 +127,13 @@ public class PurchasesRefundEntity extends BaseEntity {
 	/**
 	 * 设置采购价
 	 */
-    public void setPurchasePrice(Long purchasePrice) {
+    public void setPurchasePrice(float purchasePrice) {
         this.purchasePrice = purchasePrice;
     }
     /**
      * 获取采购价
      */
-    public Long getPurchasePrice() {
+    public float getPurchasePrice() {
         return this.purchasePrice;
     }
 	/**
@@ -151,13 +151,13 @@ public class PurchasesRefundEntity extends BaseEntity {
 	/**
 	 * 设置商品总额
 	 */
-    public void setTotalAmount(Long totalAmount) {
+    public void setTotalAmount(float totalAmount) {
         this.totalAmount = totalAmount;
     }
     /**
      * 获取商品总额
      */
-    public Long getTotalAmount() {
+    public float getTotalAmount() {
         return this.totalAmount;
     }
 	/**

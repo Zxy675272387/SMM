@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>编辑用户信息</title>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css" />
 </head>
 <body>
 <div class="container-fluid">

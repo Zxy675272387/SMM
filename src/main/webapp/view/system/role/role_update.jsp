@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>角色编辑页</title>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css" />
 </head>
 <body>
 <div class="container-fluid">
@@ -38,14 +39,16 @@
 		                </tr>
 		                <tr>
 		                	<th>状态</th>
-		                     <td>
-		                        <div class="form-group ">
-		                            <select class="form-control"  name="hasvalid" id="hasvalid">
-					        			<option value="0" >停用</option>
-					        			<option value="1"  selected="selected">开启</option>
-					        		</select>
-		                        </div>
-		                     </td>
+							<td><div class="wrapper">
+								<section class="fields section">
+									<div class="fields__item">
+										<input type="checkbox" class="uiswitch"  name="hasvalid" id="hasvalid"  value="0">
+										<h6>默认关闭</h6>
+									</div>
+								</section>
+							</div>
+
+							</td>
 		                    <th></th>
 		                    <td>
 		                    </td>
@@ -70,6 +73,15 @@
 <script type="text/javascript">
 	$("#addBtn").click(function (){
 		var roleName=$("input[name=roleName]").val();
+		var zxy=document.getElementById('hasvalid');
+		if(zxy.checked)
+		{
+			zxy.value=1;
+		}
+		else {
+			zxy.checked=true;
+			zxy.value=0;
+		}
 		if(roleName==null || roleName==''){
 			alert("角色名不能为空！");
 			$("input[name=orgName]").focus();

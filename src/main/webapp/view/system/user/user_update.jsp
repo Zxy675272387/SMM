@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>编辑用户信息</title>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css" />
 </head>
 <body>
 <div class="container-fluid">
@@ -43,15 +44,16 @@
 		                            <input type="text" class="form-control"  placeholder="请输入手机号"  name="phone" value="${user.phone}">
 		                        </div>
 		                    </td>
-		                   <th>状态</th>
-		                     <td>
-		                        <div class="form-group ">
-		                            <select class="form-control"  name="state" id="state">
-					        			<option value="0" >停用</option>
-					        			<option value="1"  selected="selected">开启</option>
-					        		</select>
-		                        </div>
-		                     </td>
+							<th><span class="required">*</span>用户状态</th>
+							<td><div class="wrapper">
+								<section class="fields section">
+									<div class="fields__item">
+										<input type="checkbox" class="uiswitch"  name="state" id="state"  value="0" checked>
+										<h6>默认关闭</h6>
+									</div>
+								</section>
+								</div>
+							</td>
 		                </tr>
 		                </tbody>
 		            </table>
@@ -80,6 +82,15 @@ $(document).ready(function(){
 		var userName=$("input[name=userName]").val();
 		var loginName=$("input[name=loginName]").val();
 		var phone=$("input[name=phone]").val();
+		var zxy=document.getElementById('state');
+		if(zxy.checked)
+		{
+			zxy.value=1;
+		}
+		else {
+			zxy.checked=true;
+			zxy.value=0;
+		}
 		if(userName==null || userName==''){
 			alert("姓名不能为空！");
 			$("input[name=userName]").focus();

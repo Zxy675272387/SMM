@@ -61,8 +61,14 @@
                 ,cloumns:[
 					 {name:'采购单号',value:'purchaseOrderNo'}
                     ,{name:'采购数量',value:'purchaseNumber'}
-                    ,{name:'采购价',value:'purchasePrice'}
-                    ,{name:'采购总额',value:'totalAmount'}
+					,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
+						return obj.purchasePrice+"元";;
+					}
+					}
+					,{name:'采购总额',value:'totalAmount',type:"function", fun : function(obj){
+						return obj.totalAmount+"元";;
+					}
+					}
                     ,{name:'下单原因',value:'remark1'}
                      ,{name:'货物种类',value:'remark2'}
                    /* ,{name:'创建时间',value:'createTime'}*/

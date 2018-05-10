@@ -57,13 +57,14 @@
 		                </tr>
 						<tr>
 							<th>菜单状态</th>
-							<td>
-								<div class="form-group ">
-									<select class="form-control"  name="hasvalid" id="hasvalid">
-										<option value="0" selected="selected">停用</option>
-										<option value="1">开启</option>
-									</select>
-								</div>
+							<td><div class="wrapper">
+								<section class="fields section">
+									<div class="fields__item">
+										<input type="checkbox" class="uiswitch"  name="hasvalid" id="hasvalid"  value="0">
+										<h6>默认关闭</h6>
+									</div>
+								</section>
+							</div>
 							</td>
 						</tr>
 		                </tbody>
@@ -88,14 +89,22 @@
 		//加载父菜单
 		loadPAuth();
 	});
-	$("#addBtn").click(function (){
-		$("#addBtn").click(function (){
-			var name=$("input[name=name]").val();
-			if(name==null || name==''){
+	$("#addBtn").click(function () {
+		$("#addBtn").click(function () {
+			var name = $("input[name=name]").val();
+			var zxy = document.getElementById('hasvalid');
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else{
+				zxy.checked=true;
+				zxy.value=0;
+			}
+			if (name == null || name == '') {
 				alert("菜单名不能为空！");
 				$("input[name=name]").focus();
 				return false;
-			}else {
+			} else {
 				$.ajax({
 					type: "post",
 					url: _path + "/invoicing/system/authority/add?__" + (new Date()).getTime(),
@@ -114,8 +123,9 @@
 					}
 				});
 			}
-	});
-	
+		});
+	}
+
 	//返回列表页
 	$("#cancelBtn").click(function (){
 		var url=_path+"/invoicing/system/authority/list";
@@ -137,6 +147,7 @@
 		});
 		selectParenAuth.append(optionStr);
 	}
+
 </script>
 </body>
 </html>

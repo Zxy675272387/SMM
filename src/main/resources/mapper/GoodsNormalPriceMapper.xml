@@ -279,13 +279,12 @@
 			goodsNormalPrice.create_time createTime,
 		 	goodsNormalPrice.remark1 remark1,
 			goodsNormalPrice.update_time updateTime
-
-		
 		FROM
 			goods_normal_price_tb goodsNormalPrice
 		RIGHT JOIN goods_tb goods 
 		ON goodsNormalPrice.goods_id = goods.id 
  		 <include refid="whereSQL"/>
+		 ORDER BY goods.id DESC
 	</select>
 	 <select id="getListCount" resultType="java.lang.Integer"
 		parameterType="java.util.Map">

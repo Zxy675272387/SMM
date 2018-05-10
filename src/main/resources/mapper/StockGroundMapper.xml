@@ -246,9 +246,9 @@
  		 <if test="id != null">
  			 and stockGround.id = #{id}
  		  </if>
- 		 <if test="number != null">
- 			 and stockGround.number = #{number}
- 		  </if>
+		 <if test="number != null and number!=''">
+			 and  #{number} >= cast(stockGround.number as unsigned int)
+		 </if>
  		 <if test="name != null and name != ''">
  			 and stockGround.name = #{name}
  		  </if>

@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户添加页</title>
+	<style>
+
+	</style>
 </head>
 <body>
 <div class="container-fluid">
@@ -66,6 +69,7 @@
 		                     </td>
 		                     <th></th>
 			                 <td>
+
 			                 </td>
 		                    </tr>
 		                </tbody>
@@ -91,6 +95,7 @@
 		var goodsName=$("input[name=goodsName]").val();
 		var goodsShortName=$("input[name=goodsShortName]").val();
 		var goodsSpu=$("input[name=goodsSpu]").val();
+
 		if(goodsName==null || goodsName==''){
 			alert("商品名称不能为空！");
 			$("input[name=goodsName]").focus();
@@ -133,4 +138,5 @@
 	});
 </script>
 </body>
+
 </html>

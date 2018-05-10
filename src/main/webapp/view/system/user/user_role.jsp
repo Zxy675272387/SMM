@@ -75,22 +75,24 @@
 					 //console.log(obj.id+"---"+obj.roleName);
 					 //roleList.append("<li> <input type='radio' name='roleId' value='").after(obj.id).after("' class='radio' >").after(obj.roleName).after("</li>");
 					//回显已选择的角色ID
-					 if(roleId==obj.id){
+					 if(roleId==obj.id && obj.hasvalid != 0){
 						roleDiv+="<div class='radio'>"
 						 	 +"	<label>"
+								+"		<input type='radio' name='roleId' checked='checked'  value='"+obj.id+"' class='radio' >"
 						 	 +"		<span class='lbl'>"
 							 +			obj.roleName
 							 +"		</span>"
-							 +"		<input type='radio' name='roleId' checked='checked'  value='"+obj.id+"' class='radio' >"
 							 +"  </label>"
 							 +"</div>";
-					}else{
+					}
+					else if(roleId!=obj.id && obj.hasvalid != 0)
+					{
 						roleDiv+="<div class='radio'>"
 						 	 +"	<label>"
+								+"		<input type='radio' name='roleId' value='"+obj.id+"' class='radio' >"
 						 	 +"		<span class='lbl'>"
 							 +			obj.roleName
 							 +"		</span>"
-							 +"		<input type='radio' name='roleId' value='"+obj.id+"' class='radio' >"
 							 +"  </label>"
 							 +"</div>";
 					}

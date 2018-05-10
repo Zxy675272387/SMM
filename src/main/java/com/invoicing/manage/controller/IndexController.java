@@ -87,7 +87,6 @@ public class IndexController {
 				modelMap.put("info", "密码错误");
 				return new ModelAndView("/login");
 			}
-			
 			//权限分配
 			UserResponse userLoginInfo=new UserResponse();
 			userLoginInfo.setUserName(userInfo.getUserName());

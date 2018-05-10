@@ -80,7 +80,7 @@ $(document).ready(function(){
 	  
 	  
 	});
-	//编辑用户
+	//编辑
 	$("#addBtn").click(function (){
 		var goodsId=$("input[name=goodsId]").val();
 		var salePrice=$("input[name=salePrice]").val();
@@ -91,10 +91,20 @@ $(document).ready(function(){
 			$("input[name=goodsId]").focus();
 			return false;
 		}
+		if (goodsId < 0 ) {
+			alert("id不能为负！");
+			$("input[name=phone]").focus();
+			return false;
+		}
 		if(salePrice==null || salePrice==''){
 			alert("价格不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=salePrice]").focus();
+			return false;
+		}
+		if (salePrice < 0 ) {
+			alert("价格不能为负！");
+			$("input[name=phone]").focus();
 			return false;
 		}
 		if(marketPrice==null || marketPrice==''){
@@ -102,11 +112,21 @@ $(document).ready(function(){
 			$("input[name=marketPrice]").focus();
 			return false;
 		}
+		if (marketPrice < 0 ) {
+			alert("价格不能为负！");
+			$("input[name=phone]").focus();
+			return false;
+		}
 		if(purchasePrice==null || purchasePrice==''){
 			alert("价格不能为空！");
 			$("input[name=purchasePrice]").focus();
 			return false;
-		}else{
+		}
+		if (purchasePrice < 0 ) {
+			alert("价格不能为负！");
+			$("input[name=phone]").focus();
+			return false;
+		} else{
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/goods/price/update",

@@ -30,7 +30,7 @@ public class SaleRecordEntity extends BaseEntity {
     /**
      * 售价
      */
-    private Long salePrice;
+    private float salePrice;
     /**
      * 应收金额
      */
@@ -38,11 +38,11 @@ public class SaleRecordEntity extends BaseEntity {
     /**
      * 实收金额
      */
-    private Long paidAmount;
+    private float paidAmount;
     /**
      * 找零金额
      */
-    private Long changeAmount;
+    private float changeAmount;
     /**
      * 收银员姓名
      */
@@ -155,13 +155,13 @@ public class SaleRecordEntity extends BaseEntity {
 	/**
 	 * 设置售价
 	 */
-    public void setSalePrice(Long salePrice) {
+    public void setSalePrice(float salePrice) {
         this.salePrice = salePrice;
     }
     /**
      * 获取售价
      */
-    public Long getSalePrice() {
+    public float getSalePrice() {
         return this.salePrice;
     }
 	/**
@@ -173,31 +173,31 @@ public class SaleRecordEntity extends BaseEntity {
     /**
      * 获取应收金额
      */
-    public Long getReceivableAmount() {
+    public float getReceivableAmount() {
         return this.receivableAmount;
     }
 	/**
 	 * 设置实收金额
 	 */
-    public void setPaidAmount(Long paidAmount) {
+    public void setPaidAmount(float paidAmount) {
         this.paidAmount = paidAmount;
     }
     /**
      * 获取实收金额
      */
-    public Long getPaidAmount() {
+    public float getPaidAmount() {
         return this.paidAmount;
     }
 	/**
 	 * 设置找零金额
 	 */
-    public void setChangeAmount(Long changeAmount) {
+    public void setChangeAmount(float changeAmount) {
         this.changeAmount = changeAmount;
     }
     /**
      * 获取找零金额
      */
-    public Long getChangeAmount() {
+    public float getChangeAmount() {
         return this.changeAmount;
     }
 	/**

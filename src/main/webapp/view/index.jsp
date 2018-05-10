@@ -6,25 +6,7 @@
 <head>
 <meta charset="utf-8" />
 <title>商品管理</title>
-<style type="text/css">
-.menu_li {
-	cursor: pointer;
-}
-/**主页顶部背景样式**/	
-#main_page_top_div {
-	width: 100%;
-	height: 200px;
-	background-image:url('../static/images/j_x_c_1.png');
-	background-repeat: no-repeat;
-	background-position: center top;
-}
-/**主页底部背景样式**/
-#main_page_bottom_div {
-	background-image:url('../static/images/jxc_main_bg.png');
-	background-repeat: no-repeat;
-	background-position: right bottom;
-}	
-</style>
+
 </head>
 
 <body>
@@ -54,7 +36,20 @@
 							class="user-info"> <small>欢迎光临,</small> ${userLoginInfo.userName}
 						</span> <i class="icon-caret-down"></i>
 					</a>
+						<ul
+								class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<!--
+							<li><a href="#"> <i class="icon-cog"></i> 修改密码
+							</a></li>
 
+							<li><a href="#"> <i class="icon-user"></i> 个人资料
+							</a></li>
+							-->
+							<li class="divider"></li>
+
+							<li><a href="/invoicing/logout"> <i class="icon-off"></i> 退出
+							</a></li>
+						</ul>
 					</li>
 				</ul>
 				<!-- /.ace-nav -->

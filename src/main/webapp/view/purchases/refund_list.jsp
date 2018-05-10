@@ -62,11 +62,11 @@
 					 {name:'退货单号',value:'purchaseOrderNo'}
                     ,{name:'退货数量',value:'purchaseNumber'}
                     ,{name:'采购价',value:'purchasePrice',type:"function", fun : function(obj){
-	                	return obj.purchasePrice+".00元";;
+	                	return obj.purchasePrice+"元";;
 	                    }
 	                  }
                     ,{name:'采购总额',value:'totalAmount',type:"function", fun : function(obj){
-	                	return obj.totalAmount+".00元";;
+	                	return obj.totalAmount+"元";;
 	                    }
 	                  }
                     ,{name:'退货原因',value:'remark1'}
