@@ -24,7 +24,7 @@
 		            <table class="table half-table">
 		                <tbody>
 						<tr>
-							<th><span class="required">*</span>商品名称</th>
+							<th>商品名称</th>
 							<td>
 								<div class="form-group ">
 									<input type="text" class="form-control"  placeholder=" " name="goodsName" value="${goods.goodsName}" readonly="true">

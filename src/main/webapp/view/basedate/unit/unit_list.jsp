@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<style type="text/css">
-.brand_logo {
-	width: 25px;
-	height: 25px;
-}
-</style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style2.css" />
+
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<span>当前位置：</span>
@@ -65,13 +61,18 @@
                     ,{name:'最小单位值',value:'minimumUnitVal'}
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'状态',value:'state',type:"function", fun : function(obj){
-	                    	var html="";
-	                    	if(obj.state == 0){
-	                    		html += "停用";
-	                    	}else if(obj.state==1){
-	                    		html += "开启";
-	                    	}
-	                    	return html;
+						var html = "";
+						if (obj.state == '0') {
+							html +=
+									"<input type='checkbox'' class='uiswitch' disabled>" +
+									"<h6>关闭</h6>";
+
+						} else if (obj.state == '1') {
+							html +=
+									"<input type='checkbox'' class='uiswitch' checked disabled>" +
+									"<h6>开启</h6>";
+						}
+						return html;
                  	}
                  }
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){

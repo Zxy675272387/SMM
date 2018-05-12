@@ -2,6 +2,8 @@ package com.invoicing.manage.request;
 
 import com.invoicing.manage.comment.entity.BaseRequestEntity;
 
+import java.util.Date;
+
 @SuppressWarnings("serial")
 public class SaleRecordRequestEntity extends BaseRequestEntity{
 	
@@ -19,6 +21,7 @@ public class SaleRecordRequestEntity extends BaseRequestEntity{
      * 商品名称
      */
     private String goodsName;
+	private Date updateTime;
 
 	public Integer getPayMethod() {
 		return payMethod;
@@ -43,7 +46,12 @@ public class SaleRecordRequestEntity extends BaseRequestEntity{
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
 	}
-    
-    
 
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 }

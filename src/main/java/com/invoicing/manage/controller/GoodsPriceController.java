@@ -118,13 +118,14 @@ public class GoodsPriceController {
 	 * @since JDK 1.7
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public ModelAndView goToGoodsNormalPriceUpdate(@RequestParam Long id,ModelMap modelMap){
+	public ModelAndView goToGoodsNormalPriceUpdate(@RequestParam Long id,Long goodsId,ModelMap modelMap){
 		String url="/goods/price/price_update";
 		GoodsNormalPriceEntity goodsPriceEntity=goodsNormalPriceService.selectByPrimaryKey(id);
+		id =goodsId;
+		GoodsEntity goodsEntity=goodsService.selectByPrimaryKey(id);
 		if(null!=goodsPriceEntity){
 			modelMap.put("goodsPrice", goodsPriceEntity);
 		}
-		GoodsEntity goodsEntity=goodsService.selectByPrimaryKey(id);
 		if(null!=goodsEntity){
 			modelMap.put("goods", goodsEntity);
 		}

@@ -215,7 +215,7 @@
  			 and  LOCATE(#{unitName},goodsUnit.unit_name)>0
  		  </if>
  		 <if test="unitEnglishName != null and unitEnglishName!='' ">
- 			 and goodsUnit.unit_english_name = #{unitEnglishName}
+ 			 and  LOCATE(#{unitEnglishName},goodsUnit.unit_english_name)>0
  		  </if>
 	</sql>
 	

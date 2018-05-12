@@ -284,6 +284,7 @@
         <if test="goodsName != null">
             and goods.goods_name like concat('%', #{goodsName}, '%')
         </if>
+
     </select>
     <select id="getListTop" resultMap="BaseResultMap"
             parameterType="java.util.Map">
@@ -296,6 +297,9 @@
         LEFT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
+        <if test="updateTime!= null">
+            and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+        </if>
     </select>
     <select id="getListCount" resultType="java.lang.Integer"
             parameterType="java.util.Map">
@@ -310,6 +314,7 @@
         count(saleRecord.id)
         from sale_record_tb saleRecord
          where saleRecord.sale_number > 10
+        <include refid="whereSQL"/>
     </select>
     <sql id="whereSQL">
         <if test="id != null">
@@ -346,7 +351,7 @@
             and saleRecord.updator = #{updator}
         </if>
         <if test="updateTime != null">
-            and saleRecord.update_time = #{updateTime}
+            and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
         </if>
     </sql>
 </mapper>

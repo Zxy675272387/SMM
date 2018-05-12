@@ -48,7 +48,7 @@
 							<td><div class="wrapper">
 								<section class="fields section">
 									<div class="fields__item">
-										<input type="checkbox" class="uiswitch"  name="state" id="state"  value="0" checked>
+										<input type="checkbox" class="uiswitch"  name="state" id="state"  value="0">
 										<h6>默认关闭</h6>
 									</div>
 								</section>

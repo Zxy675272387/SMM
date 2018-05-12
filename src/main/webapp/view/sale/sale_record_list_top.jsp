@@ -21,6 +21,18 @@
 		</div>
 	</div>
 </div>
+<div class="panel panel-default form-search">
+	<div class="panel-footer">
+		<button type="button" id="searchBtn" class="btn btn-primary">
+			<i class="icon_search"></i>
+			本月排行
+		</button>
+		<button type="button" id="resetBtn" class="btn btn-success">
+			<i class="icon-reply icon-only"></i>
+			本周排行
+		</button>
+	</div>
+</div>
 	<!-- 列表：查询分页列表 end -->
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -31,7 +43,7 @@
                 url:_path+"/invoicing/sale/record/page/list/top"
                 ,checkAll:false
                 //查询条件
-                ,data:{'goodsName':$("[name=goodsName]").val()}
+                ,data:{'updateTime':$("[name=updateTime]").val()}
                 ,cloumns:[
 					 {name:'商品名称',value:'goodsName'}
                     ,{name:'单价',value:'salePrice',type:"function", fun : function(obj){
@@ -85,6 +97,17 @@
             // grid(param1,param2);参数1分页数据，参数2table类名如.area_table_content
             $(".area_table_content").grid(_options,".area_table_content");
         }
+		//条件查询
+		$("#searchBtn").click(function(){
+			getData();
+
+		});
+		//条件重置
+		$("#resetBtn").click(function (){
+			var updateTime=updateTime.toLocaleTimeString();
+			$("[name=updateTime]").val("2018-5-11");
+			getData();
+		});
     });
 
     //编辑销售记录信息

@@ -100,6 +100,8 @@ public class SaleRecordController {
 		PageInfo<SaleRecordEntity> pageInfo=new PageInfo<SaleRecordEntity>();
 		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
 		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("updateTime", saleRecordRequestEntity.getUpdateTime());
 		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getListTop(pageInfo);
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
 		return new SuccessResponseEntity(saleRecordList);

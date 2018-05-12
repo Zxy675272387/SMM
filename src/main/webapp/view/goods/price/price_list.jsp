@@ -88,8 +88,15 @@
                    ,{name:'更新时间',value:'updateTime'}
                     ,{name:'操作',value:'id',type:"function", fun : function(obj){
                     	var html="";
-	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+")'>编辑</a>"
-	                		html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj("+obj.id+")'>删除</a>";
+							if(obj.salePrice!=0)
+							{
+								html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage("+obj.id+","+obj.goodsId+")'>编辑</a>"
+	                			html += "  <a href='javascript:void(0)' class='btn-link' onclick='delObj("+obj.id+")'>删除</a>";
+							}
+						else{
+								html += "  <a  class='btn-link' >编辑</a>"
+								html += "  <a  class='btn-link' >删除</a>"
+							}
 	                	return html;
                       }
                     }
@@ -151,9 +158,9 @@
 		});    
     });
     //编辑价格信息
-    function toUpdatePage(id){
-    	 var url=_path+"/invoicing/goods/price/update?id="+id;
-		 //调用跳转方法
+    function toUpdatePage(id,goodsId){
+    	 var url=_path+"/invoicing/goods/price/update?id="+id+"&goodsId="+goodsId;
+		//调用跳转方法
 		 goBackPage(url);
     }
     

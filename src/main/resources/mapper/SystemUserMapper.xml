@@ -218,7 +218,8 @@
 		 select 
  		  <include refid="Base_Column_List" />
  		  from system_user_tb systemUser
- 		  where 1=1
+ 		 /* where update_time >= '2018-04-22'*/
+		 where 1=1
  		  <include refid="whereSQL"/>
  		  ORDER BY systemUser.update_time DESC
 	</select>

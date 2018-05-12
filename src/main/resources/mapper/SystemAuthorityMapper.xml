@@ -230,10 +230,10 @@
             and systemAuthority.id = #{id}
         </if>
         <if test="name != null and name != ''">
-            and systemAuthority.name = #{name}
+            and LOCATE(#{name},systemAuthority.name)>0
         </if>
         <if test="parentName != null and parentName != ''">
-            AND pSystemAuthority.name = #{parentName}
+            and LOCATE(#{parentName},pSystemAuthority.name)>0
         </if>
         <if test="url != null">
             and systemAuthority.url = #{url}
@@ -290,10 +290,10 @@
             and systemAuthority.id = #{id}
         </if>
         <if test="name != null and name != ''">
-            and systemAuthority.name = #{name}
+            and LOCATE(#{name},systemAuthority.name)>0
         </if>
         <if test="parentName != null and parentName != ''">
-            and pSystemAuthority.name = #{parentName}
+            and LOCATE(#{parentName},pSystemAuthority.name)>0
         </if>
         <if test="url != null">
             and systemAuthority.url = #{url}

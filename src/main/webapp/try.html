@@ -1,11 +1,53 @@
-.uiswitch {
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>进销存管理系统</title>
+		<!-- basic styles -->
+		<link href="static/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="static/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="http//fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="static/css/ace.min.css" />
+		<link rel="stylesheet" href="static/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="static/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="static/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="static/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="static/js/html5shiv.js"></script>
+		<script src="static/js/respond.min.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			 .uiswitch {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    height:18px;
+    height: 31px;
     width: 51px;
     position: relative;
     border-radius: 16px;
@@ -15,7 +57,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    background-color: #e5e5e5;
+    background-color: #bd34fa;
     -webkit-transition-duration: 600ms;
     -moz-transition-duration: 600ms;
     -o-transition-duration: 600ms;
@@ -24,17 +66,17 @@
     -moz-transition-timing-function: ease-in-out;
     -o-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out; }
-.uiswitch::before {
+  .uiswitch::before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 18px;
+    height: 27px;
     width: 47px;
     content: ' ';
     position: absolute;
     left: 2px;
-    top: 0px;
-    background-color: white;
+    top: 2px;
+    background-color: #bd34fa;
     border-radius: 16px;
     z-index: 1;
     -webkit-transition-duration: 300ms;
@@ -46,18 +88,18 @@
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-.uiswitch::after {
+  .uiswitch::after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 18px;
-    width: 18px;
+    height: 27px;
+    width: 27px;
     content: ' ';
     position: absolute;
     border-radius: 27px;
-    background: white;
+    background: #bd34fa;
     z-index: 2;
-    top: 0px;
+    top: 2px;
     left: 2px;
     box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 4px 11px 0px rgba(0, 0, 0, 0.08), -1px 3px 3px 0px rgba(0, 0, 0, 0.14);
     -webkit-transition: -webkit-transform 300ms, width 280ms;
@@ -73,12 +115,12 @@
     -moz-transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2);
     -o-transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2);
     transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2); }
-.uiswitch:checked {
+  .uiswitch:checked {
     background-image: -webkit-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: -moz-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: -o-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: linear-gradient(-180deg, #4cd964 0%, #4dd865 100%); }
-.uiswitch:checked::after {
+  .uiswitch:checked::after {
     -webkit-transform: translate3d(16px, 0, 0);
     -moz-transform: translate3d(16px, 0, 0);
     -ms-transform: translate3d(16px, 0, 0);
@@ -86,28 +128,28 @@
     transform: translate3d(16px, 0, 0);
     right: 18px;
     left: inherit; }
-.uiswitch:active::after {
+  .uiswitch:active::after {
     width: 35px; }
-.uiswitch:checked::before, .uiswitch:active::before {
+  .uiswitch:checked::before, .uiswitch:active::before {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0); }
-.uiswitch:disabled {
+  .uiswitch:disabled {
     opacity: 0.5;
     cursor: default;
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
     transition: none; }
-.uiswitch:disabled:active::before, .uiswitch:disabled:active::after, .uiswitch:disabled:checked:active::before, .uiswitch:disabled:checked::before {
+  .uiswitch:disabled:active::before, .uiswitch:disabled:active::after, .uiswitch:disabled:checked:active::before, .uiswitch:disabled:checked::before {
     width: 27px;
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
     transition: none; }
-.uiswitch:disabled:active::before {
+  .uiswitch:disabled:active::before {
     height: 27px;
     width: 41px;
     -webkit-transform: translate3d(6px, 0, 0);
@@ -115,7 +157,7 @@
     -ms-transform: translate3d(6px, 0, 0);
     -o-transform: translate3d(6px, 0, 0);
     transform: translate3d(6px, 0, 0); }
-.uiswitch:disabled:checked:active::before {
+  .uiswitch:disabled:checked:active::before {
     height: 27px;
     width: 27px;
     -webkit-transform: scale(0);
@@ -123,56 +165,56 @@
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0); }
-.uiswitch {
-    background-color: #e5e5e5; }
-.uiswitch::before {
-    background-color: #7a7d7f; }
-.uiswitch::after {
-    background: white; }
-.uiswitch:checked {
+  .uiswitch {
+    background-color: #bd34fa; }
+  .uiswitch::before {
+    background-color: #3c3f41; }
+  .uiswitch::after {
+    background: #ffffff; }
+  .uiswitch:checked {
     background-image: -webkit-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: -moz-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: -o-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
     background-image: linear-gradient(-180deg, #4cd964 0%, #4dd865 100%); }
 
-body {
+  body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #ffffff; }
 
-p {
+  p {
     font-size: 18px;
     font-weight: 300; }
 
-pre, code {
+  pre, code {
     font-family: Monaco, Menlo, "Courier New", Courier, monospace;
     font-size: 13px; }
 
-pre {
+  pre {
     text-align: left; }
 
-pre {
+  pre {
     background-color: #fbfbfb;
     border: 1px solid #eee;
     padding: .6em;
     display: inline-block;
     border-radius: 3px; }
 
-.wrapper {
+  .wrapper {
     width: 90%;
     margin: 0 auto;
     text-align: center; }
 
-h1 {
+  h1 {
     font-weight: 200;
     text-align: center;
     margin: 2em; }
 
-.fields__item {
+  .fields__item {
     display: inline-block;
     margin-right: 1.875em;
     text-align: center; }
 
-h6 {
+  h6 {
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
@@ -180,104 +222,40 @@ h6 {
     color: #aaa;
     margin: 1em; }
 
-.section {
+  .section {
     margin: 2em auto; }
+			
+		</style>
+	</head>
 
+	<body>
+		<div class="wrapper">
+  
+  <h1>iOS 7/8 CSS3 Switches</h1>
 
-/**
-    *主界面样式
-    **/
-@font-face{
-    font-family: 'WebSymbolsRegular';
-    src: url('websymbols/websymbols-regular-webfont.eot');
-    src: url('websymbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('websymbols/websymbols-regular-webfont.woff') format('woff'),
-    url('websymbols/websymbols-regular-webfont.ttf') format('truetype'),
-    url('websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.a-btn{
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;
-    padding:10px 30px 10px 70px;
-    position:relative;
-    float:left;
-    display:block;
-    overflow:hidden;
-    margin:10px;
-    background:#9cedef;
-    background:-webkit-gradient(linear,left top,left bottom,color-stop(#b7f2f4,0),color-stop(#7ce7ea,1));
-    background:-webkit-linear-gradient(top, #b7f2f4 0%, #7ce7ea 100%);
-    background:-moz-linear-gradient(top, #b7f2f4 0%, #7ce7ea 100%);
-    background:-o-linear-gradient(top, #b7f2f4 0%, #7ce7ea 100%);
-    background:linear-gradient(top, #b7f2f4 0%, #7ce7ea 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7f2f4', endColorstr='#7ce7ea',GradientType=0 );
-    border:1px solid #90c6c8;
-    border-color:#90c6c8 #78bdc0 #65b6ba;
-    -webkit-box-shadow:0px -5px 0px 0px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8);
-    -moz-box-shadow:0px -5px 0px 0px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8);
-    box-shadow:0px -5px 0px 0px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8);
-    -webkit-transition:all 0.2s linear;
-    -moz-transition:all 0.2s linear;
-    -o-transition:all 0.2s linear;
-    transition:all 0.2s linear;
-}
-.a-btn-symbol{
-    font-family:'WebSymbolsRegular', cursive;
-    color:#437b7d;
-    text-shadow:0 1px 0 #bef3f5;
-    font-size:20px;
-    position:absolute;
-    left:20px;
-    width:20px;
-    text-align:center;
-    line-height:32px;
-    -webkit-transition:all 0.3s ease-in-out;
-    -moz-transition:all 0.3s ease-in-out;
-    -o-transition:all 0.3s ease-in-out;
-    transition:all 0.3s ease-in-out;
-}
-.a-btn-text{
-    font-size:20px;
-    color:#437b7d;
-    text-shadow:0 1px 0 #bef3f5;
-    line-height:16px;
-    font-weight:bold;
-    font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-    display:block;
-}
-.a-btn-slide-text{
-    font-family:Arial, sans-serif;
-    font-size:10px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#555;
-    text-shadow:0px 1px 1px rgba(255,255,255,0.9);
-}
-.a-btn:hover{
-    -webkit-transform:scale(1.05);
-    -moz-transform:scale(1.05);
-    -ms-transform:scale(1.05);
-    -o-transform:scale(1.05);
-    transform:scale(1.05);
-}
-.a-btn:hover .a-btn-symbol{
-    opacity:0.5;
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-    transform:rotate(360deg);
-}
-.a-btn:active{
-    -webkit-transform:scale(0.95);
-    -moz-transform:scale(0.95);
-    -ms-transform:scale(0.95);
-    -o-transform:scale(0.95);
-    transform:scale(0.95);
-    -webkit-box-shadow:0px 0px 0px 1px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8), 0px 1px 1px 2px #fff;
-    -moz-box-shadow:0px 0px 0px 1px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8), 0px 1px 1px 2px #fff;
-    box-shadow:0px 0px 0px 1px #458a8c, 0 1px 1px #d5d5d5, inset 0 1px 0 rgba(255,255,255,0.8), 0px 1px 1px 2px #fff;
-}
+  <section class="fields section">
+    <div class="fields__item">
+      <input type="checkbox" class="uiswitch">
+      <h6>Off (unchecked)</h6>
+    </div>
+    <div class="fields__item">
+      <input type="checkbox" class="uiswitch" checked>
+      <h6>On (checked)</h6>
+    </div>
+  </section>
+
+  <section class="fields section">
+    <div class="fields__item">
+      <input type="checkbox" class="uiswitch" disabled>
+      <h6>Disabled Off</h6>
+    </div>
+    <div class="fields__item">
+      <input type="checkbox" class="uiswitch" checked disabled>
+      <h6>Disabled On</h6>
+    </div>
+  </section>
+
+</div>
+	
+</html>
+
