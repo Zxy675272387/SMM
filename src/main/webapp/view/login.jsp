@@ -17,7 +17,7 @@
                     <div class="center">
                         <h2>
                             <i class="icon-leaf green"></i>
-                            <span class="white">家家利货物进销存管理系统</span>
+                            <span class="white">家家利超市管理系统</span>
                         </h2>
                     </div>
 

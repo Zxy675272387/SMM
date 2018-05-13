@@ -66,14 +66,14 @@
 						if(obj.purchasePrice!=0)
 						{return obj.purchasePrice+"元";;}
 						else
-						{return "商品还未定价，";}
+						{return "商品还未定价";}
 	                    }
 	                  }
 	              	,{name:'市场价',value:'marketPrice',type:"function", fun : function(obj){
 		                	if(obj.marketPrice!=0)
 							{return obj.marketPrice+"元";;}
 							else
-							{return "根据商品括号数字，";}
+							{return "根据商品括号数字";}
 	                    }
 	                  }
 	              	,{name:'销售价',value:'salePrice',type:"function", fun : function(obj){
