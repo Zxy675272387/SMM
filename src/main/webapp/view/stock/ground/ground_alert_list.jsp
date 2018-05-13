@@ -55,7 +55,7 @@
                 //查询条件
                 ,data:{'instruction':$("[name=instruction]").val()
                 	  ,'name':$("[name=name]").val()
-					  ,'number':333}
+					  ,'number':600}
                 ,cloumns:[
 					 {name:'商品名称',value:'instruction'}
 					,{name:'库存数量',value:'number'}

@@ -174,6 +174,27 @@ public class GoodsUnitController {
 			return new ErrorResponseEntity();
 		}
 	}
+	@RequestMapping(value = "/state", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity stateGoodsUnit(@RequestParam Long id,Long state){
+		try {
+			if(null!=String.valueOf(id)){
+				GoodsUnitEntity unitEntity=new GoodsUnitEntity ();
+				unitEntity.setId(id);
+				if(state==0)
+				{unitEntity.setState(1);}
+				else {unitEntity.setState(0);}
+				unitEntity.setUpdateTime(new Date());
+				logger.debug("删除单位管理，传入参数为："+JSON.toJSONString(unitEntity));
+				int result = goodsUnitService.updateByPrimaryKeySelective(unitEntity);
+				logger.debug("删除单位管理，返回结果为："+JSON.toJSONString(result));
+			}
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.info("单位管理删除异常，{}",e);
+			return new ErrorResponseEntity();
+		}
+	}
 	
 	
 	

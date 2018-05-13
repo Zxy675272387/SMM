@@ -22,7 +22,7 @@ public class SystemRoleAuthorityEntity extends BaseEntity {
      * 商户权限id
      */
     private Long authId;
-
+    private String roleName;
 	/**
 	 * 设置
 	 */

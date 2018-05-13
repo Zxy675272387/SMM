@@ -1,261 +1,55 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>进销存管理系统</title>
-		<!-- basic styles -->
-		<link href="static/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
-
-		<!--[if IE 7]>
-		  <link rel="stylesheet" href="static/css/font-awesome-ie7.min.css" />
-		<![endif]-->
-
-		<!-- page specific plugin styles -->
-
-		<!-- fonts -->
-
-		<link rel="stylesheet" href="http//fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
-		<!-- ace styles -->
-
-		<link rel="stylesheet" href="static/css/ace.min.css" />
-		<link rel="stylesheet" href="static/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="static/css/ace-skins.min.css" />
-
-		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="static/css/ace-ie.min.css" />
-		<![endif]-->
-
-		<!-- inline styles related to this page -->
-
-		<!-- ace settings handler -->
-
-		<script src="static/js/ace-extra.min.js"></script>
-
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-		<!--[if lt IE 9]>
-		<script src="static/js/html5shiv.js"></script>
-		<script src="static/js/respond.min.js"></script>
-		<![endif]-->
-		<style type="text/css">
-			 .uiswitch {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    height: 31px;
-    width: 51px;
-    position: relative;
-    border-radius: 16px;
-    cursor: pointer;
-    outline: 0;
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: #bd34fa;
-    -webkit-transition-duration: 600ms;
-    -moz-transition-duration: 600ms;
-    -o-transition-duration: 600ms;
-    transition-duration: 600ms;
-    -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out; }
-  .uiswitch::before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 27px;
-    width: 47px;
-    content: ' ';
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    background-color: #bd34fa;
-    border-radius: 16px;
-    z-index: 1;
-    -webkit-transition-duration: 300ms;
-    -moz-transition-duration: 300ms;
-    -o-transition-duration: 300ms;
-    transition-duration: 300ms;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1); }
-  .uiswitch::after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 27px;
-    width: 27px;
-    content: ' ';
-    position: absolute;
-    border-radius: 27px;
-    background: #bd34fa;
-    z-index: 2;
-    top: 2px;
-    left: 2px;
-    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 4px 11px 0px rgba(0, 0, 0, 0.08), -1px 3px 3px 0px rgba(0, 0, 0, 0.14);
-    -webkit-transition: -webkit-transform 300ms, width 280ms;
-    -moz-transition: -moz-transform 300ms, width 280ms;
-    -o-transition: -o-transform 300ms, width 280ms;
-    transition: transform 300ms, width 280ms;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2);
-    -moz-transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2);
-    -o-transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2);
-    transition-timing-function: cubic-bezier(0.42, 0.8, 0.58, 1.2); }
-  .uiswitch:checked {
-    background-image: -webkit-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: -moz-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: -o-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: linear-gradient(-180deg, #4cd964 0%, #4dd865 100%); }
-  .uiswitch:checked::after {
-    -webkit-transform: translate3d(16px, 0, 0);
-    -moz-transform: translate3d(16px, 0, 0);
-    -ms-transform: translate3d(16px, 0, 0);
-    -o-transform: translate3d(16px, 0, 0);
-    transform: translate3d(16px, 0, 0);
-    right: 18px;
-    left: inherit; }
-  .uiswitch:active::after {
-    width: 35px; }
-  .uiswitch:checked::before, .uiswitch:active::before {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0); }
-  .uiswitch:disabled {
-    opacity: 0.5;
-    cursor: default;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    transition: none; }
-  .uiswitch:disabled:active::before, .uiswitch:disabled:active::after, .uiswitch:disabled:checked:active::before, .uiswitch:disabled:checked::before {
-    width: 27px;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    transition: none; }
-  .uiswitch:disabled:active::before {
-    height: 27px;
-    width: 41px;
-    -webkit-transform: translate3d(6px, 0, 0);
-    -moz-transform: translate3d(6px, 0, 0);
-    -ms-transform: translate3d(6px, 0, 0);
-    -o-transform: translate3d(6px, 0, 0);
-    transform: translate3d(6px, 0, 0); }
-  .uiswitch:disabled:checked:active::before {
-    height: 27px;
-    width: 27px;
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0); }
-  .uiswitch {
-    background-color: #bd34fa; }
-  .uiswitch::before {
-    background-color: #3c3f41; }
-  .uiswitch::after {
-    background: #ffffff; }
-  .uiswitch:checked {
-    background-image: -webkit-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: -moz-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: -o-linear-gradient(-180deg, #4cd964 0%, #4dd865 100%);
-    background-image: linear-gradient(-180deg, #4cd964 0%, #4dd865 100%); }
-
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #ffffff; }
-
-  p {
-    font-size: 18px;
-    font-weight: 300; }
-
-  pre, code {
-    font-family: Monaco, Menlo, "Courier New", Courier, monospace;
-    font-size: 13px; }
-
-  pre {
-    text-align: left; }
-
-  pre {
-    background-color: #fbfbfb;
-    border: 1px solid #eee;
-    padding: .6em;
-    display: inline-block;
-    border-radius: 3px; }
-
-  .wrapper {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center; }
-
-  h1 {
-    font-weight: 200;
-    text-align: center;
-    margin: 2em; }
-
-  .fields__item {
-    display: inline-block;
-    margin-right: 1.875em;
-    text-align: center; }
-
-  h6 {
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    color: #aaa;
-    margin: 1em; }
-
-  .section {
-    margin: 2em auto; }
-			
-		</style>
-	</head>
-
-	<body>
-		<div class="wrapper">
-  
-  <h1>iOS 7/8 CSS3 Switches</h1>
-
-  <section class="fields section">
-    <div class="fields__item">
-      <input type="checkbox" class="uiswitch">
-      <h6>Off (unchecked)</h6>
+﻿<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于CSS3 animation的鼠标滑过按钮特效</title>
+    <script src="static/js/modernizr.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/style3.css" />
+</head>
+<body>
+<div class="jq22-container">
+    <div class="centerer">
+        <div class="wrap">
+            <a class="btn-0" href="#">Swipe</a>
+            <a class="btn-1" href="#">Diagonal Swipe</a>
+            <a class="btn-1-2" href="#">Double Swipe</a>
+            <a class="btn-2" href="#">Diagonal Close</a>
+            <a class="btn-3" href="#"><span>Zoning In</span></a>
+            <a class="btn-4" href="#"><span>4 Corners</span></a>
+            <a class="btn-5" href="#">Slice</a>
+        </div>
+        <div class="wrap">
+            <a class="btn-6" href="#">Position Aware<span></span></a>
+            <a class="btn-7" href="#"><span>Alternate</span></a>
+            <a class="btn-8" href="#">Smoosh</a>
+            <a class="btn-9" href="#"><span>Vertical Overlap</span></a>
+            <a class="btn-10" href="#"><span>Horizontal Overlap</span></a>
+            <a class="btn-11" href="#">Collision</a>
+        </div>
     </div>
-    <div class="fields__item">
-      <input type="checkbox" class="uiswitch" checked>
-      <h6>On (checked)</h6>
-    </div>
-  </section>
-
-  <section class="fields section">
-    <div class="fields__item">
-      <input type="checkbox" class="uiswitch" disabled>
-      <h6>Disabled Off</h6>
-    </div>
-    <div class="fields__item">
-      <input type="checkbox" class="uiswitch" checked disabled>
-      <h6>Disabled On</h6>
-    </div>
-  </section>
-
 </div>
-	
-</html>
 
+<script src="static/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.btn-6').on('mouseenter', function (e) {
+            var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+            $(this).find('span').css({
+                top: relY,
+                left: relX
+            });
+        }).on('mouseout', function (e) {
+            var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+            $(this).find('span').css({
+                top: relY,
+                left: relX
+            });
+        });
+        $('[href=#]').click(function () {
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

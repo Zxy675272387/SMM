@@ -115,7 +115,7 @@ public class IndexController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView loadMainPage() {
 		logger.info("记载主页面...");
-		return new ModelAndView("/login");
+		return new ModelAndView("/index");
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

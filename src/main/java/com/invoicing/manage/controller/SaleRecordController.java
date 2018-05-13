@@ -24,7 +24,9 @@ import com.invoicing.manage.entity.SaleRecordEntity;
 import com.invoicing.manage.request.SaleRecordRequestEntity;
 import com.invoicing.manage.service.SaleRecordService;
 import com.invoicing.manage.comment.entity.PageInfo;
- 
+
+import javax.servlet.http.HttpServletRequest;
+
 /** 
  * 类名: SaleRecordController   
  * 类描述: TODO.  销售记录
@@ -95,13 +97,15 @@ public class SaleRecordController {
 
 	@RequestMapping(value = "/page/list/top", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity getSaleRecordListTop(SaleRecordRequestEntity saleRecordRequestEntity){
+	public ResponseEntity getSaleRecordListTop(SaleRecordRequestEntity saleRecordRequestEntity,HttpServletRequest requst){
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，请求参数："+JSON.toJSONString(saleRecordRequestEntity));
+		String remark4 = requst.getParameter("remark4");
 		PageInfo<SaleRecordEntity> pageInfo=new PageInfo<SaleRecordEntity>();
 		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
 		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
-		params.put("updateTime", saleRecordRequestEntity.getUpdateTime());
+		params.put("remark4", remark4);
+		System.out.println(remark4);
 		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getListTop(pageInfo);
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
 		return new SuccessResponseEntity(saleRecordList);

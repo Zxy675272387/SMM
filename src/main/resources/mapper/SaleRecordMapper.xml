@@ -25,7 +25,6 @@
         <id column="remark2" property="remark2"/>
         <id column="remark3" property="remark3"/>
         <id column="remark4" property="remark4"/>
-
         <id column="goodsName" property="goodsName"/>
         <id column="unitName" property="unitName"/>
 
@@ -42,7 +41,8 @@
  		 saleRecord.cashier_name as cashierName ,
  		 saleRecord.create_time as createTime,
  		 saleRecord.update_time as updateTime,
- 		 saleRecord.is_delete as isDelete
+ 		 saleRecord.is_delete as isDelete,
+ 		 saleRecord.remark4 as remark4
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -297,9 +297,7 @@
         LEFT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
-        <if test="updateTime!= null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
-        </if>
     </select>
     <select id="getListCount" resultType="java.lang.Integer"
             parameterType="java.util.Map">
@@ -314,7 +312,7 @@
         count(saleRecord.id)
         from sale_record_tb saleRecord
          where saleRecord.sale_number > 10
-        <include refid="whereSQL"/>
+        and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
     </select>
     <sql id="whereSQL">
         <if test="id != null">

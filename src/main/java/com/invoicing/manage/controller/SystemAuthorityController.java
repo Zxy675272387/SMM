@@ -175,6 +175,40 @@ public class SystemAuthorityController {
 			return new ErrorResponseEntity();
 		}
 	}
+	@RequestMapping(value = "/stateoff", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity stateoffSystemAuthority(@RequestParam Long id){
+		try {
+			SystemAuthorityEntity systemAuthorityEntity=new SystemAuthorityEntity ();
+			systemAuthorityEntity.setId(id);
+			systemAuthorityEntity.setHasvalid(String.valueOf(0));
+			systemAuthorityEntity.setUpdateTime(new Date());
+			logger.debug("删除菜单，传入参数为："+JSON.toJSONString(systemAuthorityEntity));
+			int insertRest=systemAuthorityService.updateByPrimaryKeySelective(systemAuthorityEntity);
+			logger.debug("删除菜单，返回结果为："+JSON.toJSONString(insertRest));
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.error("删除异常，"+e);
+			return new ErrorResponseEntity();
+		}
+	}
+	@RequestMapping(value = "/stateon", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity stateonSystemAuthority(@RequestParam Long id){
+		try {
+			SystemAuthorityEntity systemAuthorityEntity=new SystemAuthorityEntity ();
+			systemAuthorityEntity.setId(id);
+			systemAuthorityEntity.setHasvalid(String.valueOf(1));
+			systemAuthorityEntity.setUpdateTime(new Date());
+			logger.debug("删除菜单，传入参数为："+JSON.toJSONString(systemAuthorityEntity));
+			int insertRest=systemAuthorityService.updateByPrimaryKeySelective(systemAuthorityEntity);
+			logger.debug("删除菜单，返回结果为："+JSON.toJSONString(insertRest));
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.error("删除异常，"+e);
+			return new ErrorResponseEntity();
+		}
+	}
 	
 	/**
 	 * loadZtree 属性菜单加载方法

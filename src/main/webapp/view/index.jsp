@@ -48,10 +48,10 @@
 
 	<div class="navbar-container" id="navbar-container">
 		<div class="navbar-header pull-left">
-			<a href="#" class="navbar-brand"> <small> <i
+			<a href="/invoicing/main" class="navbar-brand"> <small> <i
 					class="icon-leaf"></i>
 				<span style="font-weight: 800px;">
-							超市货物进销存管理系统
+							家家利超市管理系统
 						</span>
 			</small>
 			</a>
@@ -180,12 +180,12 @@
 								<span class="a-btn-slide-text">查看并修改商品信息</span>
 							</a>
 							<a href="javascript:void(0)" class="a-btn" onclick="toStock()">
-								<span class="a-btn-symbol">X</span>
+								<span class="a-btn-symbol">w</span>
 								<span class="a-btn-text">库存预警</span>
 								<span class="a-btn-slide-text">查看数量不足的库存</span>
 							</a>
 							<a href="javascript:void(0)" class="a-btn" onclick="toSale()">
-								<span class="a-btn-symbol">w</span>
+								<span class="a-btn-symbol">X</span>
 								<span class="a-btn-text">畅销商品</span>
 								<span class="a-btn-slide-text">查看哪个商品卖得最好</span>
 							</a>

@@ -67,14 +67,20 @@
                     , {
                         name: '状态', value: 'hasvalid', type: "function", fun: function (obj) {
                             var html = "";
-                            if (obj.hasvalid == '0') {
+                            if(obj.id==1)
+                            {
                                 html +=
-                                        "<input type='checkbox'' class='uiswitch' disabled>" +
+                                        "<input type='checkbox'' class='uiswitch' checked disabled>" +
+                                        "<h6>开启</h6>";
+                            }
+                           else if (obj.hasvalid == '0') {
+                                html +=
+                                        "<input type='checkbox'' class='uiswitch' id='state' onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
                                         "<h6>关闭</h6>";
 
                             } else if (obj.hasvalid == '1') {
                                 html +=
-                                        "<input type='checkbox'' class='uiswitch' checked disabled>" +
+                                        "<input type='checkbox'' class='uiswitch' checked onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
                                         "<h6>开启</h6>";
                             }
                             return html;
@@ -176,4 +182,64 @@
             });
         });
     }
+    function state(id,hasvalid) {
+        if(hasvalid==1){
+            callmodalFun('确认关闭？', function () {
+                $.ajax({
+                    type: "post",
+                    url: _path + "/invoicing/system/role/stateoff",
+                    data: {
+                        'id': id
+                    },
+                    beforeSend: function () {
+                        //加载中
+                        waitload();
+                    },
+                    success: function (data) {
+                        closewait();
+                        //若执行成功的话，则隐藏进度条提示
+                        if (data.code == 1) {
+                            var url = _path + "/invoicing/system/role/page/list";
+                            $.get(url, function (data) {
+                                $("#mian_div").html(data);
+                            });
+                        } else if (data == 0) {
+                            timedTaskFun(1000, '用户删除失败', '', 'err');
+                        } else if (data == -2) {
+                            timedTaskFun(1000, '该用户，已关联其他业务，故无法删除！', '', 'err');
+                        }
+
+                    }
+                });
+            });}
+        else
+        { callmodalFun('确认开启？', function () {
+            $.ajax({
+                type: "post",
+                url: _path + "/invoicing/system/role/stateon",
+                data: {
+                    'id': id
+                },
+                beforeSend: function () {
+                    //加载中
+                    waitload();
+                },
+                success: function (data) {
+                    closewait();
+                    //若执行成功的话，则隐藏进度条提示
+                    if (data.code == 1) {
+                        var url = _path + "/invoicing/system/role/page/list";
+                        $.get(url, function (data) {
+                            $("#mian_div").html(data);
+                        });
+                    } else if (data == 0) {
+                        timedTaskFun(1000, '用户删除失败', '', 'err');
+                    } else if (data == -2) {
+                        timedTaskFun(1000, '该用户，已关联其他业务，故无法删除！', '', 'err');
+                    }
+
+                }
+            });
+        });}
+    };
 </script>

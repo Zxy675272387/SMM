@@ -78,13 +78,14 @@ public class SystemRoleController {
 	
 	@RequestMapping(value = "/page/list", method = RequestMethod.POST)
 	@ResponseBody
-	 public ResponseEntity getSystemRoleList(RoleAuthResquestEntity RoleRequestEntity){
+	 public ResponseEntity getSystemRoleList(RoleAuthResquestEntity RoleRequestEntity,HttpServletRequest requst){
 		logger.debug("method [getSystemRoleEntityList] 查询角色列表，请求参数："+JSON.toJSONString(RoleRequestEntity));
+		String roleName = requst.getParameter("roleName");
 		PageInfo<SystemRoleEntity> pageInfo=new PageInfo<SystemRoleEntity>();
 		pageInfo.setPageNo(RoleRequestEntity.getPageNo());
 		pageInfo.setPageSize(RoleRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
-		params.put("roleName",RoleRequestEntity.getRoleName());
+		params.put("roleName",roleName);
 		PageInfo<SystemRoleEntity> roleList = systemRoleService.getList(pageInfo, params);
 		logger.debug("method [getSystemRoleEntityList] 查询角色列表，返回结果为："+JSON.toJSONString(roleList));
 		return new SuccessResponseEntity(roleList);
@@ -182,6 +183,43 @@ public class SystemRoleController {
 				//roleEntity.setUpdateTime(new Date());
 				logger.debug("删除角色，传入参数为："+JSON.toJSONString(roleEntity));
 				int result = systemRoleService.deleteByPrimaryKey(roleEntity.getId());
+				logger.debug("删除角色，返回结果为："+JSON.toJSONString(result));
+			}
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.info("角色删除异常，{}",e);
+			return new ErrorResponseEntity();
+		}
+	}
+	@RequestMapping(value = "/stateoff", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity stateoffSystemRole(@RequestParam Long id){
+		try {
+			if(null!=String.valueOf(id)){
+				SystemRoleEntity roleEntity=new SystemRoleEntity ();
+				roleEntity.setId(id);
+				roleEntity.setHasvalid("0");
+				//roleEntity.setUpdateTime(new Date());
+				logger.debug("删除角色，传入参数为："+JSON.toJSONString(roleEntity));
+				int result = systemRoleService.updateByPrimaryKeySelective(roleEntity);
+				logger.debug("删除角色，返回结果为："+JSON.toJSONString(result));
+			}
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.info("角色删除异常，{}",e);
+			return new ErrorResponseEntity();
+		}
+	}@RequestMapping(value = "/stateon", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity stateonSystemRole(@RequestParam Long id){
+		try {
+			if(null!=String.valueOf(id)){
+				SystemRoleEntity roleEntity=new SystemRoleEntity ();
+				roleEntity.setId(id);
+				roleEntity.setHasvalid("1");
+				//roleEntity.setUpdateTime(new Date());
+				logger.debug("删除角色，传入参数为："+JSON.toJSONString(roleEntity));
+				int result = systemRoleService.updateByPrimaryKeySelective(roleEntity);
 				logger.debug("删除角色，返回结果为："+JSON.toJSONString(result));
 			}
 			return new SuccessResponseEntity();

@@ -39,7 +39,7 @@ $.extend($.fn, {
         var _this = this;
         var _total, 
         //modify by gaolp start
-        	_pageSize=(options.data.pageSize != null && options.data.pageSize != undefined)?options.data.pageSize:5,
+        	_pageSize=(options.data.pageSize != null && options.data.pageSize != undefined)?options.data.pageSize:6,
         //modify by gaolp start
         //add by yaofeng start
             _pageNumber =(options.data.pageNo != null && options.data.pageNo != undefined)?options.data.pageNo:1,

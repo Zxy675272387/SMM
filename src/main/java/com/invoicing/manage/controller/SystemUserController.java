@@ -225,4 +225,34 @@ public class SystemUserController {
 		}
 	}
 
+	@RequestMapping(value = "/stateoff", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity stateoffSystemUser(@RequestParam Long id){
+		try {
+			SystemUserEntity userEntity=new SystemUserEntity();
+			userEntity.setId(id);
+			userEntity.setState(0);
+			int res= systemUserService.updateSystemUser(userEntity);
+			logger.debug("删除用户，返回结果为："+JSON.toJSONString(res));
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.error("删除用户异常,{}",e);
+			return new ErrorResponseEntity();
+		}
+	}
+	@RequestMapping(value = "/stateon", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity stateonSystemUser(@RequestParam Long id){
+		try {
+			SystemUserEntity userEntity=new SystemUserEntity();
+			userEntity.setId(id);
+			userEntity.setState(1);
+			int res= systemUserService.updateSystemUser(userEntity);
+			logger.debug("删除用户，返回结果为："+JSON.toJSONString(res));
+			return new SuccessResponseEntity();
+		} catch (Exception e) {
+			logger.error("删除用户异常,{}",e);
+			return new ErrorResponseEntity();
+		}
+	}
 }

@@ -7,6 +7,8 @@
 	<link href="static/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style2.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/style2.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/style3.css" />
+	<script src="static/js/modernizr.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="static/css/font-awesome.min.css" />
 	<!--[if IE 7]>
 	<link rel="stylesheet" href="static/css/font-awesome-ie7.min.css" />
@@ -205,27 +207,24 @@
 					<div id="main_page_top_div">
 					</div>
 					<div id="main_page_bottom_div" >
-						<div class="button-wrapper">
-							<a href="#" class="a-btn">
-								<span class="a-btn-symbol">J</span>
-								<span class="a-btn-text">Download Now</span>
-								<span class="a-btn-slide-text">Windows Vista / Windows 7</span>
-							</a>
-							<a href="#" class="a-btn">
-								<span class="a-btn-symbol">i</span>
-								<span class="a-btn-text">Download Now</span>
-								<span class="a-btn-slide-text">Windows Vista / Windows 7</span>
-							</a>
-							<a href="#" class="a-btn">
-								<span class="a-btn-symbol">X</span>
-								<span class="a-btn-text">Download Now</span>
-								<span class="a-btn-slide-text">Windows Vista / Windows 7</span>
-							</a>
-							<a href="#" class="a-btn">
-								<span class="a-btn-symbol">w</span>
-								<span class="a-btn-text">Download Now</span>
-								<span class="a-btn-slide-text">Windows Vista / Windows 7</span>
-							</a>
+						<div class="centerer">
+							<div class="wrap">
+								<a class="btn-0" href="#">Swipe</a>
+								<a class="btn-1" href="#">Diagonal Swipe</a>
+								<a class="btn-1-2" href="#">Double Swipe</a>
+								<a class="btn-2" href="#">Diagonal Close</a>
+								<a class="btn-3" href="#"><span>Zoning In</span></a>
+								<a class="btn-4" href="#"><span>4 Corners</span></a>
+								<a class="btn-5" href="#">Slice</a>
+							</div>
+							<div class="wrap">
+								<a class="btn-6" href="#">Position Aware<span></span></a>
+								<a class="btn-7" href="#"><span>Alternate</span></a>
+								<a class="btn-8" href="#">Smoosh</a>
+								<a class="btn-9" href="#"><span>Vertical Overlap</span></a>
+								<a class="btn-10" href="#"><span>Horizontal Overlap</span></a>
+								<a class="btn-11" href="#">Collision</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -340,6 +339,27 @@
 <script src="static/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
+<script src="static/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$('.btn-6').on('mouseenter', function (e) {
+			var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+			$(this).find('span').css({
+				top: relY,
+				left: relX
+			});
+		}).on('mouseout', function (e) {
+			var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+			$(this).find('span').css({
+				top: relY,
+				left: relX
+			});
+		});
+		$('[href=#]').click(function () {
+			return false;
+		});
+	});
+</script>
 <script type="text/javascript">
 	jQuery(function($) {
 		$('.easy-pie-chart.percentage').each(function(){
@@ -490,6 +510,7 @@
 	});
 
 </script>
+
 <div style="display:none"><script src='http//v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
