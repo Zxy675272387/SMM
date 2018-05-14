@@ -64,12 +64,12 @@
 						var html = "";
 						if (obj.state == '0') {
 							html +=
-									"<input type='checkbox'' class='uiswitch' id='state' onclick='state(" + obj.id + ","+ obj.state + ")'>"+
+									"<input type='checkbox'' class='uiswitch' id='" + obj.id + "' onclick='state(" + obj.id + ","+ obj.state + ")'>"+
 									"<h6>关闭</h6>";
 
 						} else if (obj.state == '1') {
 							html +=
-									"<input type='checkbox'' class='uiswitch' id='state' checked onclick='state(" + obj.id + ","+ obj.state + ")'>" +
+									"<input type='checkbox'' class='uiswitch' id='" + obj.id + "' checked onclick='state(" + obj.id + ","+ obj.state + ")'>" +
 									"<h6>开启</h6>";
 						}
 						return html;
@@ -131,12 +131,19 @@
     			}
     		 });
     	});
-    };
-	function state(id,state) {
-
-			callmodalFun('确认关闭？', function () {
-				$.ajax({
-					type: "post",
+	}
+	;
+	function state(id, state) {
+		var zxy = document.getElementById(id);
+		if (state == 1) {
+			zxy.checked = true;
+		}
+		else {
+			zxy.checked = false;
+		}
+		callmodalFun('确认修改状态？', function () {
+			$.ajax({
+				type: "post",
 					url: _path + "/invoicing/base/date/unit/state",
 					data: {
 						'id': id

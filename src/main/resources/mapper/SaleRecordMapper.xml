@@ -297,7 +297,9 @@
         LEFT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
-        and saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
+        <if test="remark4 != null">
+            and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
+        </if>
     </select>
     <select id="getListCount" resultType="java.lang.Integer"
             parameterType="java.util.Map">
@@ -314,7 +316,9 @@
          LEFT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
+        <if test="remark4 != null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
+        </if>
     </select>
     <sql id="whereSQL">
         <if test="id != null">

@@ -317,7 +317,7 @@
 	 <select id="getListCount" resultType="java.lang.Integer"
 		parameterType="java.util.Map">
 			SELECT
-				COUNT(1)
+				COUNT(goodsCategory.id)
 			FROM
 				goods_category_tb goodsCategory
 			LEFT JOIN goods_category_tb pGoodsCategory ON goodsCategory.parent_id = pGoodsCategory.id

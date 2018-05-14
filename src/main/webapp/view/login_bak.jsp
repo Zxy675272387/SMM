@@ -39,14 +39,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" name="loginName" class="form-control" placeholder="Username" value="admin" />
+															<input type="text" name="loginName" class="form-control" placeholder="Username" value="" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="password" class="form-control" placeholder="Password" value="111111" />
+															<input type="password" name="password" class="form-control" placeholder="Password" value="" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>

@@ -85,59 +85,58 @@
 <script type="text/javascript">
 	//添加用户
 	$("#addBtn").click(function (){
-		var unitName=$("input[name=unitName]").val();
-		var unitEnglishName=$("input[name=unitEnglishName]").val();
-		var minimumUnitType=$("input[name=minimumUnitType]").val();
-		var minimumUnitVal=$("input[name=minimumUnitVal]").val();
-		var zxy=document.getElementById('state');
-		if(zxy.checked)
-		{
-			zxy.value=1;
-		}
-		else {
-			zxy.checked=true;
-			zxy.value=0;
-		}
-		if(unitName==null || unitName==''){
+		var unitName = $("input[name=unitName]").val();
+		var unitEnglishName = $("input[name=unitEnglishName]").val();
+		var minimumUnitType = $("input[name=minimumUnitType]").val();
+		var minimumUnitVal = $("input[name=minimumUnitVal]").val();
+		var zxy = document.getElementById('state');
+		if (unitName == null || unitName == '') {
 			alert("单位名称不能为空！");
 			$("input[name=unitName]").focus();
 			return false;
 		}
-		if(unitEnglishName==null || unitEnglishName==''){
+		if (unitEnglishName == null || unitEnglishName == '') {
 			alert("英文名称不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=unitEnglishName]").focus();
 			return false;
 		}
-		if(minimumUnitType==null || minimumUnitType==''){
+		if (minimumUnitType == null || minimumUnitType == '') {
 			alert("最小单位类型不能为空！");
 			$("input[name=minimumUnitType]").focus();
 			return false;
 		}
-		if(minimumUnitVal==null || minimumUnitVal==''){
+		if (minimumUnitVal == null || minimumUnitVal == '') {
 			alert("最小值不能为空！");
 			$("input[name=minimumUnitVal]").focus();
 			return false;
-		}else{
+		} else {
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else {
+				zxy.checked = true;
+				zxy.value = 0;
+			}
 			$.ajax({
-	 			type : "post",
-	 			url : _path+"/invoicing/base/date/unit/add",
-	 			 data:$('#unit-add-form').serialize(),// 你的formid
-	              async:false,
-	 			 	success : function(data) {
-	 				if(data.code==1){
-	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/base/date/unit/page/list";
-	 					goBackPage(url);
-	 				}else{
-	 					alert("用户保存失败！");
-	 				}
-	 			}
-	         });
+				type: "post",
+				url: _path + "/invoicing/base/date/unit/add",
+				data: $('#unit-add-form').serialize(),// 你的formid
+				async: false,
+				success: function (data) {
+					if (data.code == 1) {
+						alert("用户保存成功！");
+						var url = _path + "/invoicing/base/date/unit/page/list";
+						goBackPage(url);
+					} else {
+						alert("用户保存失败！");
+					}
+				}
+			});
 		}
-	     
+
 	});
-	
+
 	//取消
 	$("#cancelBtn").click(function(){
 		 var url=_path+"/invoicing/base/date/unit/page/list";

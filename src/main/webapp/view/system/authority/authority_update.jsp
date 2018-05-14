@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>菜单编辑页</title>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css" />
 </head>
 <body>
 <div class="container-fluid">
@@ -48,14 +49,6 @@
 		                            <input type="text" class="form-control"  name="url" value="${auth.url}">
 		                        </div>
 		                    </td>
-		                    <th><span class="required"></span>菜单图标样式</th>
-		                    <td>
-		                        <div class="form-group ">
-		                            <input type="text" class="form-control"  placeholder="iconClass"  name="iconClass" value="${auth.iconClass}">
-		                        </div>
-		                    </td>
-		                </tr>
-						<tr>
 							<th>菜单状态</th>
 							<td><div class="wrapper">
 								<section class="fields section">
@@ -89,39 +82,40 @@
 		//加载父菜单
 		loadPAuth();
 	});
-	$("#addBtn").click(function (){
-			var name=$("input[name=name]").val();
-		var zxy=document.getElementById('hasvalid');
-		if(zxy.checked)
-		{
-			zxy.value=1;
+	$("#addBtn").click(function () {
+		var name = $("input[name=name]").val();
+		var zxy = document.getElementById('hasvalid');
+		if (name == null || name == '') {
+			alert("菜单名不能为空！");
+			$("input[name=name]").focus();
+			return false;
 		}
-		else{
-			zxy.checked=true;
-			zxy.value=0;
-		}
-			if(name==null || name==''){
-				alert("菜单名不能为空！");
-				$("input[name=name]").focus();
-				return false;
-			}else {
-				$.ajax({
-					type: "post",
-					url: _path + "/invoicing/system/authority/update?__" + (new Date()).getTime(),
-					data: $('#authority-add-form').serialize(),// 你的formid
-					async: false,
-					success: function (data) {
-						if (data.code == 1) {
-							alert("菜单编辑成功！");
-							var url = _path + "/invoicing/system/authority/list";
-							$.get(url, function (data) {
-								$("#mian_div").html(data);
-							});
-						} else {
-							alert("菜单编辑失败");
-						}
+		else {
+			if (zxy.checked) {
+
+				zxy.value = 1;
+			}
+			else {
+				zxy.checked = true;
+				zxy.value = 0;
+			}
+			$.ajax({
+				type: "post",
+				url: _path + "/invoicing/system/authority/update",
+				data: $('#authority-add-form').serialize(),// 你的formid
+				async: false,
+				success: function (data) {
+					if (data.code == 1) {
+						alert("菜单编辑成功！");
+						var url = _path + "/invoicing/system/authority/list";
+						$.get(url, function (data) {
+							$("#mian_div").html(data);
+						});
+					} else {
+						alert("菜单编辑失败");
 					}
-				});
+				}
+			});
 			}
 	});
 	

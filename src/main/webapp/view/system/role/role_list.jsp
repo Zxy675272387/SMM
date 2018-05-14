@@ -75,12 +75,12 @@
                             }
                            else if (obj.hasvalid == '0') {
                                 html +=
-                                        "<input type='checkbox'' class='uiswitch' id='state' onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
+                                        "<input type='checkbox'' class='uiswitch' id='" + obj.id + "' onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
                                         "<h6>关闭</h6>";
 
                             } else if (obj.hasvalid == '1') {
                                 html +=
-                                        "<input type='checkbox'' class='uiswitch' checked onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
+                                        "<input type='checkbox'' class='uiswitch'  id='" + obj.id + "' checked onclick='state(" + obj.id + ","+ obj.hasvalid + ")'>" +
                                         "<h6>开启</h6>";
                             }
                             return html;
@@ -160,8 +160,8 @@
                     //若执行成功的话，则隐藏进度条提示
                     if (data != null && data != 'undefined'
                         && data.code == 1) {
-                        //alert("删除成功");
-                        timedTaskFun(1000, '角色删除成功', "", 'correct');
+                        alert("角色删除成功");
+                        //timedTaskFun(1000, '角色删除成功', "", 'correct');
                         var url = _path + "/invoicing/system/role/page/list";
                         $.get(url, function (data) {
                             $("#mian_div").html(data);
@@ -183,7 +183,9 @@
         });
     }
     function state(id,hasvalid) {
+        var zxy=document.getElementById(id);
         if(hasvalid==1){
+            zxy.checked=true;
             callmodalFun('确认关闭？', function () {
                 $.ajax({
                     type: "post",
@@ -213,7 +215,9 @@
                 });
             });}
         else
-        { callmodalFun('确认开启？', function () {
+        {
+            zxy.checked=false;
+            callmodalFun('确认开启？', function () {
             $.ajax({
                 type: "post",
                 url: _path + "/invoicing/system/role/stateon",

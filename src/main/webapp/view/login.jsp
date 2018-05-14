@@ -39,7 +39,7 @@
                                             <label class="block clearfix">
 													<span class="block input-icon input-icon-right">
 														<input type="text" name="loginName" class="form-control"
-                                                               value="admin" placeholder="Username"
+                                                               value="" placeholder="Username"
                                                                style="height: 45px;"/>
 														<i class="icon-user" style="padding: 7px 3px;"></i>
 													</span>
@@ -48,7 +48,7 @@
                                             <label class="block clearfix">
 													<span class="block input-icon input-icon-right">
 														<input type="password" name="password" class="form-control"
-                                                               value="111111" placeholder="Password"
+                                                               value="" placeholder="Password"
                                                                style="height: 45px;"/>
 														<i class="icon-lock" style="padding: 7px 3px;"></i>
 													</span>

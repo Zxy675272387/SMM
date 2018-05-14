@@ -83,14 +83,6 @@ $(document).ready(function(){
 		var loginName=$("input[name=loginName]").val();
 		var phone=$("input[name=phone]").val();
 		var zxy=document.getElementById('state');
-		if(zxy.checked)
-		{
-			zxy.value=1;
-		}
-		else {
-			zxy.checked=true;
-			zxy.value=0;
-		}
 		if(userName==null || userName==''){
 			alert("姓名不能为空！");
 			$("input[name=userName]").focus();
@@ -106,6 +98,13 @@ $(document).ready(function(){
 			$("input[name=phone]").focus();
 			return false;
 		}else{
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else{
+				zxy.checked = true;
+				zxy.value = 0;
+			}
 			$.ajax({
 	 			type : "post",
 	 			url : _path+"/invoicing/system/user/update",

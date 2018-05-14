@@ -18,11 +18,11 @@
         <div class="panel-footer">
             <button type="button" id="monthBtn" class="btn btn-primary">
                 <i class="icon_search"></i>
-                本月排行
+                近三十天排行
             </button>
             <button type="button" id="weekBtn" class="btn btn-success">
                 <i class="icon-reply icon-only"></i>
-                本周排行
+                近七天排行
             </button>
         </div>
         <div class="area_table_content cloud_list">

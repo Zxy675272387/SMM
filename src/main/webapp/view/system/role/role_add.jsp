@@ -72,19 +72,18 @@
 	$("#addBtn").click(function (){
 		var roleName=$("input[name=roleName]").val();
 		var zxy=document.getElementById('hasvalid');
-		if(zxy.checked)
-		{
-			zxy.value=1;
-		}
-		else {
-			zxy.checked=true;
-			zxy.value=0;
-		}
-		if(roleName==null || roleName==''){
+		if (roleName == null || roleName == '') {
 			alert("角色名不能为空！");
 			$("input[name=orgName]").focus();
 			return false;
-		}else {
+		} else {
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else{
+				zxy.checked = true;
+				zxy.value = 0;
+			}
 			$.ajax({
 				type: "post",
 				url: _path + "/invoicing/system/role/add?__" + (new Date()).getTime(),

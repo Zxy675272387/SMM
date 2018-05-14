@@ -102,14 +102,6 @@
 		var password=$("input[name=password]").val();
 		var phone=$("input[name=phone]").val();
 		var zxy=document.getElementById('state');
-		if(zxy.checked)
-		{
-			zxy.value=1;
-		}
-		else {
-			zxy.checked=true;
-			zxy.value=0;
-		}
 		if(userName==null || userName==''){
 			alert("姓名不能为空！");
 			$("input[name=userName]").focus();
@@ -126,20 +118,27 @@
 			$("input[name=password]").focus();
 			return false;
 		}
+		if(phone==null || phone==''){
+			alert("手机号不能为空！");
+			$("input[name=phone]").focus();
+			return false;
+		}
 		if(phone.toString().length!=11)
 		{
 			alert("手机号必须为11位");
 			$("input[name=phone]").focus();
 			return false;
-		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
-			return false;
-		}else{
+		} else {
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else {
+				zxy.checked = true;
+				zxy.value = 0;
+			}
 			$.ajax({
-	 			type : "post",
-	 			url : _path+"/invoicing/system/user/add",
+				type: "post",
+				url: _path + "/invoicing/system/user/add",
 	 			 data:$('#user-add-form').serialize(),// 你的formid
 	              async:false,
 	 			 	success : function(data) {

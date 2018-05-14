@@ -12,7 +12,7 @@ public class Client {
 
 	public static void main(String[] args) {
 		try {
-			String pwd="111111";
+			String pwd="";
 			String str=MyMD5Util.getEncryptedPwd(pwd);
 			System.out.println(str);
 		} catch (NoSuchAlgorithmException e) {

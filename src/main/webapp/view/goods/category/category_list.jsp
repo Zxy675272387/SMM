@@ -17,8 +17,7 @@
 	<div class="panel panel-default form-search">
 		<div class="panel-body">
 			<div class="conditions_team">
-				<input type="text" name="categoryName" class="form-control"placeholder="分类名称"> 
-				<input type="text" name="pcategoryName"class="form-control" placeholder="上级类目">
+				<input type="text" name="categoryName" class="form-control"placeholder="分类名称">
 			</div>
 		</div>
 		<div class="panel-footer">

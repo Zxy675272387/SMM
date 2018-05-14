@@ -74,23 +74,22 @@
 	$("#addBtn").click(function (){
 		var roleName=$("input[name=roleName]").val();
 		var zxy=document.getElementById('hasvalid');
-		if(zxy.checked)
-		{
-			zxy.value=1;
-		}
-		else {
-			zxy.checked=true;
-			zxy.value=0;
-		}
 		if(roleName==null || roleName==''){
 			alert("角色名不能为空！");
 			$("input[name=orgName]").focus();
 			return false;
-		}else {
-		$.ajax({
-			type: "post",
-			url: _path + "/invoicing/system/role/update?__" + (new Date()).getTime(),
-			data: $('#role-update-form').serialize(),// 你的formid
+		} else {
+			if (zxy.checked) {
+				zxy.value = 1;
+			}
+			else{
+				zxy.checked = true;
+				zxy.value = 0;
+			}
+			$.ajax({
+				type: "post",
+				url: _path + "/invoicing/system/role/update?__" + (new Date()).getTime(),
+				data: $('#role-update-form').serialize(),// 你的formid
 			async: false,
 			success: function (data) {
 				if (data.code == 1) {
