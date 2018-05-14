@@ -39,6 +39,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param record
      * @return
      */
+    @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = RuntimeException.class)
     public int insertSelective(SaleRecordEntity record) {
         return saleRecordMapper.insertSelective(record);
@@ -50,6 +51,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param id
      * @return
      */
+    @Override
     public SaleRecordEntity selectByPrimaryKey(Long id) {
         return saleRecordMapper.selectByPrimaryKey(id);
     }
@@ -60,6 +62,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param record
      * @return 1成功  其它失败
      */
+    @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = RuntimeException.class)
     public int updateByPrimaryKeySelective(SaleRecordEntity record) {
         return saleRecordMapper.updateByPrimaryKeySelective(record);
@@ -71,6 +74,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param params
      * @return List<SaleRecordEntity>
      */
+    @Override
     public List<SaleRecordEntity> getList(Map<String, Object> params) {
         return saleRecordMapper.getList(params);
     }
@@ -81,6 +85,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param params
      * @return PageInfo<SaleRecordEntity>
      */
+    @Override
     public PageInfo<SaleRecordEntity> getList(PageInfo<SaleRecordEntity> pageInfo, Map<String, Object> params) {
         List<SaleRecordEntity> list = saleRecordMapper.getList(params,
                 new RowBounds(pageInfo.getStart(), pageInfo.getPageSize()));
@@ -91,11 +96,11 @@ public class SaleRecordServiceImpl implements SaleRecordService {
     }
 
     @Override
-    public PageInfo<SaleRecordEntity> getListTop(PageInfo<SaleRecordEntity> pageInfo) {
-        List<SaleRecordEntity> list = saleRecordMapper.getListTop(
+    public PageInfo<SaleRecordEntity> getListTop(Map<String,Object> params, PageInfo<SaleRecordEntity> pageInfo) {
+        List<SaleRecordEntity> list = saleRecordMapper.getListTop(params,
                 new RowBounds(pageInfo.getStart(), pageInfo.getPageSize()));
 
-        Integer total = saleRecordMapper.getListCountTop();
+        Integer total = saleRecordMapper.getListCountTop(params);
         pageInfo.setRows(list);
         pageInfo.setTotal(total);
         return pageInfo;
@@ -107,6 +112,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
      * @param params
      * @return int
      */
+    @Override
     public int getListCount(Map<String, Object> params) {
         return saleRecordMapper.getListCount(params);
     }

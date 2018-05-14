@@ -44,10 +44,11 @@ public interface SaleRecordMapper  {
 	List<SaleRecordEntity> getList(Map<String,Object> params,RowBounds rowBounds);
 	/**
 	 * 通过map参数获取列表 分页
+	 * @param params
 	 * @param rowBounds
 	 * @return List<SaleRecordEntity>
 	 */
-	List<SaleRecordEntity> getListTop(RowBounds rowBounds);
+	List<SaleRecordEntity> getListTop(Map<String,Object> params, RowBounds rowBounds);
 	/**
 	 * 通过map参数获取 总数
 	 * @param params
@@ -56,8 +57,9 @@ public interface SaleRecordMapper  {
 	int getListCount(Map<String,Object> params);
 	/**
 	 * 通过map参数获取 总数
+	 * @param params
 	 * @return int
 	 */
-	int getListCountTop();
+	int getListCountTop(Map<String,Object> params);
 
 }

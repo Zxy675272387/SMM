@@ -103,10 +103,10 @@ public class SaleRecordController {
 		PageInfo<SaleRecordEntity> pageInfo=new PageInfo<SaleRecordEntity>();
 		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
 		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
-		Map<String,Object> params=new HashMap<String,Object>();
+		Map<String,Object> params=new HashMap<>(1);
 		params.put("remark4", remark4);
 		System.out.println(remark4);
-		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getListTop(pageInfo);
+		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getListTop(params, pageInfo);
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
 		return new SuccessResponseEntity(saleRecordList);
 

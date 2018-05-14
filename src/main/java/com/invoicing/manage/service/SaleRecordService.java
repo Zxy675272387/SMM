@@ -49,7 +49,7 @@ public interface SaleRecordService  {
 	 * @param pageInfo
 	 * @return
 	 */
-	PageInfo<SaleRecordEntity> getListTop(PageInfo<SaleRecordEntity> pageInfo);
+	PageInfo<SaleRecordEntity> getListTop(Map<String,Object> params, PageInfo<SaleRecordEntity> pageInfo);
 	/**
 	 * 通过map参数获取 总数
 	 * @param params
