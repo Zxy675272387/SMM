@@ -247,5 +247,6 @@
 		LEFT JOIN system_role_tb roleEntity ON userrole.role_id = roleEntity.id
 		WHERE
 			userEntity.login_name = #{loginName}
+			and userEntity.state=1
 	</select>
 </mapper>

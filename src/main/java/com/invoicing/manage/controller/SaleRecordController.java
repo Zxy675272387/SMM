@@ -48,9 +48,11 @@ public class SaleRecordController {
 	 * @since JDK 1.7
 	 */
 	@RequestMapping(value = "/page/list", method = RequestMethod.GET)
-	public ModelAndView goToSaleRecordList(){
+	public ModelAndView goToSaleRecordList(ModelMap modelMap){
 		String url="/sale/record/sale_record_list";
-		return new ModelAndView(url);
+		Map<String,Object> params=new HashMap<String,Object>();
+		modelMap.put("total",saleRecordService.getTotal(params));
+		return new ModelAndView(url,modelMap);
 	}
 		
 	/**
@@ -63,13 +65,18 @@ public class SaleRecordController {
 	
 	@RequestMapping(value = "/page/list", method = RequestMethod.POST)
 	@ResponseBody
-	 public ResponseEntity getSaleRecordList(SaleRecordRequestEntity saleRecordRequestEntity){
+	 public ResponseEntity getSaleRecordList(SaleRecordRequestEntity saleRecordRequestEntity,HttpServletRequest httpServletRequest){
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，请求参数："+JSON.toJSONString(saleRecordRequestEntity));
 		PageInfo<SaleRecordEntity> pageInfo=new PageInfo<SaleRecordEntity>();
 		pageInfo.setPageNo(saleRecordRequestEntity.getPageNo());
 		pageInfo.setPageSize(saleRecordRequestEntity.getPageSize());
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put("goodsName", saleRecordRequestEntity.getGoodsName());
+		httpServletRequest.setAttribute(String.valueOf(saleRecordService.getTotal(params)),"total");
+		ModelAndView modelAndView=new ModelAndView();
+		modelAndView.addObject("total",String.valueOf(saleRecordService.getTotal(params)));
+		System.out.println("enter");
+		System.out.println(saleRecordService.getTotal(params));
 		PageInfo<SaleRecordEntity> saleRecordList = saleRecordService.getList(pageInfo, params);
 		logger.debug("method [getSaleRecordEntityList] 查询销售记录列表，返回结果为："+JSON.toJSONString(saleRecordList));
 		return new SuccessResponseEntity(saleRecordList);

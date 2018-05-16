@@ -105,21 +105,7 @@
 				try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
 			</script>
 			<ul class="nav nav-list" id="menu_id">
-				<!-- <li><a href="#" class="dropdown-toggle">
-                        <i class="icon-desktop"></i>
-                        <span class="menu-text"> 系统管理 </span>
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
 
-                    <ul class="submenu">
-                        <li class="menu_li">
-                            <a target="/invoicing/system/user/list">
-                                <i class="icon-double-angle-right"></i>
-                                用户管理
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
 			</ul>
 			<!-- /.nav-list -->
 

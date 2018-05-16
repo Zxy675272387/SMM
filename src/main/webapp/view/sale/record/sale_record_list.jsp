@@ -18,6 +18,7 @@
 		<div class="panel-body">
 			<div class="conditions_team">
 				<input type="text" name="goodsName" class="form-control"placeholder="商品名称">
+				<input type="text" name="total" id="total"  class="form-control" readonly="true" value="${total}">
 			</div>
 		</div>
 		<div class="panel-footer">

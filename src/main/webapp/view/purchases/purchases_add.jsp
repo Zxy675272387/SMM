@@ -50,7 +50,7 @@
 		                    </td>
 		                </tr>
 		                <tr>
-		                <th>状态</th>
+		                <th>处理状态</th>
 		                     <td>
 		                        <div class="form-group ">
 		                            <select class="form-control"  name="orderStatus" id="orderStatus">
@@ -110,8 +110,9 @@
 		var purchasePrice=$("input[name=purchasePrice]").val();
 		var totalAmount=$("input[name=totalAmount]").val();
 		var remark2=$("input[name=remark2]").val();
+		var orderType=$("input[name=orderType]").val();
 		if(purchaseOrderNo==null || purchaseOrderNo==''){
-			alert("姓名不能为空！");
+			alert("订单号不能为空！");
 			$("input[name=purchaseOrderNo]").focus();
 			return false;
 		}
@@ -127,7 +128,7 @@
 			return false;
 		}
 		if(totalAmount==null || totalAmount==''){
-			alert("总价不能为空！");
+			alert("总数不能为空！");
 			$("input[name=totalAmount]").focus();
 			return false;
 		}if(remark2==null || remark2==''){
@@ -142,11 +143,11 @@
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
-	 					var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
+	 					alert("订单保存成功！");
+	 					var url=_path+"/invoicing/purchases/refund/page/list?flag=1";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("订单保存失败！");
 	 				}
 	 			}
 	         });
@@ -156,7 +157,7 @@
 	
 	//取消
 	$("#cancelBtn").click(function(){
-		 var url=_path+"/invoicing/purchases/refund/page/list?flag="+orderType;
+		 var url=_path+"/invoicing/purchases/refund/page/list?flag=1";
 		 //调用跳转方法
 		 goBackPage(url);
 	});

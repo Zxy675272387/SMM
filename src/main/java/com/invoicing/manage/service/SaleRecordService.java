@@ -18,6 +18,12 @@ public interface SaleRecordService  {
 	 * @param record
 	 * @return
 	 */
+	float getTotal(Map<String,Object> params);
+	/**
+	 * 插入实体
+	 * @param record
+	 * @return
+	 */
 	int insertSelective(SaleRecordEntity record);
 	/**
 	 * 通过主键id 获取实体对象

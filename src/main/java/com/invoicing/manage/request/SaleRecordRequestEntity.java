@@ -22,7 +22,7 @@ public class SaleRecordRequestEntity extends BaseRequestEntity{
      */
     private String goodsName;
 	private Date updateTime;
-
+	private float total;
 	public Integer getPayMethod() {
 		return payMethod;
 	}
@@ -53,5 +53,13 @@ public class SaleRecordRequestEntity extends BaseRequestEntity{
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public float getTotal() {
+		return total;
+	}
+
+	public void setTotal(float total) {
+		this.total = total;
 	}
 }

@@ -50,7 +50,6 @@ public class UserResponse extends BaseEntity{
      */
     private String roleName;
     
-    
 	public String getLoginName() {
 		return loginName;
 	}
@@ -218,7 +217,6 @@ public class UserResponse extends BaseEntity{
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-    
-    
+
 
 }

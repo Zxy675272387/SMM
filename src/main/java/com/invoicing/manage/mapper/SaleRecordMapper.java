@@ -13,6 +13,12 @@ public interface SaleRecordMapper  {
 	 */
 	int deleteByPrimaryKey(Long id);
 	/**
+	 * 通过主键id 删除
+	 * @param id
+	 * @return
+	 */
+	float getTotal(Map<String,Object> params);
+	/**
 	 * 插入实体
 	 * @param record
 	 * @return

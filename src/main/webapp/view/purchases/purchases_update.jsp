@@ -51,7 +51,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th>状态</th>
+							<th>处理状态</th>
 							<td>
 								<div class="form-group ">
 									<select class="form-control"  name="orderStatus" id="orderStatus">

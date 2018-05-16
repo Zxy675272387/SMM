@@ -138,25 +138,62 @@
     }
     //添加用户
     $("#addBtn").click(function () {
-        var salePrice = $("input[name=salePrice]").val();
-        var saleNumber = $("input[name=saleNumber]").val();
-        var paidAmount = $("input[name=paidAmount]").val();
-        if (salePrice == null || salePrice == '') {
-            alert("单价不能为空！");
-            //timedTaskFun(2000,'登录名不能为空！','','err');
-            $("input[name=loginName]").focus();
-            return false;
-        }
-        if (saleNumber == null || saleNumber == '') {
-            alert("数量不能为空！");
-            $("input[name=password]").focus();
-            return false;
-        }
-        if (paidAmount == null || paidAmount == '') {
-            alert("总额不能为空！");
-            $("input[name=phone]").focus();
-            return false;
-        } else {
+		var salePrice = $("input[name=salePrice]").val();
+		var saleNumber = $("input[name=saleNumber]").val();
+		var paidAmount = $("input[name=paidAmount]").val();
+		var changeAmount=$("input[name=changeAmount]").val();
+		var receivableAmount=$("input[name=receivableAmount]").val();
+		if (salePrice == null || salePrice == '') {
+			alert("单价不能为空！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=salePrice]").focus();
+			return false;
+		}
+		if (salePrice < 0 ) {
+			alert("单价不能为负！");
+			$("input[name=salePrice]").focus();
+			return false;
+		}
+		if (saleNumber == null || saleNumber == '') {
+			alert("数量不能为空！");
+			$("input[name=saleNumber]").focus();
+			return false;
+		}
+		if (saleNumber < 0 ) {
+			alert("数量不能为负！");
+			$("input[name=saleNumber]").focus();
+			return false;
+		}
+		if (paidAmount == null || paidAmount == '') {
+			alert("实收不能为空！");
+			$("input[name=paidAmount]").focus();
+			return false;
+		}
+		if (paidAmount < 0 ) {
+			alert("实收不能为负！");
+			$("input[name=paidAmount]").focus();
+			return false;
+		}
+		if (changeAmount == null || changeAmount == '') {
+			alert("找零不能为空！");
+			$("input[name=v]").focus();
+			return false;
+		}
+		if (changeAmount < 0 ) {
+			alert("找零不能为负！");
+			$("input[name=changeAmount]").focus();
+			return false;
+		}
+		if (receivableAmount == null || receivableAmount == '') {
+			alert("实收不能为空！");
+			$("input[name=receivableAmount]").focus();
+			return false;
+		}
+		if (receivableAmount < 0 ) {
+			alert("实收不能为负！");
+			$("input[name=receivableAmount]").focus();
+			return false;
+		} else {
             $.ajax({
                 type: "post",
                 url: _path + "/invoicing/sale/record/update",

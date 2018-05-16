@@ -320,6 +320,14 @@
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
         </if>
     </select>
+    <select id="getTotal" resultType="java.lang.Float"
+            parameterType="java.util.Map">
+        select
+        SUM(paid_amount)
+        from sale_record_tb saleRecord
+        where 1=1
+        <include refid="whereSQL"/>
+    </select>
     <sql id="whereSQL">
         <if test="id != null">
             and saleRecord.id = #{id}

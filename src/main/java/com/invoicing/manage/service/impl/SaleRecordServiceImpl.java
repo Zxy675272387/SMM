@@ -101,6 +101,7 @@ public class SaleRecordServiceImpl implements SaleRecordService {
                 new RowBounds(pageInfo.getStart(), pageInfo.getPageSize()));
 
         Integer total = saleRecordMapper.getListCountTop(params);
+        System.out.print("from service"+saleRecordMapper.getTotal(params));
         pageInfo.setRows(list);
         pageInfo.setTotal(total);
         return pageInfo;
@@ -115,6 +116,9 @@ public class SaleRecordServiceImpl implements SaleRecordService {
     @Override
     public int getListCount(Map<String, Object> params) {
         return saleRecordMapper.getListCount(params);
+    }
+    public float getTotal(Map<String, Object> params) {
+        return saleRecordMapper.getTotal(params);
     }
 
 }
