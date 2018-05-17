@@ -82,8 +82,14 @@ $(document).ready(function(){
 			$("input[name=instruction]").focus();
 			return false;
 		}
-		if(number==null || number==''){
-			alert("数量不能为空！");
+		if(number==null || number==''||isNaN(number)){
+			alert("数量不能为空或非数字！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=number]").focus();
+			return false;
+		}
+		if(number<0){
+			alert("数量不能为负！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=number]").focus();
 			return false;

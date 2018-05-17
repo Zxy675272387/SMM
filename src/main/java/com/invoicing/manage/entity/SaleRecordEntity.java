@@ -34,7 +34,7 @@ public class SaleRecordEntity extends BaseEntity {
     /**
      * 应收金额
      */
-    private Long receivableAmount;
+    private float receivableAmount;
     /**
      * 实收金额
      */
@@ -167,7 +167,7 @@ public class SaleRecordEntity extends BaseEntity {
 	/**
 	 * 设置应收金额
 	 */
-    public void setReceivableAmount(Long receivableAmount) {
+    public void setReceivableAmount(float receivableAmount) {
         this.receivableAmount = receivableAmount;
     }
     /**

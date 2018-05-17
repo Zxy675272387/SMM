@@ -249,12 +249,12 @@
 		 <if test="number != null and number!=''">
 			 and  #{number} >= cast(stockGround.number as unsigned int)
 		 </if>
- 		 <if test="name != null and name != ''">
- 			 and stockGround.name = #{name}
- 		  </if>
- 		 <if test="instruction != null and instruction != ''">
- 			 and stockGround.instruction = #{instruction}
- 		  </if>
+		 <if test="name != null and name!=''">
+			 and LOCATE(#{name},stockGround.name)>0
+		 </if>
+		 <if test="instruction != null and instruction!=''">
+			 and LOCATE(#{instruction},stockGround.instruction)>0
+		 </if>
  		 <if test="isInitialise != null">
  			 and stockGround.is_initialise = #{isInitialise}
  		  </if>

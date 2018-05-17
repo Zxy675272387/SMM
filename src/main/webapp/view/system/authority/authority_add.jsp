@@ -106,13 +106,13 @@
 				async: false,
 				success: function (data) {
 					if (data.code == 1) {
-						alert("菜单编辑成功！");
+						alert("菜单增加成功！");
 						var url = _path + "/invoicing/system/authority/list";
 						$.get(url, function (data) {
 							$("#mian_div").html(data);
 						});
 					} else {
-						alert("菜单编辑失败");
+						alert("菜单增加失败");
 					}
 				}
 			});

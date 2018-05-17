@@ -96,8 +96,11 @@
 	$("#addBtn").click(function (){
 		var supplierName=$("input[name=supplierName]").val();
 		var linkmanName=$("input[name=linkmanName]").val();
-		var linkmanPhone=$("input[name=linkmanPhone").val();
+		var linkmanPhone=$("input[name=linkmanPhone]").val();
 		var linkEmail=$("input[name=linkEmail]").val();
+		var linkEmail = document.getElementsByName("linkEmail")[0].value;
+
+
 		if(supplierName==null || supplierName==''){
 			alert("供应商名称不能为空不能为空！");
 			$("input[name=supplierName]").focus();
@@ -109,9 +112,15 @@
 			$("input[name=linkmanName]").focus();
 			return false;
 		}
-		if(linkmanPhone==null || linkmanPhone==''){
-			alert("联系电话不能为空！");
+		if(linkmanPhone==null || linkmanPhone==''||isNaN(linkmanPhone)){
+			alert("联系电话不能为空或非数字！");
 			$("input[name=linkmanPhone]").focus();
+			return false;
+		}
+		if(linkEmail.indexOf("@") == -1){
+
+			alert("请输入正确的email地址");
+			$("input[name=linkEmail]").focus();
 			return false;
 		}
 		if(linkEmail==null || linkEmail==''){
@@ -126,11 +135,11 @@
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
+	 					alert("保存成功！");
 	 					var url=_path+"/invoicing/base/date/supplier/page/list";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("保存失败！");
 	 				}
 	 			}
 	         });

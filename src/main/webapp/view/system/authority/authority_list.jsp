@@ -161,9 +161,9 @@
                     success: function (data) {
                         closewait();
                         //若执行成功的话，则隐藏进度条提示
-                        if (data != null && data != 'undefined'
-                                && data == 1) {
-                            timedTaskFun(1000, '菜单删除成功', "", 'correct');
+                        if ( data.code == 1) {
+                            alert("菜单删除成功");
+                           // timedTaskFun(1000, '菜单删除成功', "", 'correct');
                             var url = _path + "/invoicing/system/authority/list";
                             $.get(url, function (data) {
                                 $("#mian_div").html(data);
@@ -192,6 +192,7 @@
                             waitload();
                         },
                         success: function (data) {
+
                             closewait();
                             //若执行成功的话，则隐藏进度条提示
                             if (data.code == 1) {

@@ -281,10 +281,11 @@
         ON saleRecord.goods_id = goods.id
         where 1=1
         <include refid="whereSQL"/>
+
         <if test="goodsName != null">
             and goods.goods_name like concat('%', #{goodsName}, '%')
         </if>
-
+        ORDER BY saleRecord.update_time DESC
     </select>
     <select id="getListTop" resultMap="BaseResultMap"
             parameterType="java.util.Map">
@@ -294,7 +295,7 @@
         goods.remark1 unitName
         FROM
         sale_record_tb saleRecord
-        LEFT JOIN goods_tb goods
+        RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
         <if test="remark4 != null">
@@ -306,6 +307,8 @@
         select
         count(saleRecord.id)
         from sale_record_tb saleRecord
+        RIGHT JOIN goods_tb goods
+        ON saleRecord.goods_id = goods.id
         where 1=1
         <include refid="whereSQL"/>
     </select>
@@ -313,7 +316,7 @@
         select
         count(saleRecord.id)
         from sale_record_tb saleRecord
-         LEFT JOIN goods_tb goods
+         RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
         <if test="remark4 != null">
@@ -325,8 +328,13 @@
         select
         SUM(paid_amount)
         from sale_record_tb saleRecord
+        RIGHT JOIN goods_tb goods
+        ON saleRecord.goods_id = goods.id
         where 1=1
         <include refid="whereSQL"/>
+
+       /*
+        and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)*/
     </select>
     <sql id="whereSQL">
         <if test="id != null">

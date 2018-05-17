@@ -202,6 +202,7 @@ public class SaleRecordController {
 			logger.debug("编辑销售记录，传入参数为："+JSON.toJSONString(brandEntity));
 			Date date = new Date(System.currentTimeMillis());
 			brandEntity.setUpdateTime(date);
+			System.out.println("enter");
 			int result = saleRecordService.updateByPrimaryKeySelective(brandEntity);
 			logger.debug("编辑销售记录，返回结果为："+JSON.toJSONString(result));
 			return new SuccessResponseEntity();

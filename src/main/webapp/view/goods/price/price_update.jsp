@@ -96,8 +96,8 @@ $(document).ready(function(){
 			$("input[name=phone]").focus();
 			return false;
 		}
-		if(salePrice==null || salePrice==''){
-			alert("价格不能为空！");
+		if(salePrice==null || salePrice==''|| isNaN(salePrice)){
+			alert("价格不能为空或者非数字！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=salePrice]").focus();
 			return false;
@@ -107,8 +107,8 @@ $(document).ready(function(){
 			$("input[name=phone]").focus();
 			return false;
 		}
-		if(marketPrice==null || marketPrice==''){
-			alert("价格不能为空！");
+		if(marketPrice==null || marketPrice==''|| isNaN(marketPrice)){
+			alert("价格不能为空或者不为数字！");
 			$("input[name=marketPrice]").focus();
 			return false;
 		}
@@ -117,8 +117,8 @@ $(document).ready(function(){
 			$("input[name=phone]").focus();
 			return false;
 		}
-		if(purchasePrice==null || purchasePrice==''){
-			alert("价格不能为空！");
+		if(purchasePrice==null || purchasePrice==''|| isNaN(purchasePrice)){
+			alert("价格不能为空或者不为数字！");
 			$("input[name=purchasePrice]").focus();
 			return false;
 		}

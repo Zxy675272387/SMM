@@ -105,8 +105,13 @@ $(document).ready(function(){
 			$("input[name=goodsShortName]").focus();
 			return false;
 		}
-		if(goodsSpu==null || goodsSpu==''){
-			alert("spu不能为空！");
+		if(goodsSpu==null || goodsSpu==''|| isNaN(goodsSpu)){
+			alert("spu不能为空或者非数字！");
+			$("input[name=goodsSpu]").focus();
+			return false;
+		}
+		if(goodsSpu<0){
+			alert("spu不能为负！");
 			$("input[name=goodsSpu]").focus();
 			return false;
 		}else{
@@ -117,11 +122,11 @@ $(document).ready(function(){
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
+	 					alert("修改成功！");
 	 					var url=_path+"/invoicing/goods/info/page/list";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("修改失败！");
 	 				}
 	 			}
 	         });

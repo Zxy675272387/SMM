@@ -111,27 +111,49 @@
 		var totalAmount=$("input[name=totalAmount]").val();
 		var remark2=$("input[name=remark2]").val();
 		var orderType=$("input[name=orderType]").val();
-		if(purchaseOrderNo==null || purchaseOrderNo==''){
-			alert("订单号不能为空！");
+		if(purchaseOrderNo==null || purchaseOrderNo==''||isNaN(purchaseOrderNo)){
+			alert("订单号不能为空或非数字！");
 			$("input[name=purchaseOrderNo]").focus();
 			return false;
 		}
-		if(purchaseNumber==null || purchaseNumber==''){
-			alert("数量不能为空！");
+		if(purchaseOrderNo<0){
+			alert("订单号不能为负！");
+			$("input[name=purchaseOrderNo]").focus();
+			return false;
+		}
+		if(purchaseNumber==null || purchaseNumber==''||isNaN(purchaseNumber)){
+			alert("数量不能为空或非数字！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=purchaseNumber]").focus();
 			return false;
 		}
-		if(purchasePrice==null || purchasePrice==''){
-			alert("采购价格不能为空！");
+		if(purchaseNumber<0){
+			alert("数量不能为负！");
+			//timedTaskFun(2000,'登录名不能为空！','','err');
+			$("input[name=purchaseNumber]").focus();
+			return false;
+		}
+		if(purchasePrice==null || purchasePrice==''||isNaN(purchasePrice)){
+			alert("采购价格不能为空或非数字！");
 			$("input[name=purchasePrice]").focus();
 			return false;
 		}
-		if(totalAmount==null || totalAmount==''){
-			alert("总数不能为空！");
+		if(purchasePrice<0){
+			alert("采购价格不能为负！");
+			$("input[name=purchasePrice]").focus();
+			return false;
+		}
+		if(totalAmount==null || totalAmount==''||isNaN(totalAmount)){
+			alert("总价不能为空或非数字！");
 			$("input[name=totalAmount]").focus();
 			return false;
-		}if(remark2==null || remark2==''){
+		}
+		if(totalAmount<0){
+			alert("总价不能为负！");
+			$("input[name=purchasePrice]").focus();
+			return false;
+		}
+		if(remark2==null || remark2==''){
 			alert("订单货品不能为空！");
 			$("input[name=remark2]").focus();
 			return false;
@@ -147,7 +169,7 @@
 	 					var url=_path+"/invoicing/purchases/refund/page/list?flag=1";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("订单保存失败！");
+	 					alert("订单保存失败！确认是否输入了正确的订单号");
 	 				}
 	 			}
 	         });

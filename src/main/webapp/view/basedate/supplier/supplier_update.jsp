@@ -111,9 +111,15 @@ $(document).ready(function(){
 			$("input[name=linkmanName]").focus();
 			return false;
 		}
-		if(linkmanPhone==null || linkmanPhone==''){
-			alert("联系电话不能为空！");
+		if(linkmanPhone==null || linkmanPhone==''||isNaN(linkmanPhone)){
+			alert("联系电话不能为空或非数字！");
 			$("input[name=linkmanPhone]").focus();
+			return false;
+		}
+		if(linkEmail.indexOf("@") == -1){
+
+			alert("请输入正确的email地址");
+			$("input[name=linkEmail]").focus();
 			return false;
 		}
 		if(linkEmail==null || linkEmail==''){
@@ -128,11 +134,11 @@ $(document).ready(function(){
 	              async:false,
 	 			 	success : function(data) {
 	 				if(data.code==1){
-	 					alert("用户保存成功！");
+	 					alert("修改成功！");
 	 					var url=_path+"/invoicing/base/date/supplier/page/list";
 	 					goBackPage(url);
 	 				}else{
-	 					alert("用户保存失败！");
+	 					alert("修改失败！");
 	 				}
 	 			}
 	         });

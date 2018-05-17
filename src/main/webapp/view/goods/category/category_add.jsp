@@ -101,11 +101,11 @@
 				async:false,
 				success : function(data) {
 					if(data.code==1){
-						alert("用户保存成功！");
+						alert("保存成功！");
 						var url=_path+"/invoicing/goods/category/page/list";
 						goBackPage(url);
 					}else{
-						alert("用户保存失败！");
+						alert("保存失败！");
 					}
 				}
 			});

@@ -118,9 +118,9 @@
 			$("input[name=password]").focus();
 			return false;
 		}
-		if(phone==null || phone==''){
-			alert("手机号不能为空！");
-			$("input[name=phone]").focus();
+		if(phone==null || phone==''||isNaN(phone)){
+			alert("手机号不能为空或非数字！");
+			$("input[name=contactPhone]").focus();
 			return false;
 		}
 		if(phone.toString().length!=11)

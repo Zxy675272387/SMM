@@ -285,7 +285,7 @@
  			 and goodsCategory.category_id = #{categoryId}
  		  </if>
  		 <if test="categoryName != null and categoryName!=''">
- 			 and goodsCategory.category_name = #{categoryName}
+			 and LOCATE(#{categoryName},goodsCategory.category_name)>0
  		  </if>
  		 <if test="parentId != null">
  			 and goodsCategory.parent_id = #{parentId}

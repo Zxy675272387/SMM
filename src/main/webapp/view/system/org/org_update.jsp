@@ -52,7 +52,7 @@
 						</td>
 					</tr>
 					<tr>
-						<th>销售类型</th>
+						<th>上级机构</th>
 						<td>
 							<div class="form-group ">
 								<select class="form-control"  name="pid" id="pid">
@@ -107,11 +107,11 @@
 		}
 		if(orgNum==null || orgNum==''){
 			alert("编号不能为空！");
-			$("input[name=password]").focus();
+			$("input[name=orgNum]").focus();
 			return false;
 		}
-		if(contactPhone==null || contactPhone==''){
-			alert("手机号不能为空！");
+		if(contactPhone==null || contactPhone==''||isNaN(contactPhone)){
+			alert("手机号不能为空或非数字！");
 			$("input[name=contactPhone]").focus();
 			return false;
 		}

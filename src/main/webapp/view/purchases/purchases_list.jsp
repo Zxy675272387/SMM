@@ -133,7 +133,7 @@
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
     					alert("采购删除成功！")
-    					var url = _path+"/invoicing/purchases/refund/page/list";
+    					var url = _path+"/invoicing/purchases/refund/page/list?flag=1";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'采购删除失败','','err');

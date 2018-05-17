@@ -18,7 +18,8 @@
 		<div class="panel-body">
 			<div class="conditions_team">
 				<input type="text" name="goodsName" class="form-control"placeholder="商品名称">
-				<input type="text" name="total" id="total"  class="form-control" readonly="true" value="${total}">
+				<!--<input type="text" name="total" id="total"  class="form-control" readonly="true" value="总盈利额为：${total}元">-->
+				<h1 align="center">总盈利额为：${total}元</h1>
 			</div>
 		</div>
 		<div class="panel-footer">

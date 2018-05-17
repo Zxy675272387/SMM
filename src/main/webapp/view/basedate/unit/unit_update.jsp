@@ -53,7 +53,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th><span class="required">*</span>用户状态</th>
+							<th><span class="required">*</span>状态</th>
 							<td><div class="wrapper">
 								<section class="fields section">
 									<div class="fields__item">
@@ -104,20 +104,25 @@ $(document).ready(function(){
 			$("input[name=unitEnglishName]").focus();
 			return false;
 		}
-		if (minimumUnitType == null || minimumUnitType == '') {
-			alert("最小单位类型不能为空！");
+		if (minimumUnitType == null || minimumUnitType == ''||isNaN(minimumUnitType)) {
+			alert("最小单位类型不能为空或非数字！");
 			$("input[name=minimumUnitType]").focus();
 			return false;
 		}
-		if (minimumUnitVal == null || minimumUnitVal == '') {
-			alert("最小值不能为空！");
+		if (minimumUnitType <0) {
+			alert("最小单位类型不能为负数！");
+			$("input[name=minimumUnitType]").focus();
+			return false;
+		}
+		if (minimumUnitVal == null || minimumUnitVal == ''||isNaN(minimumUnitVal)) {
+			alert("最小值不能为空或非数字！");
 			$("input[name=minimumUnitVal]").focus();
 			return false;
-		}else {
+		} else {
 			if (zxy.checked) {
 				zxy.value = 1;
 			}
-			else{
+			else {
 				zxy.checked = true;
 				zxy.value = 0;
 			}
@@ -128,11 +133,11 @@ $(document).ready(function(){
 				async: false,
 				success: function (data) {
 					if (data.code == 1) {
-						alert("用户保存成功！");
+						alert("修改成功！");
 						var url = _path + "/invoicing/base/date/unit/page/list";
 						goBackPage(url);
 					} else {
-						alert("用户保存失败！");
+						alert("修改失败！");
 					}
 				}
 			});

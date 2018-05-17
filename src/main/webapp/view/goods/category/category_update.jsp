@@ -48,7 +48,6 @@
 		                            <select class="form-control"  name="categoryLevel" id="categoryLevel">
 					        			<option value="1" >1级</option>
 					        			<option value="2"  selected="selected">2级</option>
-										<option value="3" >3级</option>
 					        		</select>
 		                        </div>
 		                     </td>
@@ -92,11 +91,11 @@ $("#addBtn").click(function (){
 			async:false,
 			success : function(data) {
 				if(data.code==1){
-					alert("用户更新成功！");
+					alert("更新成功！");
 					var url=_path+"/invoicing/goods/category/page/list";
 					goBackPage(url);
 				}else{
-					alert("用户保存失败！");
+					alert("保存失败！");
 				}
 			}
 		});

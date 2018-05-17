@@ -122,8 +122,8 @@
     				closewait();
     				//若执行成功的话，则隐藏进度条提示
     				if (data.code== 1) {
-    					alert("地区删除成功！")
-    					var url = _path+"/invoicing/goods/info/list";
+    					alert("商品删除成功！")
+    					var url = _path+"/invoicing/goods/info/page/list";
     					goBackPage(url);
     				} else if (data == 0) {
     					timedTaskFun(1000,'地区删除失败','','err');
