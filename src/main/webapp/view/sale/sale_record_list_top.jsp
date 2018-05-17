@@ -53,7 +53,6 @@
                     , {
                         name: '单价', value: 'salePrice', type: "function", fun: function (obj) {
                             return obj.salePrice + "元";
-                            ;
                         }
                     }
                     , {name: '数量', value: 'saleNumber'}

@@ -86,6 +86,7 @@
                                 <input type="text" class="form-control" placeholder="请输入找零金额" name="changeAmount" value="">
                             </div>
                         </td>
+                        <input type="text" style="display: none" name="isDelete" value="${brand.isDelete}">
                     </tr>
                     </tbody>
                 </table>
@@ -142,6 +143,7 @@
         var paidAmount = $("input[name=paidAmount]").val();
         var changeAmount=$("input[name=changeAmount]").val();
         var receivableAmount=$("input[name=receivableAmount]").val();
+        var isDelete=$("input[name=isDelete]").val();
         if (salePrice == null || salePrice == ''||isNaN(salePrice)) {
             alert("单价不能为空或非数字！");
             //timedTaskFun(2000,'登录名不能为空！','','err');
@@ -162,6 +164,13 @@
             alert("数量不能为负！");
             $("input[name=saleNumber]").focus();
             return false;
+        }
+        if (saleNumber > 0 &&saleNumber <10 ) {
+            $("input[name=isDelete]").val("99");
+        }
+        if (saleNumber > 10) {
+
+            $("input[name=isDelete]").val("7");
         }
         if (receivableAmount == null || receivableAmount == ''||isNaN(receivableAmount)) {
             alert("应收金额不能为空或非数字！");

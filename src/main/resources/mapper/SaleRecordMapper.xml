@@ -298,9 +298,12 @@
         RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
+        /*and 100 > saleRecord.is_delete*/
         <if test="remark4 != null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
         </if>
+        ORDER BY saleRecord.sale_number DESC
+
     </select>
     <select id="getListCount" resultType="java.lang.Integer"
             parameterType="java.util.Map">
@@ -311,6 +314,7 @@
         ON saleRecord.goods_id = goods.id
         where 1=1
         <include refid="whereSQL"/>
+
     </select>
     <select id="getListCountTop" resultType="java.lang.Integer" parameterType="java.util.Map">
         select
@@ -319,6 +323,7 @@
          RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
         where saleRecord.sale_number > 10
+        /*and 100 > saleRecord.is_delete*/
         <if test="remark4 != null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
         </if>

@@ -18,6 +18,7 @@
 	<form class="add-form" id="user-add-form" method="post">
 		<div class="panel panel-default">
 			<input type="text" style="display: none" name="id" value="${brand.id}">
+			<input type="text" style="display: none" name="isDelete" value="${brand.isDelete}">
 			<div class="panel-heading">新增销售记录</div>
 			<div class="panel-body table_add">
 				<table class="table half-table">
@@ -143,8 +144,9 @@
 		var paidAmount = $("input[name=paidAmount]").val();
 		var changeAmount=$("input[name=changeAmount]").val();
 		var receivableAmount=$("input[name=receivableAmount]").val();
-		if (salePrice == null || salePrice == ''||isNaN(salePrice)) {
-			alert("单价不能为空或非数字！");
+		var isDelete=$("input[name=isDelete]").val();
+		if (salePrice == null || salePrice == '') {
+			alert("单价不能为空！");
 			//timedTaskFun(2000,'登录名不能为空！','','err');
 			$("input[name=salePrice]").focus();
 			return false;
@@ -154,8 +156,8 @@
 			$("input[name=salePrice]").focus();
 			return false;
 		}
-		if (saleNumber == null || saleNumber == ''||isNaN(saleNumber)) {
-			alert("数量不能为空或非数字！");
+		if (saleNumber == null || saleNumber == '') {
+			alert("数量不能为空！");
 			$("input[name=saleNumber]").focus();
 			return false;
 		}
@@ -164,8 +166,15 @@
 			$("input[name=saleNumber]").focus();
 			return false;
 		}
-		if (receivableAmount == null || receivableAmount == ''||isNaN(receivableAmount)) {
-			alert("应收金额不能为空或非数字！");
+		if (saleNumber > 0 &&saleNumber <10 ) {
+			$("input[name=isDelete]").val("99");
+		}
+		if (saleNumber > 10) {
+
+			$("input[name=isDelete]").val("7");
+		}
+		if (receivableAmount == null || receivableAmount == '') {
+			alert("应收金额不能为空！");
 			$("input[name=receivableAmount]").focus();
 			return false;
 		}
@@ -174,8 +183,8 @@
 			$("input[name=receivableAmount]").focus();
 			return false;
 		}
-		if (paidAmount == null || paidAmount == ''||isNaN(paidAmount)) {
-			alert("实收金额不能为空或非数字！");
+		if (paidAmount == null || paidAmount == '') {
+			alert("实收金额不能为空！");
 			$("input[name=paidAmount]").focus();
 			return false;
 		}
@@ -184,8 +193,8 @@
 			$("input[name=paidAmount]").focus();
 			return false;
 		}
-		if (changeAmount == null || changeAmount == ''||isNaN(changeAmount)) {
-			alert("找零不能为空或非数字！");
+		if (changeAmount == null || changeAmount == '') {
+			alert("找零不能为空！");
 			$("input[name=v]").focus();
 			return false;
 		}
@@ -193,7 +202,9 @@
 			alert("找零不能为负！");
 			$("input[name=changeAmount]").focus();
 			return false;
-		}else{
+		}
+
+		else {
             $.ajax({
                 type: "post",
                 url: _path + "/invoicing/sale/record/update",

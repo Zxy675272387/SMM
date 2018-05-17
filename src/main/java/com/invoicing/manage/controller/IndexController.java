@@ -64,7 +64,6 @@ public class IndexController {
 	@ResponseBody
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginPost(HttpServletRequest request, HttpSession session,ModelMap modelMap) {
-		String defaultPassWord="1";
 		String loginName=request.getParameter("loginName");
 		String password=request.getParameter("password");
 		if(null==loginName||null==password){
@@ -77,9 +76,15 @@ public class IndexController {
 			queryMap.put("loginName", loginName);
 			UserResponse userInfo = systemUserService.getUserByLoginName(queryMap);
 			//判断用户是否存在
+			//System.out.println("this is the userinfo"+userInfo.getRoleId());
 			if(StringUtil.isNull(userInfo)){
 				logger.info("登录名不存在。");
 				modelMap.put("info", "登录名不存在");
+				return new ModelAndView("/login");
+			}
+			if(userInfo.getRoleId()!=1){
+				logger.info("无访问权限。");
+				modelMap.put("info", "无访问权限");
 				return new ModelAndView("/login");
 			}
 			//登录密码验证
