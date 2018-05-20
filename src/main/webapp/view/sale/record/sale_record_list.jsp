@@ -69,6 +69,10 @@
 	                	return obj.paidAmount+"元";;
 	                    }
 	                  }
+					,{name:'价格',value:'paidAmount',type:"function", fun : function(obj){
+						return obj.salePrice*obj.saleNumber+"元";;
+					}
+					}
 	              	/*,{name:'实收金额',value:'receivableAmount',type:"function", fun : function(obj){
 		                	return obj.receivableAmount+".00元";;
 	                    }

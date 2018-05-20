@@ -37,10 +37,10 @@ public class GoodsController {
 	
 	@Autowired
 	private GoodsService goodsService;
-	
-	
-	
-	/**
+
+
+
+	 /**
 	 * goToGoodsList商品管理列表页
 	 * @return 返回类型为 ModelAndView
 	 * @exception

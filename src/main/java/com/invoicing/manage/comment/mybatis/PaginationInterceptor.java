@@ -82,6 +82,8 @@ public class PaginationInterceptor implements Interceptor {
 				dialect.getLimitString(originalSql, rowBounds.getOffset(), rowBounds.getLimit()));
 		metaStatementHandler.setValue("delegate.rowBounds.offset", RowBounds.NO_ROW_OFFSET);
 		metaStatementHandler.setValue("delegate.rowBounds.limit", RowBounds.NO_ROW_LIMIT);
+		/*metaStatementHandler.setValue("delegate.rowBounds.offset", 0);
+		metaStatementHandler.setValue("delegate.rowBounds.limit",3);*/
 		if (log.isDebugEnabled()) {
 			BoundSql boundSql = statementHandler.getBoundSql();
 			log.debug("生成分页SQL : " + boundSql.getSql());

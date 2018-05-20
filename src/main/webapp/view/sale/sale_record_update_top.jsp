@@ -26,7 +26,7 @@
 						<th><span class="required">*</span>商品名称</th>
 						<td>
 							<div class="form-group ">
-								<input type="text" class="form-control" placeholder="请输入商品名称" name="goodsName" disabled
+								<input type="text" class="form-control" placeholder="" name="goodsName" disabled
 									   value="${brand.goodsName}">
 							</div>
 						</td>

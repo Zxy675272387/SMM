@@ -110,6 +110,11 @@
 			$("input[name=orgNum]").focus();
 			return false;
 		}
+		if(orgNum<0){
+			alert("编号不能为负数！");
+			$("input[name=orgNum]").focus();
+			return false;
+		}
 		if(contactPhone==null || contactPhone==''||isNaN(contactPhone)){
 			alert("手机号不能为空或非数字！");
 			$("input[name=contactPhone]").focus();

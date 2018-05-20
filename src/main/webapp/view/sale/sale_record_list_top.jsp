@@ -91,14 +91,14 @@
                         }
                     }
                     , {name: '更新时间', value: 'updateTime'}
-                    , {
+                    /*, {
                         name: '操作', value: 'id', type: "function", fun: function (obj) {
                             var html = "";
                             // html+=" <a href='javascript:void(0)' class='btn-link' onclick='toDetailPage(" + obj.id + ")'>详细信息</a>"
                             html += "  <a href='javascript:void(0)' class='btn-link' onclick='toUpdatePage(" + obj.id + ")'>查看</a>"
                             return html;
                         }
-                    }
+                    }*/
                 ]
                 , buttons: buttonsArr
             };
