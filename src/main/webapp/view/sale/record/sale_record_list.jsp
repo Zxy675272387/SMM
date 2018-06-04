@@ -65,12 +65,12 @@
 	                    }
 	                  }
                     ,{name:'数量',value:'saleNumber'}
-                    ,{name:'销售总额',value:'paidAmount',type:"function", fun : function(obj){
+                   /* ,{name:'销售总额',value:'paidAmount',type:"function", fun : function(obj){
 	                	return obj.paidAmount+"元";;
 	                    }
-	                  }
-					,{name:'价格',value:'paidAmount',type:"function", fun : function(obj){
-						return obj.salePrice*obj.saleNumber+"元";;
+	                  }*/
+					,{name:'销售总额',value:'paidAmount',type:"function", fun : function(obj){
+						return (Math.round(obj.salePrice*obj.saleNumber*100)/100)+"元";;
 					}
 					}
 	              	/*,{name:'实收金额',value:'receivableAmount',type:"function", fun : function(obj){

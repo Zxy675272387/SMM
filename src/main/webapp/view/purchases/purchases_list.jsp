@@ -66,7 +66,7 @@
 					}
 					}
 					,{name:'采购总额',value:'totalAmount',type:"function", fun : function(obj){
-						return obj.totalAmount+"元";;
+						return (Math.round(obj.purchasePrice*obj.purchaseNumber*100)/100)+"元";;
 					}
 					}
                     ,{name:'下单原因',value:'remark1'}

@@ -257,7 +257,7 @@
 
     <sql id="whereSQL">
         <if test="goodsName != null and goodsName !=''">
-            and goods.goods_name = #{goodsName}
+            and  LOCATE(#{goodsName},goods.goods_name)>0
         </if>
     </sql>
     <select id="getList" resultMap="BaseResultMap"

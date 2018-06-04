@@ -304,6 +304,7 @@
  		 <if test="remark2 != null">
  			 and purchasesRefund.remark2 = #{remark2}
  		  </if>
+		 ORDER BY update_time DESC
 	</select>
 	 <select id="getListCount" resultType="java.lang.Integer"
 		parameterType="java.util.Map">

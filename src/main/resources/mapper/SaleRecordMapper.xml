@@ -297,7 +297,7 @@
         sale_record_tb saleRecord
         RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
-        where saleRecord.sale_number > 10
+        where saleRecord.sale_number > 15
         /*and 100 > saleRecord.is_delete*/
         <if test="remark4 != null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)
@@ -322,7 +322,7 @@
         from sale_record_tb saleRecord
          RIGHT JOIN goods_tb goods
         ON saleRecord.goods_id = goods.id
-        where saleRecord.sale_number > 10
+        where saleRecord.sale_number > 15
         /*and 100 > saleRecord.is_delete*/
         <if test="remark4 != null">
             and  saleRecord.update_time >= DATE_SUB(CURDATE(), INTERVAL #{remark4} DAY)

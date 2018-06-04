@@ -201,7 +201,7 @@
 	<!-- 列表查询条件 -->
 	<sql id="whereSQL">
  		 <if test="loginName != null">
- 			 and LOCATE(#{loginName},systemUser.user_name )>0 
+ 			 and LOCATE(#{loginName},systemUser.login_name )>0
  		  </if>
  		 <if test="userName != null">
  		 	and LOCATE(#{userName},systemUser.user_name )>0 
@@ -218,7 +218,7 @@
 		 select 
  		  <include refid="Base_Column_List" />
  		  from system_user_tb systemUser
- 		 /* where update_time >= '2018-04-22'*/
+ 		 /* where update_time >= '2018-04-22' 记得删除下一条where以及count的修改*/
 		 where 1=1
  		  <include refid="whereSQL"/>
  		  ORDER BY systemUser.update_time DESC

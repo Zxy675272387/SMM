@@ -205,6 +205,7 @@
 		}
 
 		else {
+			alert($("input[name=paidAmount]").val(saleNumber*salePrice));
             $.ajax({
                 type: "post",
                 url: _path + "/invoicing/sale/record/update",

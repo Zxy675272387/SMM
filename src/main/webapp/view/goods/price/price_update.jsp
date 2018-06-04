@@ -30,7 +30,7 @@
 									<input type="text" class="form-control"  placeholder=" " name="goodsName" value="${goods.goodsName}" readonly="true">
 								</div>
 							</td>
-		                	<th><span class="required">*</span>采购价</th>
+		                	<th><span class="required">*</span>销售价</th>
 		                    <td>
 		                        <div class="form-group ">
 		                            <input type="text" class="form-control"  placeholder="输入采购价" name="salePrice" value="${goodsPrice.salePrice}">
@@ -43,7 +43,7 @@
 		                            <input type="text" class="form-control"  placeholder="输入市场价"  name="marketPrice" value="${goodsPrice.marketPrice}">
 		                        </div>
 		                    </td>
-		                    <th><span class="required">*</span>销售价</th>
+		                    <th><span class="required">*</span>采购价</th>
 		                    <td>
 		                        <div class="form-group ">
 		                            <input type="text" class="form-control"  placeholder="输入销售价"  name="purchasePrice" value="${goodsPrice.purchasePrice}">

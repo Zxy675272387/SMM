@@ -20,6 +20,8 @@
             <div class="conditions_team">
                 <input type="text" name="userName" class="form-control" placeholder="用户姓名">
                 <input type="text" name="phone" class="form-control" placeholder="手机号码">
+
+
             </div>
         </div>
         <div class="panel-footer">
@@ -109,6 +111,7 @@
         $("#resetBtn").click(function () {
             $("input[name=userName]").val("");
             $("input[name=phone]").val("");
+
             getData();
         });
 

@@ -66,12 +66,12 @@
 	                    }
 	                  }
                     ,{name:'采购总额',value:'totalAmount',type:"function", fun : function(obj){
-	                	return obj.totalAmount+"元";;
+	                	return (Math.round(obj.purchasePrice*obj.purchaseNumber*100)/100)+"元";;
 	                    }
 	                  }
                     ,{name:'退货原因',value:'remark1'}
-                    /* ,{name:'备注',value:'remark2'} */
-                    ,{name:'创建时间',value:'createTime'}
+                     ,{name:'退货物品',value:'remark2'}
+                  /*  ,{name:'创建时间',value:'createTime'}*/
                     ,{name:'更新时间',value:'updateTime'}
                     ,{name:'状态',value:'orderStatus',type:"function", fun : function(obj){
 	                    	var html="";
@@ -108,8 +108,8 @@
 		});
 		//条件重置
 		$("#resetBtn").click(function (){
-			$("input[name=userName]").val("");
-			$("input[name=phone]").val("");
+			$("input[name=purchaseOrderNo]").val("");
+			getData();
 		});
 		
     });

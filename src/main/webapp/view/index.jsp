@@ -125,9 +125,7 @@
 				<script type="text/javascript">
 					try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 				</script>
-				<!-- <span style="margin-left: 15px;font-size: 14px;" id="welcome_span">
-                    <span style="color: red; font-weight: 600;">欢迎光临！</span>超市货物进销存管理系统
-                </span> -->
+
 				<span style="margin-left: 15px;font-size: 14px;">北京时间：</span><span id="time"></span>
 				<!-- <ul class="breadcrumb">
                     <li><i class="icon-home home-icon"></i> <a href="#">首页</a></li>

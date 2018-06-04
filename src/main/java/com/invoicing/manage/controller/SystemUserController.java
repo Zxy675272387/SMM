@@ -70,6 +70,7 @@ public class SystemUserController {
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put("userName", userRequestEntity.getUserName());
 		params.put("phone", userRequestEntity.getPhone());
+		params.put("loginName", userRequestEntity.getLoginName());
 		PageInfo<SystemUserEntity> userList = systemUserService.getSystemUserPageList(pageInfo, params);
 		logger.debug("method [getSystemUserEntityList] 查询用户列表，返回结果为："+JSON.toJSONString(userList));
 		ResponseEntity res=new ResponseEntity();
